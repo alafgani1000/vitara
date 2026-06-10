@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinical Dashboard | VITARA Clinical Admin</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="../dist/assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary overflow-x-hidden"
+  >
+    <div class="flex h-screen overflow-hidden">
+      <!-- SIDEBAR (CLINICAL VIEW - DARK) -->
+      <aside
+        class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20"
+      >
+        <div
+          class="h-16 flex items-center px-6 border-b border-border-light shrink-0"
+        >
+          <a href="index.html" class="flex items-center gap-2">
+            <div
+              class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+            >
+              <i data-lucide="cross" class="w-5 h-5"></i>
+            </div>
+            <span
+              class="font-display font-semibold text-xl tracking-tight text-text-primary"
+              >VITARA
+              <span class="font-sans font-normal text-xs opacity-70 ml-1"
+                >PRO</span
+              ></span
+            >
+          </a>
+        </div>
+
+        <div
+          class="flex-1 overflow-y-auto py-6 px-4 space-y-1 custom-scrollbar"
+        >
+          <p
+            class="px-3 text-xs font-medium text-text-muted uppercase tracking-wider mb-2"
+          >
+            Clinical
+          </p>
+          <a
+            href="clinical-dashboard.html"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-light/50 text-brand-primary transition-colors"
+          >
+            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+            <span class="font-medium text-sm">Dashboard</span>
+          </a>
+          <a
+            href="clinical-patients.html"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
+          >
+            <i data-lucide="users" class="w-5 h-5"></i>
+            <span class="font-medium text-sm">Patients</span>
+          </a>
+          <a
+            href="clinical-schedule.html"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
+          >
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+            <span class="font-medium text-sm">Schedule</span>
+          </a>
+          <a
+            href="clinical-prescriptions.html"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
+          >
+            <i data-lucide="pill" class="w-5 h-5"></i>
+            <span class="font-medium text-sm">Prescriptions</span>
+          </a>
+          <a
+            href="clinical-messages.html"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
+          >
+            <i data-lucide="message-square" class="w-5 h-5"></i>
+            <span class="font-medium text-sm">Messages</span>
+          </a>
+          <a
+            href="clinical-analytics.html"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
+          >
+            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+            <span class="font-medium text-sm">Analytics</span>
+          </a>
+        </div>
+
+        <div class="p-4 border-t border-border-light shrink-0">
+          <a
+            href="#"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted transition-colors"
+          >
+            <i data-lucide="settings" class="w-5 h-5"></i>
+            <span class="font-medium text-sm">Settings</span>
+          </a>
+          <a
+            href="auth-login.html"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-status-error hover:bg-status-error/10 transition-colors mt-1"
+          >
+            <i data-lucide="log-out" class="w-5 h-5"></i>
+            <span class="font-medium text-sm">Logout</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT AREA -->
+      <div class="flex-1 flex flex-col relative overflow-hidden">
+        <!-- TOPBAR -->
+        <header
+          class="h-20 bg-bg-canvas/80 backdrop-blur-md border-b border-border-light flex items-center justify-between px-6 md:px-10 z-10 sticky top-0"
+        >
+          <div class="flex items-center gap-4 flex-1">
+            <button
+              class="md:hidden text-text-secondary hover:text-brand-primary transition-colors"
+            >
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+            <!-- Global Search -->
+            <div class="hidden sm:flex items-center relative w-full max-w-md">
+              <i
+                data-lucide="search"
+                class="w-5 h-5 text-text-muted absolute left-4"
+              ></i>
+              <input
+                type="text"
+                placeholder="Search patients, ID, or records..."
+                class="w-full bg-bg-surface border border-border-default rounded-full pl-12 pr-4 py-2.5 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
+              />
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 sm:gap-6">
+            <button
+              class="bg-brand-primary text-text-inverse px-4 py-2 rounded-full text-sm font-medium hover:bg-brand-secondary transition-colors hidden md:flex items-center gap-2"
+            >
+              <i data-lucide="plus" class="w-4 h-4"></i> New Record
+            </button>
+
+            <div class="h-8 w-px bg-border-light mx-2 hidden md:block"></div>
+
+            <button
+              class="relative text-text-secondary hover:text-brand-primary transition-colors"
+            >
+              <i data-lucide="bell" class="w-6 h-6"></i>
+              <span
+                class="absolute top-0 right-0 w-2.5 h-2.5 bg-status-error rounded-full border-2 border-bg-canvas"
+              ></span>
+            </button>
+
+            <div class="flex items-center gap-3 cursor-pointer group ml-2">
+              <img
+                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=150"
+                alt="Dr. Michael Chen"
+                class="w-10 h-10 rounded-full object-cover border-2 border-transparent group-hover:border-brand-primary transition-colors"
+              />
+              <div class="hidden lg:block text-right">
+                <p
+                  class="text-sm font-semibold text-text-primary leading-none mb-1"
+                >
+                  Dr. Michael Chen
+                </p>
+                <p class="text-xs text-brand-primary font-medium leading-none">
+                  Cardiology
+                </p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="flex-1 overflow-y-auto p-6 md:p-10 pb-24 bg-bg-canvas">
+          <!-- DASHBOARD CONTENT -->
+          <div class="max-w-7xl mx-auto space-y-8">
+            <!-- Header -->
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between gap-4"
+            >
+              <div>
+                <h1
+                  class="text-3xl font-display font-medium text-text-primary mb-1"
+                >
+                  Good Morning, Dr. Chen
+                </h1>
+                <p class="text-text-secondary text-sm">
+                  You have 8 appointments and 3 tasks pending today.
+                </p>
+              </div>
+              <div class="flex items-center gap-3">
+                <button
+                  class="bg-bg-surface border border-border-default text-text-primary px-4 py-2.5 rounded-xl text-sm font-medium hover:border-brand-primary transition-colors flex items-center gap-2 shadow-sm"
+                >
+                  <i data-lucide="calendar" class="w-4 h-4"></i> View Calendar
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div
+                class="bg-bg-surface rounded-2xl border border-border-light p-6 shadow-sm flex items-start gap-4 hover:border-brand-primary/50 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center text-brand-primary shrink-0"
+                >
+                  <i data-lucide="users" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-text-secondary font-medium mb-1">
+                    Total Patients Seen
+                  </p>
+                  <h3
+                    class="text-2xl font-display font-semibold text-text-primary mb-2"
+                  >
+                    1,248
+                  </h3>
+                  <div
+                    class="flex items-center gap-1.5 text-xs font-medium text-status-success"
+                  >
+                    <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+                    <span>+12% this month</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-bg-surface rounded-2xl border border-border-light p-6 shadow-sm flex items-start gap-4 hover:border-brand-primary/50 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-status-warning/10 flex items-center justify-center text-status-warning shrink-0"
+                >
+                  <i data-lucide="clock" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-text-secondary font-medium mb-1">
+                    Avg. Wait Time
+                  </p>
+                  <h3
+                    class="text-2xl font-display font-semibold text-text-primary mb-2"
+                  >
+                    14 min
+                  </h3>
+                  <div
+                    class="flex items-center gap-1.5 text-xs font-medium text-status-success"
+                  >
+                    <i data-lucide="trending-down" class="w-3.5 h-3.5"></i>
+                    <span>-2 min vs last week</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-bg-surface rounded-2xl border border-status-error/30 p-6 shadow-sm flex items-start gap-4 hover:border-status-error/60 transition-colors"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-status-error/10 flex items-center justify-center text-status-error shrink-0"
+                >
+                  <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-text-secondary font-medium mb-1">
+                    Urgent Reviews
+                  </p>
+                  <h3
+                    class="text-2xl font-display font-semibold text-text-primary mb-2"
+                  >
+                    3
+                  </h3>
+                  <div
+                    class="flex items-center gap-1.5 text-xs font-medium text-status-error"
+                  >
+                    <span>Requires immediate attention</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <!-- Today's Schedule -->
+              <div class="lg:col-span-2 space-y-6">
+                <div class="flex items-center justify-between">
+                  <h2
+                    class="text-xl font-display font-medium text-text-primary"
+                  >
+                    Today's Schedule
+                  </h2>
+                  <a
+                    href="#"
+                    class="text-sm font-medium text-brand-primary hover:text-brand-secondary transition-colors"
+                    >View All</a
+                  >
+                </div>
+
+                <div
+                  class="bg-bg-surface border border-border-light rounded-2xl shadow-sm overflow-hidden relative"
+                >
+                  <!-- Timeline Track (visual) -->
+                  <div
+                    class="absolute left-[88px] top-0 bottom-0 w-px bg-border-light hidden sm:block"
+                  ></div>
+
+                  <div class="divide-y divide-border-light relative z-10">
+                    <!-- Appt 1 (Past) -->
+                    <div class="p-6 flex flex-col sm:flex-row gap-6 opacity-60">
+                      <div class="sm:w-16 text-right shrink-0">
+                        <p class="text-sm font-medium text-text-primary">
+                          09:00
+                        </p>
+                        <p class="text-xs text-text-muted">AM</p>
+                      </div>
+                      <div
+                        class="flex-1 bg-bg-canvas border border-border-light rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+                      >
+                        <div class="flex items-center gap-4">
+                          <img
+                            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+                            alt="Sophia Lee"
+                            class="w-10 h-10 rounded-full object-cover grayscale"
+                          />
+                          <div>
+                            <h4
+                              class="font-medium text-text-primary line-through"
+                            >
+                              Sophia Lee
+                            </h4>
+                            <p class="text-xs text-text-secondary">
+                              Annual Physical
+                            </p>
+                          </div>
+                        </div>
+                        <span
+                          class="px-2.5 py-1 rounded-md bg-border-light text-text-secondary text-xs font-semibold uppercase tracking-wider"
+                          >Completed</span
+                        >
+                      </div>
+                    </div>
+
+                    <!-- Appt 2 (Current) -->
+                    <div class="p-6 flex flex-col sm:flex-row gap-6 relative">
+                      <!-- Current time indicator -->
+                      <div
+                        class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-12 bg-brand-primary rounded-r-md hidden sm:block"
+                      ></div>
+                      <div class="sm:w-16 text-right shrink-0 relative">
+                        <div
+                          class="absolute -right-[21px] top-1.5 w-3 h-3 rounded-full bg-brand-primary border-4 border-bg-surface hidden sm:block shadow-sm"
+                        ></div>
+                        <p class="text-sm font-medium text-brand-primary">
+                          10:00
+                        </p>
+                        <p class="text-xs text-brand-primary/70">AM</p>
+                      </div>
+                      <div
+                        class="flex-1 bg-brand-primary/5 border border-brand-primary/20 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm"
+                      >
+                        <div class="flex items-center gap-4">
+                          <div
+                            class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-brand-primary font-bold"
+                          >
+                            JD
+                          </div>
+                          <div>
+                            <h4 class="font-medium text-brand-primary">
+                              James Doe
+                            </h4>
+                            <p class="text-xs text-text-secondary">
+                              Hypertension Follow-up
+                            </p>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <span
+                            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-status-success/10 text-status-success text-[10px] font-bold uppercase tracking-wider"
+                          >
+                            <i data-lucide="video" class="w-3 h-3"></i>
+                            Telehealth
+                          </span>
+                          <a
+                            href="clinical-patient-detail.html"
+                            class="bg-brand-primary text-text-inverse px-4 py-2 rounded-lg text-xs font-medium hover:bg-brand-secondary transition-colors"
+                            >Start Visit</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Appt 3 (Upcoming) -->
+                    <div class="p-6 flex flex-col sm:flex-row gap-6">
+                      <div class="sm:w-16 text-right shrink-0 relative">
+                        <div
+                          class="absolute -right-[21px] top-1.5 w-3 h-3 rounded-full bg-border-dark border-4 border-bg-surface hidden sm:block"
+                        ></div>
+                        <p class="text-sm font-medium text-text-primary">
+                          11:30
+                        </p>
+                        <p class="text-xs text-text-muted">AM</p>
+                      </div>
+                      <div
+                        class="flex-1 bg-bg-surface border border-border-default rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-brand-primary/30 transition-colors"
+                      >
+                        <div class="flex items-center gap-4">
+                          <img
+                            src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=150"
+                            alt="Robert Smith"
+                            class="w-10 h-10 rounded-full object-cover"
+                          />
+                          <div>
+                            <h4 class="font-medium text-text-primary">
+                              Robert Smith
+                            </h4>
+                            <p class="text-xs text-text-secondary">
+                              ECG Results Review
+                            </p>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <span
+                            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-border-light text-text-secondary text-[10px] font-bold uppercase tracking-wider"
+                          >
+                            <i data-lucide="map-pin" class="w-3 h-3"></i> Room 2
+                          </span>
+                          <button
+                            class="text-brand-primary hover:text-brand-secondary p-2 transition-colors"
+                          >
+                            <i data-lucide="more-vertical" class="w-4 h-4"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Sidebar (Tasks & Alerts) -->
+              <div class="space-y-6">
+                <h2 class="text-xl font-display font-medium text-text-primary">
+                  Action Required
+                </h2>
+
+                <!-- Urgent Labs -->
+                <div
+                  class="bg-status-error/5 border border-status-error/20 rounded-2xl p-5 shadow-sm"
+                >
+                  <div class="flex items-center justify-between mb-4">
+                    <h3
+                      class="font-medium text-text-primary flex items-center gap-2"
+                    >
+                      <i
+                        data-lucide="flask-conical"
+                        class="w-4 h-4 text-status-error"
+                      ></i>
+                      Critical Labs
+                    </h3>
+                    <span
+                      class="bg-status-error text-white text-xs font-bold px-2 py-0.5 rounded-full"
+                      >1</span
+                    >
+                  </div>
+                  <div
+                    class="bg-bg-surface border border-status-error/10 rounded-xl p-4 cursor-pointer hover:shadow-md transition-shadow"
+                  >
+                    <div class="flex justify-between items-start mb-2">
+                      <p class="text-sm font-medium text-text-primary">
+                        William Davis
+                      </p>
+                      <span
+                        class="text-[10px] text-status-error font-bold uppercase tracking-wider"
+                        >High Priority</span
+                      >
+                    </div>
+                    <p class="text-xs text-text-secondary mb-3">
+                      HbA1c value is critically high (11.2%). Requires immediate
+                      medication adjustment.
+                    </p>
+                    <button
+                      class="text-xs font-medium text-brand-primary hover:text-brand-secondary transition-colors"
+                    >
+                      Review Results &rarr;
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Prescription Refills -->
+                <div
+                  class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm"
+                >
+                  <div class="flex items-center justify-between mb-4">
+                    <h3
+                      class="font-medium text-text-primary flex items-center gap-2"
+                    >
+                      <i
+                        data-lucide="pill"
+                        class="w-4 h-4 text-brand-primary"
+                      ></i>
+                      Pending Refills
+                    </h3>
+                    <span
+                      class="bg-border-dark text-text-inverse text-xs font-bold px-2 py-0.5 rounded-full"
+                      >2</span
+                    >
+                  </div>
+
+                  <div class="space-y-3">
+                    <div
+                      class="flex items-center justify-between group cursor-pointer border-b border-border-light pb-3 last:border-0 last:pb-0"
+                    >
+                      <div>
+                        <p
+                          class="text-sm font-medium text-text-primary group-hover:text-brand-primary transition-colors"
+                        >
+                          Lisinopril 10mg
+                        </p>
+                        <p class="text-xs text-text-secondary">
+                          Emma Watson (DOB: '85)
+                        </p>
+                      </div>
+                      <button
+                        class="bg-brand-light text-brand-primary w-8 h-8 rounded flex items-center justify-center hover:bg-brand-primary hover:text-white transition-colors"
+                      >
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                      </button>
+                    </div>
+                    <div
+                      class="flex items-center justify-between group cursor-pointer border-b border-border-light pb-3 last:border-0 last:pb-0"
+                    >
+                      <div>
+                        <p
+                          class="text-sm font-medium text-text-primary group-hover:text-brand-primary transition-colors"
+                        >
+                          Atorvastatin 20mg
+                        </p>
+                        <p class="text-xs text-text-secondary">
+                          John Smith (DOB: '72)
+                        </p>
+                      </div>
+                      <button
+                        class="bg-brand-light text-brand-primary w-8 h-8 rounded flex items-center justify-center hover:bg-brand-primary hover:text-white transition-colors"
+                      >
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

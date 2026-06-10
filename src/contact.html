@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VITARA - Care Meets Clarity | Premium Digital Health</title>
+    <meta
+      name="description"
+      content="VITARA is the most premium and modern medical template for digital health startups, telemedicine platforms, and premium clinics."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="../dist/assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary"
+  >
+    <!-- Announcement Bar -->
+    <div
+      class="bg-brand-primary text-text-inverse text-sm font-medium py-2 text-center w-full"
+    >
+      <p>
+        ✦ Online consultations are now available
+        <a
+          href="appointment.html"
+          class="underline ml-2 hover:text-brand-accent transition-colors"
+          >Start now →</a
+        >
+      </p>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 w-full z-50 transition-all duration-300 bg-transparent py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-8 text-sm font-medium text-text-secondary"
+        >
+          <a
+            href="index.html"
+            class="hover:text-brand-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="services.html"
+            class="hover:text-brand-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="doctors.html"
+            class="hover:text-brand-primary transition-colors"
+            >Doctors</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-brand-primary transition-colors"
+            >About</a
+          >
+          <a href="blog.html" class="hover:text-brand-primary transition-colors"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="hover:text-brand-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-brand-primary hover:after:scale-x-100 after:transition-transform after:origin-bottom-right hover:after:origin-bottom-left"
+            >Portal Login</a
+          >
+          <a
+            href="appointment.html"
+            class="bg-brand-primary text-text-inverse text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-secondary transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >Book Appointment</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT: CONTACT -->
+    <main class="pt-24 lg:pt-32 pb-20">
+      <!-- Hero Section -->
+      <section class="py-16 md:py-24 bg-bg-canvas relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6" data-aos="fade-up">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/50 border border-brand-primary/10 text-brand-primary text-sm font-medium mb-6"
+          >
+            <span class="text-brand-accent">✦</span> Get in Touch
+          </div>
+          <h1
+            class="font-display text-5xl md:text-6xl font-light text-text-primary leading-[1.1] mb-6 max-w-3xl"
+          >
+            We're Here to Help
+          </h1>
+          <p class="text-lg text-text-secondary max-w-2xl">
+            Have a question, need to schedule an appointment, or want to learn
+            more about our services? Reach out to our dedicated care team.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="py-16 bg-bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid lg:grid-cols-5 gap-12 lg:gap-20">
+            <!-- Contact Info (Left Column) -->
+            <div class="lg:col-span-2 space-y-10" data-aos="fade-right">
+              <div>
+                <h3 class="font-display text-3xl mb-6">Contact Information</h3>
+                <p class="text-text-secondary mb-8">
+                  Feel free to reach out through any of our channels. If this is
+                  a medical emergency, please call 119 immediately.
+                </p>
+              </div>
+
+              <!-- Info Blocks -->
+              <div class="space-y-6">
+                <div
+                  class="flex items-start gap-4 p-6 rounded-2xl bg-bg-canvas border border-border-light"
+                >
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center shrink-0"
+                  >
+                    <i
+                      data-lucide="phone"
+                      class="w-5 h-5 text-brand-primary"
+                    ></i>
+                  </div>
+                  <div>
+                    <p
+                      class="text-sm text-text-muted mb-1 uppercase tracking-wider font-semibold"
+                    >
+                      General Inquiries
+                    </p>
+                    <p class="font-medium text-lg">+1 (800) 555-0199</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-start gap-4 p-6 rounded-2xl bg-bg-canvas border border-border-light"
+                >
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center shrink-0"
+                  >
+                    <i
+                      data-lucide="mail"
+                      class="w-5 h-5 text-brand-primary"
+                    ></i>
+                  </div>
+                  <div>
+                    <p
+                      class="text-sm text-text-muted mb-1 uppercase tracking-wider font-semibold"
+                    >
+                      Email Us
+                    </p>
+                    <p class="font-medium text-lg">care@vitara.health</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-start gap-4 p-6 rounded-2xl bg-bg-canvas border border-border-light"
+                >
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center shrink-0"
+                  >
+                    <i
+                      data-lucide="map-pin"
+                      class="w-5 h-5 text-brand-primary"
+                    ></i>
+                  </div>
+                  <div>
+                    <p
+                      class="text-sm text-text-muted mb-1 uppercase tracking-wider font-semibold"
+                    >
+                      Headquarters
+                    </p>
+                    <p class="font-medium">
+                      123 Health Ave, Medical District<br />New York, NY 10001
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-start gap-4 p-6 rounded-2xl bg-bg-canvas border border-border-light"
+                >
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center shrink-0"
+                  >
+                    <i
+                      data-lucide="clock"
+                      class="w-5 h-5 text-brand-primary"
+                    ></i>
+                  </div>
+                  <div>
+                    <p
+                      class="text-sm text-text-muted mb-1 uppercase tracking-wider font-semibold"
+                    >
+                      Clinic Hours
+                    </p>
+                    <p class="font-medium">
+                      Mon-Fri: 8:00 AM - 8:00 PM<br />Sat-Sun: 9:00 AM - 5:00 PM
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form (Right Column) -->
+            <div class="lg:col-span-3" data-aos="fade-left">
+              <div
+                class="bg-bg-elevated p-8 md:p-12 rounded-[32px] border border-border-light shadow-lg"
+              >
+                <h3 class="font-display text-3xl mb-2">Send us a Message</h3>
+                <p class="text-text-secondary mb-8">
+                  We'll get back to you within 24 hours.
+                </p>
+
+                <form class="space-y-6">
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <label
+                        for="firstName"
+                        class="text-sm font-medium text-text-primary block"
+                        >First Name</label
+                      >
+                      <input
+                        type="text"
+                        id="firstName"
+                        class="w-full px-4 py-3 rounded-xl border border-border-light bg-bg-canvas focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary outline-none text-text-primary transition-all"
+                        placeholder="John"
+                      />
+                    </div>
+                    <div class="space-y-2">
+                      <label
+                        for="lastName"
+                        class="text-sm font-medium text-text-primary block"
+                        >Last Name</label
+                      >
+                      <input
+                        type="text"
+                        id="lastName"
+                        class="w-full px-4 py-3 rounded-xl border border-border-light bg-bg-canvas focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary outline-none text-text-primary transition-all"
+                        placeholder="Doe"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                      <label
+                        for="email"
+                        class="text-sm font-medium text-text-primary block"
+                        >Email Address</label
+                      >
+                      <input
+                        type="email"
+                        id="email"
+                        class="w-full px-4 py-3 rounded-xl border border-border-light bg-bg-canvas focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary outline-none text-text-primary transition-all"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                    <div class="space-y-2">
+                      <label
+                        for="phone"
+                        class="text-sm font-medium text-text-primary block"
+                        >Phone Number</label
+                      >
+                      <input
+                        type="tel"
+                        id="phone"
+                        class="w-full px-4 py-3 rounded-xl border border-border-light bg-bg-canvas focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary outline-none text-text-primary transition-all"
+                        placeholder="(555) 000-0000"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="space-y-2">
+                    <label
+                      for="subject"
+                      class="text-sm font-medium text-text-primary block"
+                      >Subject</label
+                    >
+                    <select
+                      id="subject"
+                      class="w-full px-4 py-3 rounded-xl border border-border-light bg-bg-canvas focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary outline-none text-text-primary transition-all appearance-none"
+                    >
+                      <option value="" disabled selected>
+                        Select an inquiry type
+                      </option>
+                      <option value="appointment">Appointment Request</option>
+                      <option value="billing">Billing Question</option>
+                      <option value="general">General Information</option>
+                      <option value="feedback">Feedback</option>
+                    </select>
+                  </div>
+
+                  <div class="space-y-2">
+                    <label
+                      for="message"
+                      class="text-sm font-medium text-text-primary block"
+                      >Message</label
+                    >
+                    <textarea
+                      id="message"
+                      rows="5"
+                      class="w-full px-4 py-3 rounded-xl border border-border-light bg-bg-canvas focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary outline-none text-text-primary transition-all resize-y"
+                      placeholder="How can we help you today?"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="w-full bg-brand-primary text-text-inverse px-8 py-4 rounded-xl font-medium text-lg hover:bg-brand-secondary transition-colors mt-4"
+                  >
+                    Send Message
+                  </button>
+
+                  <p class="text-xs text-text-muted text-center mt-4">
+                    By submitting this form, you agree to our
+                    <a href="#" class="text-brand-primary hover:underline"
+                      >Privacy Policy</a
+                    >. Do not include sensitive medical information in this
+                    form.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Map Placeholder -->
+      <section
+        class="h-96 w-full bg-bg-elevated border-t border-border-light relative flex items-center justify-center"
+      >
+        <div
+          class="absolute inset-0 opacity-20"
+          style="
+            background-image: url(&quot;data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%232d6a4f%22 fill-opacity=%220.4%22 fill-rule=%22evenodd%22%3E%3Ccircle cx=%223%22 cy=%223%22 r=%223%22/%3E%3Ccircle cx=%2213%22 cy=%2213%22 r=%223%22/%3E%3C/g%3E%3C/svg%3E&quot;);
+          "
+        ></div>
+        <div
+          class="relative z-10 bg-bg-surface px-8 py-6 rounded-2xl shadow-lg border border-border-light text-center"
+          data-aos="zoom-in"
+        >
+          <i
+            data-lucide="map"
+            class="w-8 h-8 text-brand-primary mx-auto mb-3"
+          ></i>
+          <h3 class="font-display text-xl mb-2">Interactive Map</h3>
+          <p class="text-text-secondary text-sm">
+            Google Maps integration goes here
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-4 text-brand-primary text-sm font-medium hover:text-brand-secondary"
+            >Get Directions &rarr;</a
+          >
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="bg-bg-elevated pt-20 pb-10 border-t border-border-light">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16"
+        >
+          <!-- Brand Column -->
+          <div class="lg:col-span-2">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm mb-6 max-w-sm">
+              Premium healthcare services that reach wherever you need them.
+              Delivering care that feels like home.
+            </p>
+
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  />
+                  <polygon
+                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 class="font-semibold mb-6">Services</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Mental Health</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Cardiology</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Dental Care</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h4 class="font-semibold mb-6">Company</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Doctors</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact & Legal -->
+          <div>
+            <h4 class="font-semibold mb-6">Contact</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="map-pin"
+                  class="w-4 h-4 mt-0.5 text-brand-primary shrink-0"
+                ></i>
+                <span>123 Health Ave, Medical District, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="phone"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>Emergency: 119</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="mail"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>care@vitara.health</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-border-light flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-muted"
+        >
+          <p>&copy; 2026 Vitara Health. All rights reserved.</p>
+          <div class="flex gap-4">
+            <a href="utility-privacy.html" class="hover:text-text-primary"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-text-primary">Terms of Service</a>
+            <a href="#" class="hover:text-text-primary">HIPAA Notice</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script to Initialize Icons and App -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Immunity Complex - Vitara Pharmacy</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary min-h-screen flex flex-col"
+  >
+    <!-- Top Announcement Bar -->
+    <div
+      class="bg-brand-primary text-text-inverse text-xs font-medium py-2 text-center w-full"
+    >
+      <p>
+        Free shipping on all supplement orders over $50
+        <span class="opacity-70 ml-2">Use code: HEALTH50</span>
+      </p>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 w-full z-50 bg-bg-surface/90 backdrop-blur-md border-b border-border-light py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Left: Logo & Nav -->
+        <div class="flex items-center gap-10">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div
+              class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+            >
+              <i data-lucide="cross" class="w-5 h-5"></i>
+            </div>
+            <span
+              class="font-display font-semibold text-2xl tracking-tight text-text-primary hidden sm:block"
+              >VITARA</span
+            >
+          </a>
+
+          <div
+            class="hidden md:flex space-x-6 text-sm font-medium text-text-secondary"
+          >
+            <a
+              href="index.html"
+              class="hover:text-brand-primary transition-colors"
+              >Home</a
+            >
+            <a
+              href="services.html"
+              class="hover:text-brand-primary transition-colors"
+              >Clinic</a
+            >
+            <a
+              href="shop-catalog.html"
+              class="text-brand-primary border-b-2 border-brand-primary pb-1"
+              >Pharmacy</a
+            >
+            <a
+              href="blog.html"
+              class="hover:text-brand-primary transition-colors"
+              >Articles</a
+            >
+          </div>
+        </div>
+
+        <!-- Right: Search & Cart & Auth -->
+        <div class="flex items-center space-x-4">
+          <!-- Search -->
+          <div class="hidden md:flex relative">
+            <i
+              data-lucide="search"
+              class="w-4 h-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2"
+            ></i>
+            <input
+              type="text"
+              placeholder="Search products..."
+              class="bg-bg-canvas border border-border-default rounded-full pl-9 pr-4 py-2 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary w-64 transition-all"
+            />
+          </div>
+
+          <!-- Cart Button -->
+          <a
+            href="shop-cart.html"
+            class="relative p-2 text-text-secondary hover:text-brand-primary transition-colors"
+          >
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span
+              class="absolute top-0.5 right-0.5 w-4 h-4 bg-brand-accent text-brand-primary text-[10px] font-bold rounded-full flex items-center justify-center border border-bg-surface"
+              >3</span
+            >
+          </a>
+
+          <!-- Auth -->
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors hidden sm:block"
+            >Log In</a
+          >
+
+          <!-- Mobile Menu Toggle -->
+          <button class="md:hidden text-text-primary p-2">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT: PRODUCT DETAIL -->
+    <main class="flex-1">
+      <!-- Breadcrumbs -->
+      <div class="max-w-7xl mx-auto px-6 py-6">
+        <nav class="flex text-sm text-text-muted" aria-label="Breadcrumb">
+          <ol class="inline-flex items-center space-x-2">
+            <li class="inline-flex items-center">
+              <a
+                href="shop-catalog.html"
+                class="hover:text-brand-primary transition-colors"
+                >Pharmacy</a
+              >
+            </li>
+            <li>
+              <div class="flex items-center">
+                <i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i>
+                <a
+                  href="shop-catalog.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Vitamins & Supplements</a
+                >
+              </div>
+            </li>
+            <li aria-current="page">
+              <div class="flex items-center">
+                <i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i>
+                <span class="text-text-primary font-medium"
+                  >Advanced Immunity Complex</span
+                >
+              </div>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <section class="max-w-7xl mx-auto px-6 pb-20 pt-4">
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- Product Gallery -->
+          <div class="space-y-4">
+            <div
+              class="bg-bg-surface border border-border-light rounded-3xl aspect-[4/3] flex items-center justify-center p-8 overflow-hidden relative group"
+            >
+              <img
+                id="main-image"
+                src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800"
+                alt="Advanced Immunity Complex Main"
+                class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            <!-- Thumbnails -->
+            <div class="grid grid-cols-4 gap-4">
+              <button
+                class="bg-bg-surface border-2 border-brand-primary rounded-xl aspect-square flex items-center justify-center p-2 overflow-hidden"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=200"
+                  alt="Thumbnail 1"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </button>
+              <button
+                class="bg-bg-surface border border-border-light rounded-xl aspect-square flex items-center justify-center p-2 overflow-hidden hover:border-brand-primary/50 transition-colors"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1550572017-edb7df089bc9?auto=format&fit=crop&q=80&w=200"
+                  alt="Thumbnail 2"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </button>
+              <button
+                class="bg-bg-surface border border-border-light rounded-xl aspect-square flex items-center justify-center p-2 overflow-hidden hover:border-brand-primary/50 transition-colors"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1629198728070-87a151b1f9f2?auto=format&fit=crop&q=80&w=200"
+                  alt="Thumbnail 3"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="flex flex-col">
+            <!-- Title & Brand -->
+            <div class="mb-6">
+              <a
+                href="#"
+                class="text-sm font-medium text-brand-primary hover:underline"
+                >Vitara Labs</a
+              >
+              <h1
+                class="text-4xl font-display font-medium text-text-primary mt-2 mb-4 leading-tight"
+              >
+                Advanced Immunity Complex (60 Capsules)
+              </h1>
+
+              <!-- Ratings -->
+              <div class="flex items-center gap-4">
+                <div class="flex items-center gap-1">
+                  <div class="flex text-brand-accent">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <span class="text-sm text-text-primary font-medium ml-2"
+                    >4.9</span
+                  >
+                </div>
+                <span class="text-text-muted">|</span>
+                <a
+                  href="#reviews"
+                  class="text-sm text-text-secondary hover:text-brand-primary transition-colors"
+                  >56 Reviews</a
+                >
+              </div>
+            </div>
+
+            <!-- Price -->
+            <div class="mb-8">
+              <div class="flex items-end gap-3 mb-2">
+                <span
+                  class="font-display font-medium text-4xl text-text-primary"
+                  >$32.00</span
+                >
+              </div>
+              <p class="text-sm text-text-secondary">
+                <i
+                  data-lucide="check-circle"
+                  class="w-4 h-4 inline-block text-status-success mr-1"
+                ></i>
+                In Stock - Ships within 24 hours
+              </p>
+            </div>
+
+            <!-- Description Short -->
+            <p class="text-text-secondary leading-relaxed mb-8">
+              Boost your natural defenses with our clinically formulated blend
+              of Vitamin C, Zinc, and Elderberry. Designed by medical
+              professionals to provide comprehensive immune support during
+              high-stress periods and seasonal changes.
+            </p>
+
+            <hr class="border-border-light mb-8" />
+
+            <!-- Actions -->
+            <div class="flex items-end gap-6 mb-8">
+              <!-- Quantity -->
+              <div>
+                <label class="block text-sm font-medium text-text-primary mb-2"
+                  >Quantity</label
+                >
+                <div
+                  class="flex items-center border border-border-default rounded-xl bg-bg-surface overflow-hidden"
+                >
+                  <button
+                    class="w-12 h-12 flex items-center justify-center text-text-muted hover:text-text-primary hover:bg-bg-elevated transition-colors"
+                  >
+                    <i data-lucide="minus" class="w-4 h-4"></i>
+                  </button>
+                  <input
+                    type="number"
+                    value="1"
+                    class="w-12 h-12 text-center bg-transparent border-x border-border-light focus:outline-none text-text-primary font-medium"
+                    min="1"
+                    max="10"
+                  />
+                  <button
+                    class="w-12 h-12 flex items-center justify-center text-text-muted hover:text-text-primary hover:bg-bg-elevated transition-colors"
+                  >
+                    <i data-lucide="plus" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Add to Cart -->
+              <button
+                class="flex-1 bg-brand-primary text-text-inverse h-12 rounded-xl font-medium hover:bg-brand-secondary transition-all shadow-sm flex items-center justify-center gap-2"
+              >
+                <i data-lucide="shopping-bag" class="w-5 h-5"></i> Add to Cart
+              </button>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="grid grid-cols-2 gap-4 mt-auto">
+              <div
+                class="flex items-center gap-3 p-4 bg-bg-elevated rounded-xl border border-border-light"
+              >
+                <i
+                  data-lucide="shield-check"
+                  class="w-6 h-6 text-brand-primary"
+                ></i>
+                <div>
+                  <h4 class="text-sm font-medium text-text-primary">
+                    FDA Registered
+                  </h4>
+                  <p class="text-xs text-text-muted">Facility compliance</p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 bg-bg-elevated rounded-xl border border-border-light"
+              >
+                <i data-lucide="leaf" class="w-6 h-6 text-brand-primary"></i>
+                <div>
+                  <h4 class="text-sm font-medium text-text-primary">
+                    100% Vegan
+                  </h4>
+                  <p class="text-xs text-text-muted">No animal products</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Details Tabs (Stacked for simplicity and SEO) -->
+      <section class="border-t border-border-light bg-bg-surface py-20 px-6">
+        <div class="max-w-4xl mx-auto space-y-16">
+          <!-- Description -->
+          <div>
+            <h2
+              class="text-2xl font-display font-medium text-text-primary mb-6"
+            >
+              Product Information
+            </h2>
+            <div
+              class="prose prose-slate max-w-none prose-p:text-text-secondary text-base leading-relaxed"
+            >
+              <p>
+                The Advanced Immunity Complex is a high-potency daily supplement
+                formulated to support optimal immune system function. Combining
+                standard essential vitamins with powerful herbal extracts, this
+                complex ensures your body has the micronutrients it needs to
+                defend against common pathogens.
+              </p>
+              <p>
+                Each batch is third-party tested for purity and potency,
+                guaranteeing that what is on the label is exactly what is in the
+                bottle. Suitable for daily use or targeted support during flu
+                season.
+              </p>
+
+              <h4 class="text-lg font-medium text-text-primary mt-6 mb-4">
+                Key Benefits
+              </h4>
+              <ul class="list-disc pl-5 space-y-2 text-text-secondary">
+                <li>Supports respiratory health and immune response.</li>
+                <li>
+                  Provides powerful antioxidant protection against free
+                  radicals.
+                </li>
+                <li>Formulated with highly bioavailable Zinc Picolinate.</li>
+                <li>Gentle on the stomach with non-acidic Vitamin C.</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="border-border-light" />
+
+          <!-- Ingredients -->
+          <div>
+            <h2
+              class="text-2xl font-display font-medium text-text-primary mb-6"
+            >
+              Active Ingredients & Dosage
+            </h2>
+            <div
+              class="bg-bg-canvas border border-border-default rounded-2xl overflow-hidden"
+            >
+              <table class="w-full text-left text-sm">
+                <thead class="bg-bg-elevated border-b border-border-default">
+                  <tr>
+                    <th class="px-6 py-4 font-medium text-text-primary">
+                      Ingredient
+                    </th>
+                    <th class="px-6 py-4 font-medium text-text-primary">
+                      Amount Per Serving
+                    </th>
+                    <th class="px-6 py-4 font-medium text-text-primary">
+                      % Daily Value
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-light">
+                  <tr>
+                    <td class="px-6 py-4 text-text-secondary">
+                      Vitamin C (as Ascorbic Acid)
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary font-medium">
+                      1000 mg
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary">1111%</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 text-text-secondary">
+                      Zinc (as Zinc Picolinate)
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary font-medium">
+                      30 mg
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary">273%</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 text-text-secondary">
+                      Vitamin D3 (Cholecalciferol)
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary font-medium">
+                      50 mcg (2000 IU)
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary">250%</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 text-text-secondary">
+                      Black Elderberry Extract
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary font-medium">
+                      300 mg
+                    </td>
+                    <td class="px-6 py-4 text-text-muted">*</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-text-muted mt-4">
+              * Daily Value not established.
+            </p>
+          </div>
+
+          <hr class="border-border-light" />
+
+          <!-- Warnings -->
+          <div>
+            <h2
+              class="text-2xl font-display font-medium text-text-primary mb-6"
+            >
+              Usage & Warnings
+            </h2>
+            <div
+              class="bg-brand-light/20 border border-brand-primary/20 rounded-2xl p-6 text-sm text-text-secondary leading-relaxed"
+            >
+              <p class="mb-4">
+                <strong>Suggested Use:</strong> Take two (2) capsules daily with
+                food and a full glass of water, or as directed by your
+                healthcare professional.
+              </p>
+              <p>
+                <strong>Warning:</strong> Do not exceed recommended dose.
+                Pregnant or nursing mothers, children under 18, and individuals
+                with a known medical condition should consult a physician before
+                using this or any dietary supplement. Keep out of reach of
+                children. Do not use if safety seal is damaged or missing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-bg-elevated border-t border-border-light pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="md:col-span-1">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="cross" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm mb-6">
+              Premium healthcare tailored to your lifestyle. Excellence in every
+              interaction.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Services</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="patient-telemedicine.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+              <li>
+                <a
+                  href="shop-catalog.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Pharmacy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Company</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="doctors.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Our Doctors</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Legal</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="utility-privacy.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="utility-terms.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a
+                  href="utility-faq.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-border-light pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-sm text-text-muted">
+            &copy; 2026 Vitara Healthcare. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

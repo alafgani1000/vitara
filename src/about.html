@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VITARA - Care Meets Clarity | Premium Digital Health</title>
+    <meta
+      name="description"
+      content="VITARA is the most premium and modern medical template for digital health startups, telemedicine platforms, and premium clinics."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="../dist/assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary"
+  >
+    <!-- Announcement Bar -->
+    <div
+      class="bg-brand-primary text-text-inverse text-sm font-medium py-2 text-center w-full"
+    >
+      <p>
+        ✦ Online consultations are now available
+        <a
+          href="appointment.html"
+          class="underline ml-2 hover:text-brand-accent transition-colors"
+          >Start now →</a
+        >
+      </p>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 w-full z-50 transition-all duration-300 bg-transparent py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-8 text-sm font-medium text-text-secondary"
+        >
+          <a
+            href="index.html"
+            class="hover:text-brand-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="services.html"
+            class="hover:text-brand-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="doctors.html"
+            class="hover:text-brand-primary transition-colors"
+            >Doctors</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-brand-primary transition-colors"
+            >About</a
+          >
+          <a href="blog.html" class="hover:text-brand-primary transition-colors"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="hover:text-brand-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-brand-primary hover:after:scale-x-100 after:transition-transform after:origin-bottom-right hover:after:origin-bottom-left"
+            >Portal Login</a
+          >
+          <a
+            href="appointment.html"
+            class="bg-brand-primary text-text-inverse text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-secondary transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >Book Appointment</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT: ABOUT -->
+    <main class="pt-24 lg:pt-32 pb-20">
+      <!-- Hero Section -->
+      <section class="py-16 md:py-24 bg-bg-canvas relative overflow-hidden">
+        <div
+          class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center"
+        >
+          <div data-aos="fade-up">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/50 border border-brand-primary/10 text-brand-primary text-sm font-medium mb-6"
+            >
+              <span class="text-brand-accent">✦</span> About Vitara
+            </div>
+            <h1
+              class="font-display text-5xl md:text-6xl font-light text-text-primary leading-[1.1] mb-6"
+            >
+              Redefining the Standard of Care
+            </h1>
+            <p class="text-lg text-text-secondary mb-8">
+              We believe healthcare should be accessible, empathetic, and
+              seamlessly integrated into your life. That's why we created
+              Vitara.
+            </p>
+          </div>
+          <div data-aos="fade-left" class="relative hidden lg:block">
+            <img
+              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"
+              alt="Hospital interior"
+              class="w-full rounded-[32px] shadow-xl border-4 border-bg-surface"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission & Vision -->
+      <section class="py-20 bg-bg-elevated border-y border-border-light">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid md:grid-cols-2 gap-12">
+            <div
+              class="bg-bg-surface p-10 rounded-[32px] shadow-sm border border-border-light"
+              data-aos="fade-up"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-brand-primary text-text-inverse flex items-center justify-center mb-8"
+              >
+                <i data-lucide="target" class="w-6 h-6"></i>
+              </div>
+              <h2 class="font-display text-3xl mb-4">Our Mission</h2>
+              <p class="text-text-secondary leading-relaxed">
+                To deliver world-class, patient-centered medical care that
+                merges the latest digital health technologies with genuine human
+                empathy. We strive to make premium healthcare accessible to
+                everyone, anywhere.
+              </p>
+            </div>
+            <div
+              class="bg-bg-surface p-10 rounded-[32px] shadow-sm border border-border-light"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-brand-accent text-text-inverse flex items-center justify-center mb-8"
+              >
+                <i data-lucide="eye" class="w-6 h-6"></i>
+              </div>
+              <h2 class="font-display text-3xl mb-4">Our Vision</h2>
+              <p class="text-text-secondary leading-relaxed">
+                To become the global benchmark for modern healthcare, where
+                every patient feels heard, respected, and empowered. We envision
+                a future where proactive wellness replaces reactive treatment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Story -->
+      <section class="py-24 bg-bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+              <img
+                src="https://images.unsplash.com/photo-1551076805-e1869043e560?auto=format&fit=crop&q=80&w=800"
+                alt="Doctors collaborating"
+                class="w-full rounded-[32px] shadow-lg"
+              />
+            </div>
+            <div data-aos="fade-left">
+              <h2 class="font-display text-4xl mb-6">Our Story</h2>
+              <div class="space-y-6 text-text-secondary leading-relaxed">
+                <p>
+                  Founded in 2020 by a team of visionary doctors and
+                  technologists, Vitara was born out of a shared frustration
+                  with the traditional healthcare system.
+                </p>
+                <p>
+                  We saw patients waiting weeks for appointments, doctors
+                  burning out from administrative overhead, and a general lack
+                  of warmth in clinical environments. We knew there had to be a
+                  better way.
+                </p>
+                <p>
+                  Today, Vitara operates 12 premium clinics nationwide and
+                  serves over 50,000 patients through our state-of-the-art
+                  telemedicine platform, proving that healthcare can be both
+                  highly efficient and deeply compassionate.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership Team -->
+      <section class="py-24 bg-bg-canvas border-t border-border-light">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="font-display text-4xl mb-4">Leadership Team</h2>
+            <p class="text-text-secondary">
+              The visionary minds guiding our mission.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Leader 1 -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+              <div
+                class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-bg-surface shadow-xl"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400"
+                  alt="Dr. Robert Chen"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <h3 class="font-display text-xl font-medium">
+                Dr. Robert Chen, MD
+              </h3>
+              <p class="text-brand-primary text-sm mt-1">
+                Chief Executive Officer
+              </p>
+            </div>
+            <!-- Leader 2 -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+              <div
+                class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-bg-surface shadow-xl"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400"
+                  alt="Dr. Sarah Jenkins"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <h3 class="font-display text-xl font-medium">
+                Dr. Sarah Jenkins, MD
+              </h3>
+              <p class="text-brand-primary text-sm mt-1">
+                Chief Medical Officer
+              </p>
+            </div>
+            <!-- Leader 3 -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+              <div
+                class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-bg-surface shadow-xl"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400"
+                  alt="Michael Torres"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <h3 class="font-display text-xl font-medium">Michael Torres</h3>
+              <p class="text-brand-primary text-sm mt-1">
+                Chief Operating Officer
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="bg-bg-elevated pt-20 pb-10 border-t border-border-light">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16"
+        >
+          <!-- Brand Column -->
+          <div class="lg:col-span-2">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm mb-6 max-w-sm">
+              Premium healthcare services that reach wherever you need them.
+              Delivering care that feels like home.
+            </p>
+
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  />
+                  <polygon
+                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 class="font-semibold mb-6">Services</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Mental Health</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Cardiology</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Dental Care</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h4 class="font-semibold mb-6">Company</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Doctors</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact & Legal -->
+          <div>
+            <h4 class="font-semibold mb-6">Contact</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="map-pin"
+                  class="w-4 h-4 mt-0.5 text-brand-primary shrink-0"
+                ></i>
+                <span>123 Health Ave, Medical District, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="phone"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>Emergency: 119</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="mail"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>care@vitara.health</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-border-light flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-muted"
+        >
+          <p>&copy; 2026 Vitara Health. All rights reserved.</p>
+          <div class="flex gap-4">
+            <a href="utility-privacy.html" class="hover:text-text-primary"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-text-primary">Terms of Service</a>
+            <a href="#" class="hover:text-text-primary">HIPAA Notice</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script to Initialize Icons and App -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

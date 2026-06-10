@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VITARA - Care Meets Clarity | Premium Digital Health</title>
+    <meta
+      name="description"
+      content="VITARA is the most premium and modern medical template for digital health startups, telemedicine platforms, and premium clinics."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="../dist/assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary"
+  >
+    <!-- Announcement Bar -->
+    <div
+      class="bg-brand-primary text-text-inverse text-sm font-medium py-2 text-center w-full"
+    >
+      <p>
+        ✦ Online consultations are now available
+        <a
+          href="appointment.html"
+          class="underline ml-2 hover:text-brand-accent transition-colors"
+          >Start now →</a
+        >
+      </p>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 w-full z-50 transition-all duration-300 bg-transparent py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-8 text-sm font-medium text-text-secondary"
+        >
+          <a
+            href="index.html"
+            class="hover:text-brand-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="services.html"
+            class="hover:text-brand-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="doctors.html"
+            class="hover:text-brand-primary transition-colors"
+            >Doctors</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-brand-primary transition-colors"
+            >About</a
+          >
+          <a href="blog.html" class="hover:text-brand-primary transition-colors"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="hover:text-brand-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-brand-primary hover:after:scale-x-100 after:transition-transform after:origin-bottom-right hover:after:origin-bottom-left"
+            >Portal Login</a
+          >
+          <a
+            href="appointment.html"
+            class="bg-brand-primary text-text-inverse text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-secondary transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >Book Appointment</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT: DOCTORS -->
+    <main class="pt-24 lg:pt-32">
+      <!-- Header & Search -->
+      <section class="py-16 md:py-24 bg-bg-canvas">
+        <div class="max-w-7xl mx-auto px-6">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-8"
+            data-aos="fade-up"
+          >
+            <div class="max-w-2xl">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/50 border border-brand-primary/10 text-brand-primary text-sm font-medium mb-6"
+              >
+                <span class="text-brand-accent">✦</span> Our Specialists
+              </div>
+              <h1
+                class="font-display text-5xl md:text-6xl font-light text-text-primary leading-[1.1] mb-4"
+              >
+                Find Your Doctor
+              </h1>
+              <p class="text-lg text-text-secondary">
+                Connect with our world-class medical professionals who are
+                dedicated to your well-being.
+              </p>
+            </div>
+
+            <!-- Search & Filter Bar -->
+            <div
+              class="w-full md:w-auto flex-1 max-w-md bg-bg-surface p-2 rounded-2xl border border-border-light shadow-sm flex items-center"
+            >
+              <i data-lucide="search" class="w-5 h-5 text-text-muted ml-3"></i>
+              <input
+                type="text"
+                placeholder="Search by name or specialty..."
+                class="w-full bg-transparent border-none focus:ring-0 text-text-primary px-3 py-2 outline-none"
+              />
+              <button
+                class="bg-brand-primary text-text-inverse px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-brand-secondary transition-colors"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+
+          <!-- Filter Pills -->
+          <div
+            class="flex flex-wrap gap-3 mt-12"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <button
+              class="px-5 py-2 rounded-full border border-brand-primary bg-brand-primary text-text-inverse text-sm font-medium transition-colors"
+            >
+              All Specialists
+            </button>
+            <button
+              class="px-5 py-2 rounded-full border border-border-default bg-bg-surface text-text-secondary hover:border-brand-primary hover:text-brand-primary text-sm font-medium transition-colors"
+            >
+              Cardiology
+            </button>
+            <button
+              class="px-5 py-2 rounded-full border border-border-default bg-bg-surface text-text-secondary hover:border-brand-primary hover:text-brand-primary text-sm font-medium transition-colors"
+            >
+              Neurology
+            </button>
+            <button
+              class="px-5 py-2 rounded-full border border-border-default bg-bg-surface text-text-secondary hover:border-brand-primary hover:text-brand-primary text-sm font-medium transition-colors"
+            >
+              Pediatrics
+            </button>
+            <button
+              class="px-5 py-2 rounded-full border border-border-default bg-bg-surface text-text-secondary hover:border-brand-primary hover:text-brand-primary text-sm font-medium transition-colors"
+            >
+              Orthopedics
+            </button>
+            <button
+              class="px-5 py-2 rounded-full border border-border-default bg-bg-surface text-text-secondary hover:border-brand-primary hover:text-brand-primary text-sm font-medium transition-colors"
+            >
+              Mental Health
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Doctors Grid -->
+      <section class="py-16 bg-bg-surface border-t border-border-light">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Doctor 1 -->
+            <div
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(45,106,79,0.1)] transition-all duration-400"
+              data-aos="fade-up"
+              data-aos-delay="0"
+            >
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400"
+                  alt="Dr. Sarah Jenkins"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="font-display text-xl font-medium">
+                      Dr. Sarah Jenkins
+                    </h3>
+                    <p class="text-sm text-brand-secondary mt-1">Cardiology</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-4 text-xs text-text-muted mt-4"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i
+                      data-lucide="star"
+                      class="w-3 h-3 text-brand-accent fill-brand-accent"
+                    ></i>
+                    4.9 (120)</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="briefcase" class="w-3 h-3"></i> 12
+                    yrs</span
+                  >
+                </div>
+                <a
+                  href="appointment.html"
+                  class="mt-6 block w-full text-center py-2.5 rounded border border-border-default bg-bg-surface text-sm font-medium hover:bg-brand-primary hover:text-text-inverse hover:border-brand-primary transition-all"
+                  >Book Appointment</a
+                >
+              </div>
+            </div>
+
+            <!-- Doctor 2 -->
+            <div
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(45,106,79,0.1)] transition-all duration-400"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img
+                  src="assets/img/doctors/dr_michael_chen.png"
+                  alt="Dr. Michael Chen"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="font-display text-xl font-medium">
+                      Dr. Michael Chen
+                    </h3>
+                    <p class="text-sm text-brand-secondary mt-1">
+                      Mental Health
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-4 text-xs text-text-muted mt-4"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i
+                      data-lucide="star"
+                      class="w-3 h-3 text-brand-accent fill-brand-accent"
+                    ></i>
+                    4.8 (95)</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="briefcase" class="w-3 h-3"></i> 8 yrs</span
+                  >
+                </div>
+                <a
+                  href="appointment.html"
+                  class="mt-6 block w-full text-center py-2.5 rounded border border-border-default bg-bg-surface text-sm font-medium hover:bg-brand-primary hover:text-text-inverse hover:border-brand-primary transition-all"
+                  >Book Appointment</a
+                >
+              </div>
+            </div>
+
+            <!-- Doctor 3 -->
+            <div
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(45,106,79,0.1)] transition-all duration-400"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400"
+                  alt="Dr. Emily Patel"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="font-display text-xl font-medium">
+                      Dr. Emily Patel
+                    </h3>
+                    <p class="text-sm text-brand-secondary mt-1">Pediatrics</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-4 text-xs text-text-muted mt-4"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i
+                      data-lucide="star"
+                      class="w-3 h-3 text-brand-accent fill-brand-accent"
+                    ></i>
+                    5.0 (204)</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="briefcase" class="w-3 h-3"></i> 15
+                    yrs</span
+                  >
+                </div>
+                <a
+                  href="appointment.html"
+                  class="mt-6 block w-full text-center py-2.5 rounded border border-border-default bg-bg-surface text-sm font-medium hover:bg-brand-primary hover:text-text-inverse hover:border-brand-primary transition-all"
+                  >Book Appointment</a
+                >
+              </div>
+            </div>
+
+            <!-- Doctor 4 -->
+            <div
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(45,106,79,0.1)] transition-all duration-400"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400"
+                  alt="Dr. James Wilson"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="font-display text-xl font-medium">
+                      Dr. James Wilson
+                    </h3>
+                    <p class="text-sm text-brand-secondary mt-1">Orthopedics</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-4 text-xs text-text-muted mt-4"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i
+                      data-lucide="star"
+                      class="w-3 h-3 text-brand-accent fill-brand-accent"
+                    ></i>
+                    4.7 (88)</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="briefcase" class="w-3 h-3"></i> 10
+                    yrs</span
+                  >
+                </div>
+                <a
+                  href="appointment.html"
+                  class="mt-6 block w-full text-center py-2.5 rounded border border-border-default bg-bg-surface text-sm font-medium hover:bg-brand-primary hover:text-text-inverse hover:border-brand-primary transition-all"
+                  >Book Appointment</a
+                >
+              </div>
+            </div>
+
+            <!-- Doctor 5 -->
+            <div
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(45,106,79,0.1)] transition-all duration-400"
+              data-aos="fade-up"
+              data-aos-delay="0"
+            >
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400"
+                  alt="Dr. Robert Chen"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="font-display text-xl font-medium">
+                      Dr. Robert Chen
+                    </h3>
+                    <p class="text-sm text-brand-secondary mt-1">Neurology</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-4 text-xs text-text-muted mt-4"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i
+                      data-lucide="star"
+                      class="w-3 h-3 text-brand-accent fill-brand-accent"
+                    ></i>
+                    4.9 (156)</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="briefcase" class="w-3 h-3"></i> 18
+                    yrs</span
+                  >
+                </div>
+                <a
+                  href="appointment.html"
+                  class="mt-6 block w-full text-center py-2.5 rounded border border-border-default bg-bg-surface text-sm font-medium hover:bg-brand-primary hover:text-text-inverse hover:border-brand-primary transition-all"
+                  >Book Appointment</a
+                >
+              </div>
+            </div>
+
+            <!-- Doctor 6 -->
+            <div
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(45,106,79,0.1)] transition-all duration-400"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400"
+                  alt="Dr. Amanda Smith"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="font-display text-xl font-medium">
+                      Dr. Amanda Smith
+                    </h3>
+                    <p class="text-sm text-brand-secondary mt-1">Dermatology</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-4 text-xs text-text-muted mt-4"
+                >
+                  <span class="flex items-center gap-1"
+                    ><i
+                      data-lucide="star"
+                      class="w-3 h-3 text-brand-accent fill-brand-accent"
+                    ></i>
+                    4.8 (112)</span
+                  >
+                  <span class="flex items-center gap-1"
+                    ><i data-lucide="briefcase" class="w-3 h-3"></i> 9 yrs</span
+                  >
+                </div>
+                <a
+                  href="appointment.html"
+                  class="mt-6 block w-full text-center py-2.5 rounded border border-border-default bg-bg-surface text-sm font-medium hover:bg-brand-primary hover:text-text-inverse hover:border-brand-primary transition-all"
+                  >Book Appointment</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="mt-16 flex justify-center items-center gap-2">
+            <button
+              class="w-10 h-10 rounded-full flex items-center justify-center border border-border-light bg-bg-surface text-text-muted hover:text-brand-primary transition-colors disabled:opacity-50"
+            >
+              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button
+              class="w-10 h-10 rounded-full flex items-center justify-center bg-brand-primary text-text-inverse font-medium"
+            >
+              1
+            </button>
+            <button
+              class="w-10 h-10 rounded-full flex items-center justify-center border border-border-light bg-bg-surface text-text-secondary hover:text-brand-primary transition-colors"
+            >
+              2
+            </button>
+            <button
+              class="w-10 h-10 rounded-full flex items-center justify-center border border-border-light bg-bg-surface text-text-secondary hover:text-brand-primary transition-colors"
+            >
+              3
+            </button>
+            <button
+              class="w-10 h-10 rounded-full flex items-center justify-center border border-border-light bg-bg-surface text-text-secondary hover:text-brand-primary transition-colors"
+            >
+              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="bg-bg-elevated pt-20 pb-10 border-t border-border-light">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16"
+        >
+          <!-- Brand Column -->
+          <div class="lg:col-span-2">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm mb-6 max-w-sm">
+              Premium healthcare services that reach wherever you need them.
+              Delivering care that feels like home.
+            </p>
+
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  />
+                  <polygon
+                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 class="font-semibold mb-6">Services</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Mental Health</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Cardiology</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Dental Care</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h4 class="font-semibold mb-6">Company</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Doctors</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact & Legal -->
+          <div>
+            <h4 class="font-semibold mb-6">Contact</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="map-pin"
+                  class="w-4 h-4 mt-0.5 text-brand-primary shrink-0"
+                ></i>
+                <span>123 Health Ave, Medical District, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="phone"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>Emergency: 119</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="mail"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>care@vitara.health</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-border-light flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-muted"
+        >
+          <p>&copy; 2026 Vitara Health. All rights reserved.</p>
+          <div class="flex gap-4">
+            <a href="utility-privacy.html" class="hover:text-text-primary"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-text-primary">Terms of Service</a>
+            <a href="#" class="hover:text-text-primary">HIPAA Notice</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script to Initialize Icons and App -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

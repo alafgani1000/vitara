@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing & Insurance - Vitara Healthcare</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary min-h-screen flex flex-col"
+  >
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 w-full z-50 transition-all duration-300 bg-bg-surface/80 backdrop-blur-md border-b border-border-light py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="cross" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-8 text-sm font-medium text-text-secondary"
+        >
+          <a
+            href="index.html"
+            class="hover:text-brand-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="services.html"
+            class="hover:text-brand-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="doctors.html"
+            class="hover:text-brand-primary transition-colors"
+            >Doctors</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-brand-primary transition-colors"
+            >About</a
+          >
+          <a href="blog.html" class="hover:text-brand-primary transition-colors"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="hover:text-brand-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors"
+            >Portal Login</a
+          >
+          <a
+            href="appointment.html"
+            class="bg-brand-primary text-text-inverse text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-secondary transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >Book Appointment</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT: PRICING -->
+    <main class="flex-1 pb-24">
+      <!-- Hero Section -->
+      <section
+        class="bg-bg-elevated py-20 px-6 text-center border-b border-border-light"
+      >
+        <div class="max-w-3xl mx-auto">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/50 border border-brand-primary/10 text-brand-primary text-sm font-medium mb-6"
+          >
+            Transparent Pricing
+          </div>
+          <h1
+            class="font-display text-4xl md:text-6xl font-medium text-text-primary mb-6"
+          >
+            Simple pricing, no surprises.
+          </h1>
+          <p class="text-lg text-text-secondary">
+            We accept most major insurance plans and offer clear self-pay rates
+            for those without coverage.
+          </p>
+        </div>
+      </section>
+
+      <!-- Pricing Cards (Self-Pay) -->
+      <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl font-medium text-text-primary mb-4">
+            Self-Pay Rates
+          </h2>
+          <p class="text-text-secondary">
+            For patients without insurance or out-of-network coverage.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Basic Visit -->
+          <div
+            class="bg-bg-surface border border-border-light rounded-[24px] p-8 shadow-sm hover:shadow-md hover:border-brand-primary/30 transition-all"
+          >
+            <h3 class="font-display text-xl font-semibold mb-2">
+              Telehealth Visit
+            </h3>
+            <p class="text-sm text-text-secondary mb-6">
+              Quick consultation from home.
+            </p>
+            <div
+              class="text-4xl font-display font-medium text-text-primary mb-6"
+            >
+              $49<span class="text-lg text-text-muted font-normal">/visit</span>
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3 text-sm text-text-secondary">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                15-minute video call
+              </li>
+              <li class="flex items-start gap-3 text-sm text-text-secondary">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                Basic prescriptions
+              </li>
+              <li class="flex items-start gap-3 text-sm text-text-secondary">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                Doctor's note if needed
+              </li>
+            </ul>
+
+            <a
+              href="appointment.html"
+              class="block text-center w-full bg-bg-elevated border border-border-default text-text-primary px-6 py-3 rounded-xl font-medium hover:border-brand-primary transition-colors"
+              >Book Telehealth</a
+            >
+          </div>
+
+          <!-- Primary Care (Highlighted) -->
+          <div
+            class="bg-brand-primary text-text-inverse rounded-[24px] p-8 shadow-xl relative transform md:-translate-y-4"
+          >
+            <div
+              class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-accent text-brand-primary text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full"
+            >
+              Most Popular
+            </div>
+
+            <h3 class="font-display text-xl font-semibold mb-2">
+              In-Person Visit
+            </h3>
+            <p class="text-sm text-text-inverse/80 mb-6">
+              Standard clinic consultation.
+            </p>
+            <div class="text-4xl font-display font-medium mb-6">
+              $120<span class="text-lg text-text-inverse/60 font-normal"
+                >/visit</span
+              >
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3 text-sm text-text-inverse/90">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-accent shrink-0"
+                ></i>
+                30-minute consultation
+              </li>
+              <li class="flex items-start gap-3 text-sm text-text-inverse/90">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-accent shrink-0"
+                ></i>
+                Basic vitals check
+              </li>
+              <li class="flex items-start gap-3 text-sm text-text-inverse/90">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-accent shrink-0"
+                ></i>
+                Referrals to specialists
+              </li>
+              <li class="flex items-start gap-3 text-sm text-text-inverse/90">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-accent shrink-0"
+                ></i>
+                Same-day appointments
+              </li>
+            </ul>
+
+            <a
+              href="appointment.html"
+              class="block text-center w-full bg-white text-brand-primary px-6 py-3 rounded-xl font-medium hover:bg-bg-canvas transition-colors"
+              >Book Clinic Visit</a
+            >
+          </div>
+
+          <!-- Specialist Visit -->
+          <div
+            class="bg-bg-surface border border-border-light rounded-[24px] p-8 shadow-sm hover:shadow-md hover:border-brand-primary/30 transition-all"
+          >
+            <h3 class="font-display text-xl font-semibold mb-2">
+              Specialist Visit
+            </h3>
+            <p class="text-sm text-text-secondary mb-6">
+              Advanced care and diagnostics.
+            </p>
+            <div
+              class="text-4xl font-display font-medium text-text-primary mb-6"
+            >
+              $250+<span class="text-lg text-text-muted font-normal"
+                >/visit</span
+              >
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3 text-sm text-text-secondary">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                45-60 min comprehensive
+              </li>
+              <li class="flex items-start gap-3 text-sm text-text-secondary">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                Specialized diagnostics
+              </li>
+              <li class="flex items-start gap-3 text-sm text-text-secondary">
+                <i
+                  data-lucide="check"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                Advanced treatment plans
+              </li>
+            </ul>
+
+            <a
+              href="appointment.html"
+              class="block text-center w-full bg-bg-elevated border border-border-default text-text-primary px-6 py-3 rounded-xl font-medium hover:border-brand-primary transition-colors"
+              >Book Specialist</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Accepted Insurance -->
+      <section class="max-w-5xl mx-auto px-6 pb-20">
+        <div
+          class="bg-bg-elevated border border-border-light rounded-[32px] p-10 text-center"
+        >
+          <h2 class="font-display text-3xl font-medium text-text-primary mb-4">
+            Accepted Insurance Plans
+          </h2>
+          <p class="text-text-secondary max-w-2xl mx-auto mb-10">
+            We accept a wide range of insurance providers. If you don't see your
+            provider here, please contact us to verify coverage.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-70">
+            <!-- Placeholder logos for insurance -->
+            <div
+              class="font-display font-bold text-xl text-text-muted flex items-center justify-center"
+            >
+              Aetna
+            </div>
+            <div
+              class="font-display font-bold text-xl text-text-muted flex items-center justify-center"
+            >
+              BlueCross
+            </div>
+            <div
+              class="font-display font-bold text-xl text-text-muted flex items-center justify-center"
+            >
+              Cigna
+            </div>
+            <div
+              class="font-display font-bold text-xl text-text-muted flex items-center justify-center"
+            >
+              UnitedHealthcare
+            </div>
+            <div
+              class="font-display font-bold text-xl text-text-muted flex items-center justify-center"
+            >
+              Humana
+            </div>
+            <div
+              class="font-display font-bold text-xl text-text-muted flex items-center justify-center"
+            >
+              Kaiser
+            </div>
+            <div
+              class="font-display font-bold text-xl text-text-muted flex items-center justify-center"
+            >
+              Medicare
+            </div>
+            <div
+              class="font-display font-bold text-xl text-text-muted flex items-center justify-center"
+            >
+              Medicaid
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-bg-elevated border-t border-border-light pt-16 pb-8 mt-auto"
+    >
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="md:col-span-1">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="cross" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm mb-6">
+              Premium healthcare tailored to your lifestyle. Excellence in every
+              interaction.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Services</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Specialist Care</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Company</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="doctors.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Our Doctors</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Legal</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="utility-privacy.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="utility-terms.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a
+                  href="utility-faq.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-border-light pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-sm text-text-muted">
+            &copy; 2026 Vitara Healthcare. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

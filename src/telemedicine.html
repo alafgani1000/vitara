@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telemedicine Services - Vitara Healthcare</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary min-h-screen flex flex-col font-body"
+  >
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 w-full z-50 transition-all duration-300 bg-bg-canvas/80 backdrop-blur-md border-b border-border-light py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="cross" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-8 text-sm font-medium text-text-secondary"
+        >
+          <a
+            href="index.html"
+            class="hover:text-brand-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="services.html"
+            class="hover:text-brand-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="telemedicine.html"
+            class="text-brand-primary transition-colors"
+            >Telemedicine</a
+          >
+          <a
+            href="doctors.html"
+            class="hover:text-brand-primary transition-colors"
+            >Doctors</a
+          >
+          <a
+            href="contact.html"
+            class="hover:text-brand-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors"
+            >Portal Login</a
+          >
+          <a
+            href="appointment.html"
+            class="bg-brand-primary text-text-inverse px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-secondary transition-all hover:shadow-md"
+            >Book Consult</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+      <!-- Hero Section -->
+      <section class="py-20 lg:py-32 relative overflow-hidden bg-bg-canvas">
+        <div
+          class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
+        >
+          <div class="relative z-10">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-light text-brand-primary text-sm font-medium mb-6"
+            >
+              <i data-lucide="video" class="w-4 h-4"></i> Vitara Telemedicine
+            </div>
+            <h1
+              class="font-display text-4xl lg:text-6xl font-medium text-text-primary mb-6 leading-tight"
+            >
+              Quality care from the
+              <span class="italic text-brand-primary">comfort</span> of your
+              home.
+            </h1>
+            <p
+              class="text-text-secondary text-lg leading-relaxed mb-8 max-w-lg"
+            >
+              Connect with our board-certified physicians via secure video call.
+              Get diagnosed, receive prescriptions, and review lab results
+              without stepping foot in a waiting room.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="appointment.html"
+                class="bg-brand-primary text-text-inverse px-8 py-3.5 rounded-full font-medium hover:bg-brand-secondary transition-all shadow-md text-center"
+              >
+                Book Online Consult
+              </a>
+              <a
+                href="#how-it-works"
+                class="px-8 py-3.5 rounded-full border border-border-default text-text-primary font-medium hover:bg-white transition-all text-center"
+              >
+                See How it Works
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="relative z-10 lg:h-[600px] flex items-center justify-center"
+          >
+            <div
+              class="absolute inset-0 bg-brand-primary/10 rounded-full blur-[100px]"
+            ></div>
+            <!-- Device Mockup Collage -->
+            <div class="relative w-full max-w-md mx-auto perspective-1000">
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800"
+                alt="Doctor on video call"
+                class="rounded-[2rem] shadow-2xl border border-border-light relative z-10 object-cover w-full h-[500px]"
+              />
+
+              <!-- Floating Badge -->
+              <div
+                class="absolute -left-8 top-1/4 bg-white p-4 rounded-2xl shadow-lg border border-border-light flex items-center gap-3 z-20 animate-bounce-slow"
+              >
+                <div
+                  class="w-10 h-10 bg-status-success/10 rounded-full flex items-center justify-center text-status-success"
+                >
+                  <i data-lucide="check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-text-secondary">Status</p>
+                  <p class="font-medium text-sm text-text-primary">
+                    E-Prescription Sent
+                  </p>
+                </div>
+              </div>
+
+              <!-- Floating Badge 2 -->
+              <div
+                class="absolute -right-8 bottom-1/4 bg-white p-4 rounded-2xl shadow-lg border border-border-light flex items-center gap-3 z-20"
+              >
+                <div
+                  class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center text-brand-primary"
+                >
+                  <i data-lucide="shield" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-text-secondary">Connection</p>
+                  <p class="font-medium text-sm text-text-primary">
+                    100% Secure
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Use Cases -->
+      <section class="py-20 bg-bg-surface border-y border-border-light">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2
+              class="font-display text-3xl md:text-4xl font-medium text-text-primary mb-4"
+            >
+              What we can treat online
+            </h2>
+            <p class="text-text-secondary text-lg">
+              Many common conditions can be safely and accurately diagnosed via
+              video consultation.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div
+              class="p-6 bg-bg-canvas rounded-2xl border border-border-light text-center hover:border-brand-primary transition-colors"
+            >
+              <i
+                data-lucide="thermometer"
+                class="w-8 h-8 text-brand-primary mx-auto mb-4"
+              ></i>
+              <h4 class="font-medium text-text-primary mb-2">
+                Common Illnesses
+              </h4>
+              <p class="text-sm text-text-secondary">
+                Cold, flu, fever, sinus infections, and allergies.
+              </p>
+            </div>
+            <div
+              class="p-6 bg-bg-canvas rounded-2xl border border-border-light text-center hover:border-brand-primary transition-colors"
+            >
+              <i
+                data-lucide="pill"
+                class="w-8 h-8 text-brand-primary mx-auto mb-4"
+              ></i>
+              <h4 class="font-medium text-text-primary mb-2">
+                Prescription Refills
+              </h4>
+              <p class="text-sm text-text-secondary">
+                Fast renewals for ongoing chronic medications.
+              </p>
+            </div>
+            <div
+              class="p-6 bg-bg-canvas rounded-2xl border border-border-light text-center hover:border-brand-primary transition-colors"
+            >
+              <i
+                data-lucide="brain"
+                class="w-8 h-8 text-brand-primary mx-auto mb-4"
+              ></i>
+              <h4 class="font-medium text-text-primary mb-2">Mental Health</h4>
+              <p class="text-sm text-text-secondary">
+                Therapy, anxiety, depression, and stress management.
+              </p>
+            </div>
+            <div
+              class="p-6 bg-bg-canvas rounded-2xl border border-border-light text-center hover:border-brand-primary transition-colors"
+            >
+              <i
+                data-lucide="clipboard-list"
+                class="w-8 h-8 text-brand-primary mx-auto mb-4"
+              ></i>
+              <h4 class="font-medium text-text-primary mb-2">Lab Review</h4>
+              <p class="text-sm text-text-secondary">
+                Discuss test results and next steps with your doctor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Step-by-Step -->
+      <section
+        id="how-it-works"
+        class="py-24 bg-bg-elevated relative overflow-hidden"
+      >
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-12">
+              <div>
+                <h2
+                  class="font-display text-4xl font-medium text-text-primary mb-4"
+                >
+                  How Telemedicine Works
+                </h2>
+                <p class="text-text-secondary text-lg">
+                  A seamless digital experience designed around your comfort and
+                  privacy.
+                </p>
+              </div>
+
+              <div
+                class="space-y-8 relative before:absolute before:inset-0 before:ml-[23px] before:-translate-x-px before:w-0.5 before:h-full before:bg-border-default before:z-0"
+              >
+                <!-- Step 1 -->
+                <div class="relative z-10 flex gap-6 group">
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl shrink-0 shadow-md ring-8 ring-bg-elevated"
+                  >
+                    1
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-xl text-text-primary mb-2">
+                      Book Your Slot
+                    </h4>
+                    <p class="text-text-secondary">
+                      Select "Telehealth" as your visit type when booking
+                      online. Choose a time that works for you.
+                    </p>
+                  </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative z-10 flex gap-6 group">
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl shrink-0 shadow-md ring-8 ring-bg-elevated"
+                  >
+                    2
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-xl text-text-primary mb-2">
+                      Complete Pre-check
+                    </h4>
+                    <p class="text-text-secondary">
+                      Log into the Patient Portal to fill out any necessary
+                      intake forms and verify your insurance.
+                    </p>
+                  </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative z-10 flex gap-6 group">
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl shrink-0 shadow-md ring-8 ring-bg-elevated"
+                  >
+                    3
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-xl text-text-primary mb-2">
+                      Join the Call
+                    </h4>
+                    <p class="text-text-secondary">
+                      Click the secure link in your email or portal to join the
+                      virtual waiting room. Your doctor will connect shortly.
+                    </p>
+                  </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="relative z-10 flex gap-6 group">
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl shrink-0 shadow-md ring-8 ring-bg-elevated"
+                  >
+                    4
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-xl text-text-primary mb-2">
+                      Follow-up & Meds
+                    </h4>
+                    <p class="text-text-secondary">
+                      Prescriptions are sent instantly to your pharmacy. A visit
+                      summary will be available in your portal.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <!-- Abstract shapes -->
+              <div
+                class="absolute inset-0 bg-brand-accent/10 rounded-[3rem] transform rotate-6 scale-105"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
+                alt="Patient using laptop"
+                class="rounded-[3rem] shadow-xl relative z-10 border border-white"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section
+        class="py-20 bg-brand-primary text-text-inverse text-center relative overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 opacity-10"
+          style="
+            background-image: url(&quot;data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%221%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);
+          "
+        ></div>
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+          <h2 class="font-display text-4xl lg:text-5xl font-medium mb-6">
+            Skip the waiting room.
+          </h2>
+          <p class="text-lg opacity-90 mb-10">
+            Our doctors are available 7 days a week. Book your telehealth
+            appointment today.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="appointment.html"
+              class="bg-brand-accent text-white px-8 py-4 rounded-full font-medium hover:bg-[#C2A169] transition-all shadow-lg text-center"
+            >
+              Schedule Consultation
+            </a>
+            <a
+              href="auth-login.html"
+              class="bg-white/10 border border-white/30 text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all text-center"
+            >
+              Login to Portal
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-bg-elevated border-t border-border-light pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="md:col-span-1">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="cross" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm mb-6">
+              Premium healthcare tailored to your lifestyle. Excellence in every
+              interaction.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Services</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="telemedicine.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Specialist Care</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Company</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="doctors.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Our Doctors</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-4">Legal</h4>
+            <ul class="space-y-3 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="utility-privacy.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="utility-terms.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a
+                  href="utility-faq.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-border-light pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-sm text-text-muted">
+            &copy; 2026 Vitara Healthcare. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Vitara Healthcare</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-surface text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary min-h-screen flex flex-col"
+  >
+    <!-- Minimal Header for Checkout -->
+    <header class="bg-bg-surface border-b border-border-light py-4">
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+          >
+            <i data-lucide="cross" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <div class="flex items-center text-sm text-text-muted gap-1">
+          <i data-lucide="lock" class="w-4 h-4"></i>
+          <span class="font-medium">Secure Checkout</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT: CHECKOUT -->
+    <main class="flex-1 max-w-7xl mx-auto px-6 py-12 w-full">
+      <div class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20">
+        <!-- LEFT: CHECKOUT FORM -->
+        <div class="flex-1">
+          <!-- Step 1: Contact & Shipping -->
+          <div class="mb-12">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-8 h-8 rounded-full bg-brand-primary text-text-inverse flex items-center justify-center font-medium text-sm"
+              >
+                1
+              </div>
+              <h2 class="font-display text-2xl font-medium text-text-primary">
+                Contact & Shipping
+              </h2>
+            </div>
+
+            <form class="space-y-6">
+              <!-- Contact Info -->
+              <div>
+                <h3 class="text-sm font-medium text-text-primary mb-3">
+                  Contact Information
+                </h3>
+                <div class="space-y-4">
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                    required
+                  />
+                  <label class="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      class="rounded border-border-default text-brand-primary focus:ring-brand-primary"
+                    />
+                    <span class="text-sm text-text-secondary"
+                      >Email me with news and offers</span
+                    >
+                  </label>
+                </div>
+              </div>
+
+              <!-- Shipping Address -->
+              <div>
+                <h3 class="text-sm font-medium text-text-primary mb-3 mt-8">
+                  Shipping Address
+                </h3>
+                <div class="space-y-4">
+                  <div class="grid grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      placeholder="First name"
+                      class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                      required
+                    />
+                    <input
+                      type="text"
+                      placeholder="Last name"
+                      class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                      required
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Apartment, suite, etc. (optional)"
+                    class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                  />
+                  <div class="grid grid-cols-3 gap-4">
+                    <input
+                      type="text"
+                      placeholder="City"
+                      class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                      required
+                    />
+                    <select
+                      class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                    >
+                      <option value="" disabled selected>State</option>
+                      <option value="NY">New York</option>
+                      <option value="CA">California</option>
+                      <option value="TX">Texas</option>
+                    </select>
+                    <input
+                      type="text"
+                      placeholder="ZIP Code"
+                      class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                      required
+                    />
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <hr class="border-border-light mb-12" />
+
+          <!-- Step 2: Payment -->
+          <div class="mb-12">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-8 h-8 rounded-full bg-bg-canvas border-2 border-border-default text-text-muted flex items-center justify-center font-medium text-sm"
+              >
+                2
+              </div>
+              <h2 class="font-display text-2xl font-medium text-text-primary">
+                Payment
+              </h2>
+            </div>
+
+            <div class="opacity-50 pointer-events-none">
+              <p class="text-sm text-text-secondary mb-4">
+                All transactions are secure and encrypted.
+              </p>
+
+              <div
+                class="border border-border-default rounded-xl overflow-hidden"
+              >
+                <!-- Credit Card Option -->
+                <div
+                  class="p-4 border-b border-border-default bg-brand-light/30"
+                >
+                  <label class="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="payment"
+                      class="text-brand-primary focus:ring-brand-primary"
+                      checked
+                    />
+                    <span class="font-medium text-text-primary"
+                      >Credit Card</span
+                    >
+                    <div class="ml-auto flex gap-1">
+                      <i
+                        data-lucide="credit-card"
+                        class="w-5 h-5 text-text-muted"
+                      ></i>
+                    </div>
+                  </label>
+                </div>
+                <!-- Card Form Details -->
+                <div class="p-4 bg-bg-canvas space-y-4">
+                  <input
+                    type="text"
+                    placeholder="Card number"
+                    class="w-full bg-bg-surface border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary"
+                  />
+                  <div class="grid grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      placeholder="Expiration date (MM/YY)"
+                      class="w-full bg-bg-surface border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Security code (CVV)"
+                      class="w-full bg-bg-surface border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Name on card"
+                    class="w-full bg-bg-surface border border-border-default rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-primary"
+                  />
+                </div>
+
+                <!-- PayPal Option -->
+                <div class="p-4 bg-bg-surface">
+                  <label class="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="payment"
+                      class="text-brand-primary focus:ring-brand-primary"
+                    />
+                    <span class="font-medium text-text-primary">PayPal</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- CTA -->
+              <button
+                class="w-full bg-brand-primary text-text-inverse py-4 rounded-xl font-medium hover:bg-brand-secondary transition-all shadow-sm mt-8"
+              >
+                Pay $86.40
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: ORDER SUMMARY (Sticky) -->
+        <aside class="lg:w-[450px] shrink-0">
+          <div
+            class="bg-bg-canvas border border-border-light rounded-3xl p-8 sticky top-8"
+          >
+            <!-- Cart Items -->
+            <div class="space-y-4 mb-6">
+              <!-- Item 1 -->
+              <div class="flex gap-4">
+                <div class="relative">
+                  <div
+                    class="w-16 h-16 bg-bg-surface rounded-xl border border-border-light flex items-center justify-center overflow-hidden"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=150"
+                      alt="Product"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span
+                    class="absolute -top-2 -right-2 w-5 h-5 bg-text-primary text-text-inverse text-[10px] font-bold rounded-full flex items-center justify-center"
+                    >1</span
+                  >
+                </div>
+                <div class="flex-1 flex justify-between">
+                  <span
+                    class="text-sm font-medium text-text-primary line-clamp-2"
+                    >Advanced Immunity Complex</span
+                  >
+                  <span class="text-sm font-medium text-text-primary ml-4"
+                    >$32.00</span
+                  >
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="flex gap-4">
+                <div class="relative">
+                  <div
+                    class="w-16 h-16 bg-bg-surface rounded-xl border border-border-light flex items-center justify-center overflow-hidden"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1550572017-edb7df089bc9?auto=format&fit=crop&q=80&w=150"
+                      alt="Product"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span
+                    class="absolute -top-2 -right-2 w-5 h-5 bg-text-primary text-text-inverse text-[10px] font-bold rounded-full flex items-center justify-center"
+                    >2</span
+                  >
+                </div>
+                <div class="flex-1 flex justify-between">
+                  <span
+                    class="text-sm font-medium text-text-primary line-clamp-2"
+                    >Essential Daily Multivitamin</span
+                  >
+                  <span class="text-sm font-medium text-text-primary ml-4"
+                    >$48.00</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-border-light my-6" />
+
+            <!-- Totals -->
+            <div class="space-y-3 text-sm mb-6">
+              <div class="flex justify-between text-text-secondary">
+                <span>Subtotal</span>
+                <span class="font-medium text-text-primary">$80.00</span>
+              </div>
+              <div class="flex justify-between text-text-secondary">
+                <span>Shipping</span>
+                <span class="font-medium text-text-primary">Free</span>
+              </div>
+              <div class="flex justify-between text-text-secondary">
+                <span>Taxes</span>
+                <span class="font-medium text-text-primary">$6.40</span>
+              </div>
+            </div>
+
+            <div
+              class="flex justify-between items-end border-t border-border-light pt-6"
+            >
+              <span class="font-medium text-text-primary text-lg">Total</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-text-muted">USD</span>
+                <span
+                  class="font-display font-medium text-3xl text-text-primary"
+                  >$86.40</span
+                >
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="border-t border-border-light py-8">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="flex justify-center gap-6 mb-4">
+          <a
+            href="utility-privacy.html"
+            class="text-sm text-text-muted hover:text-text-primary transition-colors"
+            >Privacy Policy</a
+          >
+          <a
+            href="utility-terms.html"
+            class="text-sm text-text-muted hover:text-text-primary transition-colors"
+            >Terms of Service</a
+          >
+        </div>
+        <p class="text-sm text-text-muted">
+          &copy; 2026 Vitara Healthcare. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

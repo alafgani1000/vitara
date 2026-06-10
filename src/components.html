@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Components - Vitara Design System</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased font-body selection:bg-brand-light selection:text-brand-primary pb-24"
+  >
+    <!-- Header -->
+    <header class="bg-white border-b border-border-light sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="cross" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-xl tracking-tight text-text-primary"
+            >VITARA
+            <span class="font-sans font-normal text-sm text-text-muted ml-2"
+              >Design System</span
+            ></span
+          >
+        </a>
+        <div class="flex gap-4">
+          <button
+            onclick="
+              document.documentElement.setAttribute('data-theme', 'light')
+            "
+            class="text-sm font-medium px-3 py-1.5 rounded-md hover:bg-bg-muted transition-colors"
+          >
+            Light
+          </button>
+          <button
+            onclick="
+              document.documentElement.setAttribute('data-theme', 'dark')
+            "
+            class="text-sm font-medium px-3 py-1.5 rounded-md hover:bg-bg-muted transition-colors"
+          >
+            Dark
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-24">
+      <div>
+        <h1 class="font-display text-4xl font-medium mb-4">UI Components</h1>
+        <p class="text-text-secondary text-lg">
+          A reference guide for the Vitara template design system. Use these
+          pre-styled elements to maintain consistency.
+        </p>
+      </div>
+
+      <!-- Typography -->
+      <section>
+        <h2
+          class="font-display text-2xl font-medium mb-6 pb-2 border-b border-border-light text-brand-primary"
+        >
+          Typography
+        </h2>
+        <div class="space-y-8">
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-display (Playfair Display / Instrument Sans)</span
+            >
+            <h1 class="font-display text-6xl font-medium text-text-primary">
+              Heading 1
+            </h1>
+          </div>
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-display (Playfair Display / Instrument Sans)</span
+            >
+            <h2 class="font-display text-5xl font-medium text-text-primary">
+              Heading 2
+            </h2>
+          </div>
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-display (Playfair Display / Instrument Sans)</span
+            >
+            <h3 class="font-display text-4xl font-medium text-text-primary">
+              Heading 3
+            </h3>
+          </div>
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-display (Playfair Display / Instrument Sans)</span
+            >
+            <h4 class="font-display text-3xl font-medium text-text-primary">
+              Heading 4
+            </h4>
+          </div>
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-display (Playfair Display / Instrument Sans)</span
+            >
+            <h5 class="font-display text-2xl font-medium text-text-primary">
+              Heading 5
+            </h5>
+          </div>
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-body (Inter / Outfit)</span
+            >
+            <p class="text-lg text-text-secondary max-w-3xl leading-relaxed">
+              Body Text (Large) - The quick brown fox jumps over the lazy dog.
+              Healthcare, delivered digitally. Premium medical template.
+            </p>
+          </div>
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-body (Inter / Outfit)</span
+            >
+            <p class="text-base text-text-primary max-w-3xl leading-relaxed">
+              Body Text (Base) - The quick brown fox jumps over the lazy dog.
+              Healthcare, delivered digitally. Premium medical template.
+            </p>
+          </div>
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-body (Inter / Outfit)</span
+            >
+            <p class="text-sm text-text-secondary max-w-3xl leading-relaxed">
+              Body Text (Small) - The quick brown fox jumps over the lazy dog.
+              Healthcare, delivered digitally. Premium medical template.
+            </p>
+          </div>
+          <div>
+            <span class="text-xs text-text-muted block mb-1"
+              >font-mono (DM Mono)</span
+            >
+            <p class="font-mono text-sm text-brand-primary">#MRN-892014</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Colors -->
+      <section>
+        <h2
+          class="font-display text-2xl font-medium mb-6 pb-2 border-b border-border-light text-brand-primary"
+        >
+          Color Palette
+        </h2>
+
+        <h3 class="font-medium text-lg mb-4">Brand Colors</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="space-y-2">
+            <div
+              class="h-24 rounded-xl bg-brand-primary border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Primary</p>
+            <p class="text-xs text-text-muted font-mono">
+              var(--brand-primary)
+            </p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-24 rounded-xl bg-brand-secondary border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Secondary</p>
+            <p class="text-xs text-text-muted font-mono">
+              var(--brand-secondary)
+            </p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-24 rounded-xl bg-brand-accent border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Accent</p>
+            <p class="text-xs text-text-muted font-mono">var(--brand-accent)</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-24 rounded-xl bg-brand-light border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Light</p>
+            <p class="text-xs text-text-muted font-mono">var(--brand-light)</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-24 rounded-xl bg-brand-sage border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Sage (Wellness)</p>
+            <p class="text-xs text-text-muted font-mono">var(--brand-sage)</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-24 rounded-xl bg-brand-lavender border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Lavender (Wellness)</p>
+            <p class="text-xs text-text-muted font-mono">
+              var(--brand-lavender)
+            </p>
+          </div>
+        </div>
+
+        <h3 class="font-medium text-lg mb-4">Status Colors</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="space-y-2">
+            <div
+              class="h-16 rounded-xl bg-status-success border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Success</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-16 rounded-xl bg-status-warning border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Warning</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-16 rounded-xl bg-status-error border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Error</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-16 rounded-xl bg-status-info border border-border-light shadow-sm"
+            ></div>
+            <p class="text-sm font-medium">Info</p>
+          </div>
+        </div>
+
+        <h3 class="font-medium text-lg mb-4">Backgrounds</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="space-y-2">
+            <div
+              class="h-16 rounded-xl bg-bg-canvas border border-border-light"
+            ></div>
+            <p class="text-sm font-medium">Canvas</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-16 rounded-xl bg-bg-surface border border-border-light"
+            ></div>
+            <p class="text-sm font-medium">Surface</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-16 rounded-xl bg-bg-elevated border border-border-light shadow-md"
+            ></div>
+            <p class="text-sm font-medium">Elevated</p>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-16 rounded-xl bg-bg-muted border border-border-light"
+            ></div>
+            <p class="text-sm font-medium">Muted</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Buttons -->
+      <section>
+        <h2
+          class="font-display text-2xl font-medium mb-6 pb-2 border-b border-border-light text-brand-primary"
+        >
+          Buttons
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="space-y-6">
+            <h3 class="font-medium text-text-primary">Standard Rounded-xl</h3>
+            <div class="flex flex-wrap gap-4 items-center">
+              <button
+                class="bg-brand-primary text-text-inverse px-6 py-2.5 rounded-xl font-medium hover:bg-brand-secondary transition-colors shadow-sm"
+              >
+                Primary
+              </button>
+              <button
+                class="bg-white border border-brand-primary text-brand-primary px-6 py-2.5 rounded-xl font-medium hover:bg-brand-primary hover:text-white transition-colors"
+              >
+                Outline
+              </button>
+              <button
+                class="bg-brand-light text-brand-primary px-6 py-2.5 rounded-xl font-medium hover:bg-brand-light/80 transition-colors"
+              >
+                Tonal
+              </button>
+              <button
+                class="text-text-secondary px-6 py-2.5 font-medium hover:text-brand-primary transition-colors"
+              >
+                Ghost
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h3 class="font-medium text-text-primary">Pill Rounded-full</h3>
+            <div class="flex flex-wrap gap-4 items-center">
+              <button
+                class="bg-brand-accent text-white px-6 py-2.5 rounded-full font-medium hover:bg-[#C2A169] transition-colors shadow-sm"
+              >
+                Accent Pill
+              </button>
+              <button
+                class="bg-white border border-border-default text-text-primary px-6 py-2.5 rounded-full font-medium hover:bg-bg-muted transition-colors"
+              >
+                Secondary
+              </button>
+              <button
+                class="bg-brand-primary text-text-inverse px-6 py-2.5 rounded-full font-medium hover:bg-brand-secondary transition-colors flex items-center gap-2"
+              >
+                With Icon <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h3 class="font-medium text-text-primary">Sizes</h3>
+            <div class="flex flex-wrap gap-4 items-center">
+              <button
+                class="bg-brand-primary text-text-inverse px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-brand-secondary transition-colors"
+              >
+                Small
+              </button>
+              <button
+                class="bg-brand-primary text-text-inverse px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-brand-secondary transition-colors"
+              >
+                Medium (Default)
+              </button>
+              <button
+                class="bg-brand-primary text-text-inverse px-8 py-3.5 rounded-2xl text-base font-medium hover:bg-brand-secondary transition-colors"
+              >
+                Large
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Forms -->
+      <section>
+        <h2
+          class="font-display text-2xl font-medium mb-6 pb-2 border-b border-border-light text-brand-primary"
+        >
+          Form Controls
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="space-y-6">
+            <!-- Text Input -->
+            <div>
+              <label class="block text-sm font-medium text-text-primary mb-1"
+                >Standard Input</label
+              >
+              <input
+                type="text"
+                placeholder="Enter your name"
+                class="w-full px-4 py-2.5 bg-white border border-border-default rounded-xl text-text-primary focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-shadow"
+              />
+            </div>
+
+            <!-- Input with Icon -->
+            <div>
+              <label class="block text-sm font-medium text-text-primary mb-1"
+                >Input with Icon</label
+              >
+              <div class="relative">
+                <i
+                  data-lucide="mail"
+                  class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted"
+                ></i>
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  class="w-full pl-10 pr-4 py-2.5 bg-white border border-border-default rounded-xl text-text-primary focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-shadow"
+                />
+              </div>
+            </div>
+
+            <!-- Select -->
+            <div>
+              <label class="block text-sm font-medium text-text-primary mb-1"
+                >Select Dropdown</label
+              >
+              <select
+                class="w-full px-4 py-2.5 bg-white border border-border-default rounded-xl text-text-primary focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-shadow appearance-none cursor-pointer"
+              >
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Checkbox -->
+            <label class="flex items-start gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                class="mt-1 w-4 h-4 rounded border-border-default text-brand-primary focus:ring-brand-primary cursor-pointer accent-brand-primary"
+              />
+              <div>
+                <p
+                  class="text-sm font-medium text-text-primary group-hover:text-brand-primary transition-colors"
+                >
+                  Remember me
+                </p>
+                <p class="text-xs text-text-secondary">
+                  Save my login details for next time.
+                </p>
+              </div>
+            </label>
+
+            <!-- Radio -->
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input
+                type="radio"
+                name="demo_radio"
+                class="w-4 h-4 border-border-default text-brand-primary focus:ring-brand-primary cursor-pointer accent-brand-primary"
+                checked
+              />
+              <span
+                class="text-sm font-medium text-text-primary group-hover:text-brand-primary transition-colors"
+                >Option A</span
+              >
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input
+                type="radio"
+                name="demo_radio"
+                class="w-4 h-4 border-border-default text-brand-primary focus:ring-brand-primary cursor-pointer accent-brand-primary"
+              />
+              <span
+                class="text-sm font-medium text-text-primary group-hover:text-brand-primary transition-colors"
+                >Option B</span
+              >
+            </label>
+
+            <!-- Textarea -->
+            <div>
+              <label class="block text-sm font-medium text-text-primary mb-1"
+                >Textarea</label
+              >
+              <textarea
+                rows="3"
+                placeholder="Type your message..."
+                class="w-full px-4 py-3 bg-white border border-border-default rounded-xl text-text-primary focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-shadow resize-none"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Badges & Alerts -->
+      <section>
+        <h2
+          class="font-display text-2xl font-medium mb-6 pb-2 border-b border-border-light text-brand-primary"
+        >
+          Badges & Alerts
+        </h2>
+
+        <h3 class="font-medium text-text-primary mb-4">Status Badges</h3>
+        <div class="flex flex-wrap gap-4 mb-8">
+          <span
+            class="px-2.5 py-1 rounded-md bg-status-success/10 text-status-success text-xs font-bold uppercase tracking-wider"
+            >Success</span
+          >
+          <span
+            class="px-2.5 py-1 rounded-md bg-status-warning/10 text-status-warning text-xs font-bold uppercase tracking-wider"
+            >Pending</span
+          >
+          <span
+            class="px-2.5 py-1 rounded-md bg-status-error/10 text-status-error text-xs font-bold uppercase tracking-wider"
+            >Failed</span
+          >
+          <span
+            class="px-2.5 py-1 rounded-md bg-status-info/10 text-status-info text-xs font-bold uppercase tracking-wider"
+            >Active</span
+          >
+          <span
+            class="px-2.5 py-1 rounded-md bg-border-dark text-white text-xs font-bold uppercase tracking-wider"
+            >Expired</span
+          >
+        </div>
+
+        <h3 class="font-medium text-text-primary mb-4">Alert Boxes</h3>
+        <div class="space-y-4">
+          <!-- Success Alert -->
+          <div
+            class="bg-status-success/10 border border-status-success/20 p-4 rounded-xl flex gap-3"
+          >
+            <i
+              data-lucide="check-circle-2"
+              class="w-5 h-5 text-status-success shrink-0"
+            ></i>
+            <div>
+              <h4 class="font-medium text-sm text-status-success mb-1">
+                Operation Successful
+              </h4>
+              <p class="text-xs text-text-secondary">
+                Your changes have been saved to the database successfully.
+              </p>
+            </div>
+          </div>
+          <!-- Warning Alert -->
+          <div
+            class="bg-status-warning/10 border border-status-warning/20 p-4 rounded-xl flex gap-3"
+          >
+            <i
+              data-lucide="triangle-alert"
+              class="w-5 h-5 text-status-warning shrink-0"
+            ></i>
+            <div>
+              <h4 class="font-medium text-sm text-status-warning mb-1">
+                Attention Required
+              </h4>
+              <p class="text-xs text-text-secondary">
+                Your subscription is about to expire in 3 days.
+              </p>
+            </div>
+          </div>
+          <!-- Error Alert -->
+          <div
+            class="bg-status-error/10 border border-status-error/20 p-4 rounded-xl flex gap-3"
+          >
+            <i
+              data-lucide="x-circle"
+              class="w-5 h-5 text-status-error shrink-0"
+            ></i>
+            <div>
+              <h4 class="font-medium text-sm text-status-error mb-1">
+                Payment Failed
+              </h4>
+              <p class="text-xs text-text-secondary">
+                We could not process your credit card. Please try again.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cards -->
+      <section>
+        <h2
+          class="font-display text-2xl font-medium mb-6 pb-2 border-b border-border-light text-brand-primary"
+        >
+          Cards
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Standard Card -->
+          <div
+            class="bg-white rounded-2xl border border-border-light p-6 shadow-sm"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-brand-light text-brand-primary flex items-center justify-center mb-4"
+            >
+              <i data-lucide="heart" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Standard Card</h3>
+            <p class="text-sm text-text-secondary mb-4">
+              A standard rounded-2xl card with a subtle border and shadow.
+            </p>
+            <a
+              href="#"
+              class="text-brand-primary text-sm font-medium hover:underline"
+              >Learn more</a
+            >
+          </div>
+
+          <!-- Hover Card -->
+          <div
+            class="bg-white rounded-2xl border border-border-light p-6 shadow-sm hover:shadow-xl hover:border-brand-primary transition-all duration-300 group cursor-pointer"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-brand-light text-brand-primary flex items-center justify-center mb-4 group-hover:bg-brand-primary group-hover:text-white transition-colors"
+            >
+              <i data-lucide="zap" class="w-5 h-5"></i>
+            </div>
+            <h3
+              class="font-medium text-text-primary mb-2 group-hover:text-brand-primary transition-colors"
+            >
+              Interactive Card
+            </h3>
+            <p class="text-sm text-text-secondary">
+              Hover me to see the border, shadow, and icon color transition.
+            </p>
+          </div>
+
+          <!-- Solid Card -->
+          <div
+            class="bg-brand-primary text-white rounded-2xl p-6 shadow-md relative overflow-hidden"
+          >
+            <div
+              class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-xl"
+            ></div>
+            <h3 class="font-medium text-lg mb-2 relative z-10">Solid Card</h3>
+            <p class="text-sm text-white/80 mb-6 relative z-10">
+              Used for call to actions or highly emphasized content blocks.
+            </p>
+            <button
+              class="bg-white text-brand-primary px-4 py-2 rounded-xl text-sm font-medium hover:bg-bg-canvas transition-colors relative z-10"
+            >
+              Action Button
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

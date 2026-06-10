@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VITARA - Care Meets Clarity | Premium Digital Health</title>
+    <meta
+      name="description"
+      content="VITARA is the most premium and modern medical template for digital health startups, telemedicine platforms, and premium clinics."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="../dist/assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary"
+  >
+    <!-- Announcement Bar -->
+    <div
+      class="bg-brand-primary text-text-inverse text-sm font-medium py-2 text-center w-full"
+    >
+      <p>
+        ✦ Online consultations are now available
+        <a
+          href="appointment.html"
+          class="underline ml-2 hover:text-brand-accent transition-colors"
+          >Start now →</a
+        >
+      </p>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 w-full z-50 transition-all duration-300 bg-transparent py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-8 text-sm font-medium text-text-secondary"
+        >
+          <a
+            href="index.html"
+            class="hover:text-brand-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="services.html"
+            class="hover:text-brand-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="doctors.html"
+            class="hover:text-brand-primary transition-colors"
+            >Doctors</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-brand-primary transition-colors"
+            >About</a
+          >
+          <a href="blog.html" class="hover:text-brand-primary transition-colors"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="hover:text-brand-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-brand-primary hover:after:scale-x-100 after:transition-transform after:origin-bottom-right hover:after:origin-bottom-left"
+            >Portal Login</a
+          >
+          <a
+            href="appointment.html"
+            class="bg-brand-primary text-text-inverse text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-secondary transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >Book Appointment</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT: BLOG ARTICLE -->
+    <main class="pt-24 lg:pt-32 pb-20">
+      <!-- Article Header -->
+      <article>
+        <header
+          class="max-w-4xl mx-auto px-6 mb-12 text-center"
+          data-aos="fade-up"
+        >
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <a
+              href="blog.html"
+              class="bg-brand-light text-brand-primary px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase hover:bg-brand-primary hover:text-text-inverse transition-colors"
+              >Nutrition</a
+            >
+            <span class="text-xs text-text-muted">5 min read</span>
+          </div>
+          <h1
+            class="font-display text-4xl md:text-5xl lg:text-6xl text-text-primary leading-[1.15] mb-8"
+          >
+            The Future of Nutritional Psychiatry: How Food Affects Your Mood
+          </h1>
+          <div class="flex items-center justify-center gap-4">
+            <img
+              src="assets/img/doctors/dr_michael_chen.png"
+              alt="Dr. Michael Chen"
+              class="w-12 h-12 rounded-full border-2 border-bg-surface object-cover shadow-sm"
+            />
+            <div class="text-left">
+              <p class="font-medium">Dr. Michael Chen</p>
+              <p class="text-sm text-text-muted">October 12, 2026</p>
+            </div>
+          </div>
+        </header>
+
+        <!-- Hero Image -->
+        <div
+          class="max-w-6xl mx-auto px-6 mb-16"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&q=80&w=1200"
+            alt="Healthy eating and mood"
+            class="w-full rounded-[32px] aspect-[21/9] object-cover shadow-xl"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="max-w-3xl mx-auto px-6">
+          <div
+            class="prose prose-lg prose-headings:font-display prose-headings:font-normal prose-a:text-brand-primary hover:prose-a:text-brand-secondary prose-img:rounded-2xl"
+            data-aos="fade-up"
+          >
+            <p class="lead text-xl text-text-secondary leading-relaxed mb-8">
+              For decades, psychiatry has largely focused on neurochemistry,
+              trauma, and behavioral patterns. But a new paradigm is
+              emerging—one that looks at the gut-brain axis and the profound
+              impact of our diet on our mental well-being.
+            </p>
+
+            <h2>The Gut-Brain Connection</h2>
+            <p>
+              Did you know that approximately 95% of your serotonin is produced
+              in your gastrointestinal tract? Your gut is lined with a hundred
+              million nerve cells, or neurons, and it makes sense that the inner
+              workings of your digestive system don't just help you digest food,
+              but also guide your emotions.
+            </p>
+            <p>
+              The function of these neurons — and the production of
+              neurotransmitters like serotonin — is highly influenced by the
+              billions of "good" bacteria that make up your intestinal
+              microbiome. These bacteria play an essential role in your health.
+              They protect the lining of your intestines and ensure they provide
+              a strong barrier against toxins and "bad" bacteria.
+            </p>
+
+            <blockquote
+              class="border-l-4 border-brand-primary pl-6 italic text-2xl font-display my-10 text-text-secondary"
+            >
+              "What we eat matters not just for our physical bodies, but
+              directly fuels our brains and dictates our cognitive clarity."
+            </blockquote>
+
+            <h2>Foods That Fuel Your Mind</h2>
+            <p>
+              While there isn't a single "magic bullet" food that cures
+              depression or anxiety, a dietary pattern focused on whole,
+              nutrient-dense foods has been consistently linked to better mental
+              health outcomes.
+            </p>
+            <ul>
+              <li>
+                <strong>Fatty Fish:</strong> Rich in Omega-3 fatty acids, which
+                are crucial for brain health and have been shown to reduce
+                symptoms of depression.
+              </li>
+              <li>
+                <strong>Fermented Foods:</strong> Yogurt, kefir, kombucha, and
+                kimchi contain probiotics that support a healthy gut microbiome.
+              </li>
+              <li>
+                <strong>Leafy Greens:</strong> Spinach, kale, and Swiss chard
+                are packed with folate, a B-vitamin essential for
+                neurotransmitter production.
+              </li>
+              <li>
+                <strong>Nuts and Seeds:</strong> Walnuts and chia seeds are
+                excellent plant-based sources of Omega-3s and magnesium.
+              </li>
+            </ul>
+
+            <h2>The Mediterranean Approach</h2>
+            <p>
+              Numerous studies have highlighted the Mediterranean diet as one of
+              the best dietary patterns for mental health. This diet emphasizes
+              fresh fruits, vegetables, whole grains, legumes, fish, and healthy
+              fats like olive oil, while minimizing processed foods and refined
+              sugars.
+            </p>
+
+            <h2>Moving Forward</h2>
+            <p>
+              Nutritional psychiatry isn't meant to replace traditional
+              therapies or medications. Instead, it offers a powerful adjunctive
+              approach. By paying attention to what we put on our plates, we can
+              take an active role in nurturing our mental health and building
+              resilience from the inside out.
+            </p>
+          </div>
+
+          <!-- Tags & Share -->
+          <div
+            class="mt-16 pt-8 border-t border-border-light flex flex-col sm:flex-row justify-between items-center gap-6"
+            data-aos="fade-up"
+          >
+            <div class="flex gap-2">
+              <span
+                class="px-3 py-1 bg-bg-elevated border border-border-light rounded-full text-xs text-text-secondary hover:border-brand-primary hover:text-brand-primary cursor-pointer transition-colors"
+                >Diet</span
+              >
+              <span
+                class="px-3 py-1 bg-bg-elevated border border-border-light rounded-full text-xs text-text-secondary hover:border-brand-primary hover:text-brand-primary cursor-pointer transition-colors"
+                >Mental Health</span
+              >
+              <span
+                class="px-3 py-1 bg-bg-elevated border border-border-light rounded-full text-xs text-text-secondary hover:border-brand-primary hover:text-brand-primary cursor-pointer transition-colors"
+                >Wellness</span
+              >
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-sm font-medium">Share:</span>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-bg-elevated flex items-center justify-center text-text-muted hover:text-brand-primary hover:bg-brand-light transition-colors"
+                ><i data-lucide="twitter" class="w-4 h-4"></i
+              ></a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-bg-elevated flex items-center justify-center text-text-muted hover:text-brand-primary hover:bg-brand-light transition-colors"
+                ><i data-lucide="facebook" class="w-4 h-4"></i
+              ></a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-bg-elevated flex items-center justify-center text-text-muted hover:text-brand-primary hover:bg-brand-light transition-colors"
+                ><i data-lucide="link" class="w-4 h-4"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Author Bio -->
+          <div
+            class="mt-12 p-8 bg-bg-elevated rounded-[24px] border border-border-light flex flex-col md:flex-row gap-6 items-center md:items-start"
+            data-aos="fade-up"
+          >
+            <img
+              src="assets/img/doctors/dr_michael_chen.png"
+              alt="Dr. Michael Chen"
+              class="w-24 h-24 rounded-full object-cover"
+            />
+            <div class="text-center md:text-left">
+              <h4 class="font-display text-xl mb-2">Dr. Michael Chen</h4>
+              <p class="text-brand-primary text-sm font-medium mb-3">
+                Head of Mental Health & Psychiatry
+              </p>
+              <p class="text-text-secondary text-sm leading-relaxed mb-4">
+                Dr. Chen specializes in holistic approaches to mental health,
+                integrating cognitive behavioral therapy with lifestyle and
+                nutritional interventions.
+              </p>
+              <a
+                href="#"
+                class="text-sm font-medium text-text-primary hover:text-brand-primary transition-colors"
+                >View Profile &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Related Articles -->
+      <section class="mt-24 py-16 bg-bg-surface border-t border-border-light">
+        <div class="max-w-7xl mx-auto px-6">
+          <h2
+            class="font-display text-3xl mb-10 text-center"
+            data-aos="fade-up"
+          >
+            More Insights
+          </h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Article 1 -->
+            <article
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-lg transition-all duration-400 flex flex-col"
+              data-aos="fade-up"
+              data-aos-delay="0"
+            >
+              <div class="aspect-[4/3] overflow-hidden relative">
+                <span
+                  class="absolute top-4 left-4 z-10 bg-brand-light text-brand-primary px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-sm"
+                  >Cardiology</span
+                >
+                <img
+                  src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&q=80&w=600"
+                  alt="Heart health"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div
+                  class="flex items-center gap-3 text-xs text-text-muted mb-3"
+                >
+                  <span>Oct 10, 2026</span>
+                  <span>•</span>
+                  <span>4 min read</span>
+                </div>
+                <h3
+                  class="font-display text-xl mb-3 group-hover:text-brand-primary transition-colors"
+                >
+                  <a
+                    href="blog-article.html"
+                    class="before:absolute before:inset-0"
+                    >5 Subtle Signs of Heart Issues You Shouldn't Ignore</a
+                  >
+                </h3>
+              </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-lg transition-all duration-400 flex flex-col"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="aspect-[4/3] overflow-hidden relative">
+                <span
+                  class="absolute top-4 left-4 z-10 bg-brand-light text-brand-primary px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-sm"
+                  >Wellness</span
+                >
+                <img
+                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600"
+                  alt="Yoga"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div
+                  class="flex items-center gap-3 text-xs text-text-muted mb-3"
+                >
+                  <span>Sep 28, 2026</span>
+                  <span>•</span>
+                  <span>3 min read</span>
+                </div>
+                <h3
+                  class="font-display text-xl mb-3 group-hover:text-brand-primary transition-colors"
+                >
+                  <a
+                    href="blog-article.html"
+                    class="before:absolute before:inset-0"
+                    >The Science of Sleep and Recovery</a
+                  >
+                </h3>
+              </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article
+              class="group bg-bg-canvas rounded-2xl border border-border-light overflow-hidden hover:shadow-lg transition-all duration-400 flex flex-col"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="aspect-[4/3] overflow-hidden relative">
+                <span
+                  class="absolute top-4 left-4 z-10 bg-brand-light text-brand-primary px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase backdrop-blur-sm"
+                  >Pediatrics</span
+                >
+                <img
+                  src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=600"
+                  alt="Child wellness"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div
+                  class="flex items-center gap-3 text-xs text-text-muted mb-3"
+                >
+                  <span>Oct 05, 2026</span>
+                  <span>•</span>
+                  <span>6 min read</span>
+                </div>
+                <h3
+                  class="font-display text-xl mb-3 group-hover:text-brand-primary transition-colors"
+                >
+                  <a
+                    href="blog-article.html"
+                    class="before:absolute before:inset-0"
+                    >Building Your Child's Immunity Before Winter</a
+                  >
+                </h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="bg-bg-elevated pt-20 pb-10 border-t border-border-light">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16"
+        >
+          <!-- Brand Column -->
+          <div class="lg:col-span-2">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm mb-6 max-w-sm">
+              Premium healthcare services that reach wherever you need them.
+              Delivering care that feels like home.
+            </p>
+
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  />
+                  <polygon
+                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 class="font-semibold mb-6">Services</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Mental Health</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Cardiology</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Dental Care</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h4 class="font-semibold mb-6">Company</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Doctors</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact & Legal -->
+          <div>
+            <h4 class="font-semibold mb-6">Contact</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="map-pin"
+                  class="w-4 h-4 mt-0.5 text-brand-primary shrink-0"
+                ></i>
+                <span>123 Health Ave, Medical District, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="phone"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>Emergency: 119</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="mail"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>care@vitara.health</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-border-light flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-muted"
+        >
+          <p>&copy; 2026 Vitara Health. All rights reserved.</p>
+          <div class="flex gap-4">
+            <a href="utility-privacy.html" class="hover:text-text-primary"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-text-primary">Terms of Service</a>
+            <a href="#" class="hover:text-text-primary">HIPAA Notice</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script to Initialize Icons and App -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

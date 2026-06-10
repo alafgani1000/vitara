@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VITARA - Care Meets Clarity | Premium Digital Health</title>
+    <meta
+      name="description"
+      content="VITARA is the most premium and modern medical template for digital health startups, telemedicine platforms, and premium clinics."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="../dist/assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary"
+  >
+    <!-- Announcement Bar -->
+    <div
+      class="bg-brand-primary text-text-inverse text-sm font-medium py-2 text-center w-full"
+    >
+      <p>
+        ✦ Online consultations are now available
+        <a
+          href="appointment.html"
+          class="underline ml-2 hover:text-brand-accent transition-colors"
+          >Start now →</a
+        >
+      </p>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="sticky top-0 w-full z-50 transition-all duration-300 bg-transparent py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-8 text-sm font-medium text-text-secondary"
+        >
+          <a
+            href="index.html"
+            class="hover:text-brand-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="services.html"
+            class="hover:text-brand-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="doctors.html"
+            class="hover:text-brand-primary transition-colors"
+            >Doctors</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-brand-primary transition-colors"
+            >About</a
+          >
+          <a href="blog.html" class="hover:text-brand-primary transition-colors"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="hover:text-brand-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-brand-primary hover:after:scale-x-100 after:transition-transform after:origin-bottom-right hover:after:origin-bottom-left"
+            >Portal Login</a
+          >
+          <a
+            href="appointment.html"
+            class="bg-brand-primary text-text-inverse text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-secondary transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >Book Appointment</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT: SERVICES -->
+    <main class="pt-24 lg:pt-32 pb-20">
+      <!-- Hero Section -->
+      <section class="py-16 md:py-24 bg-bg-canvas text-center">
+        <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/50 border border-brand-primary/10 text-brand-primary text-sm font-medium mb-6"
+          >
+            <span class="text-brand-accent">✦</span> Departments & Specialties
+          </div>
+          <h1
+            class="font-display text-5xl md:text-6xl font-light text-text-primary leading-[1.1] mb-6"
+          >
+            Comprehensive Medical Services
+          </h1>
+          <p class="text-lg text-text-secondary">
+            From preventative check-ups to highly specialized treatments, our
+            multidisciplinary team is equipped to support every aspect of your
+            health journey.
+          </p>
+        </div>
+      </section>
+
+      <!-- Services Grid -->
+      <section class="py-16 bg-bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div
+              class="bg-bg-elevated/50 p-8 rounded-[32px] border border-border-light hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300 group"
+              data-aos="fade-up"
+              data-aos-delay="0"
+            >
+              <div
+                class="w-16 h-16 rounded-[20px] bg-bg-surface border border-border-light flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+              >
+                <i data-lucide="stethoscope" class="w-8 h-8"></i>
+              </div>
+              <h3
+                class="font-display text-2xl mb-3 group-hover:text-brand-primary transition-colors"
+              >
+                General Practice
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                Routine checkups, physical exams, vaccinations, and management
+                of common medical conditions for all ages.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Annual Physicals
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Preventive Care
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Immunizations
+                </li>
+              </ul>
+              <a
+                href="appointment.html"
+                class="inline-flex items-center gap-2 font-medium text-brand-primary hover:text-brand-secondary"
+                >Book <i data-lucide="arrow-right" class="w-4 h-4"></i
+              ></a>
+            </div>
+
+            <!-- Service 2 -->
+            <div
+              class="bg-bg-elevated/50 p-8 rounded-[32px] border border-border-light hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300 group"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="w-16 h-16 rounded-[20px] bg-bg-surface border border-border-light flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+              >
+                <i data-lucide="heart-pulse" class="w-8 h-8"></i>
+              </div>
+              <h3
+                class="font-display text-2xl mb-3 group-hover:text-brand-primary transition-colors"
+              >
+                Cardiology
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                Advanced diagnostics, treatment, and ongoing management of
+                cardiovascular diseases and heart conditions.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  ECG & Echocardiogram
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Hypertension Management
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Cardiac Rehabilitation
+                </li>
+              </ul>
+              <a
+                href="appointment.html"
+                class="inline-flex items-center gap-2 font-medium text-brand-primary hover:text-brand-secondary"
+                >Book <i data-lucide="arrow-right" class="w-4 h-4"></i
+              ></a>
+            </div>
+
+            <!-- Service 3 -->
+            <div
+              class="bg-bg-elevated/50 p-8 rounded-[32px] border border-border-light hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300 group"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div
+                class="w-16 h-16 rounded-[20px] bg-bg-surface border border-border-light flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+              >
+                <i data-lucide="brain" class="w-8 h-8"></i>
+              </div>
+              <h3
+                class="font-display text-2xl mb-3 group-hover:text-brand-primary transition-colors"
+              >
+                Mental Health
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                Comprehensive psychological evaluation, counseling, and
+                psychiatric care in a safe, supportive environment.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Cognitive Behavioral Therapy
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Psychiatry & Medication
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Stress & Anxiety Relief
+                </li>
+              </ul>
+              <a
+                href="appointment.html"
+                class="inline-flex items-center gap-2 font-medium text-brand-primary hover:text-brand-secondary"
+                >Book <i data-lucide="arrow-right" class="w-4 h-4"></i
+              ></a>
+            </div>
+
+            <!-- Service 4 -->
+            <div
+              class="bg-bg-elevated/50 p-8 rounded-[32px] border border-border-light hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300 group"
+              data-aos="fade-up"
+              data-aos-delay="0"
+            >
+              <div
+                class="w-16 h-16 rounded-[20px] bg-bg-surface border border-border-light flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+              >
+                <i data-lucide="baby" class="w-8 h-8"></i>
+              </div>
+              <h3
+                class="font-display text-2xl mb-3 group-hover:text-brand-primary transition-colors"
+              >
+                Pediatrics
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                Specialized, gentle medical care for infants, children, and
+                adolescents focusing on developmental health.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Well-child Visits
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Nutrition Counseling
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Pediatric Diagnostics
+                </li>
+              </ul>
+              <a
+                href="appointment.html"
+                class="inline-flex items-center gap-2 font-medium text-brand-primary hover:text-brand-secondary"
+                >Book <i data-lucide="arrow-right" class="w-4 h-4"></i
+              ></a>
+            </div>
+
+            <!-- Service 5 -->
+            <div
+              class="bg-bg-elevated/50 p-8 rounded-[32px] border border-border-light hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300 group"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="w-16 h-16 rounded-[20px] bg-bg-surface border border-border-light flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+              >
+                <i data-lucide="bone" class="w-8 h-8"></i>
+              </div>
+              <h3
+                class="font-display text-2xl mb-3 group-hover:text-brand-primary transition-colors"
+              >
+                Orthopedics
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                Diagnosis, treatment, and rehabilitation of disorders of the
+                bones, joints, ligaments, tendons, and muscles.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Sports Injuries
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Joint Replacement
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Physiotherapy
+                </li>
+              </ul>
+              <a
+                href="appointment.html"
+                class="inline-flex items-center gap-2 font-medium text-brand-primary hover:text-brand-secondary"
+                >Book <i data-lucide="arrow-right" class="w-4 h-4"></i
+              ></a>
+            </div>
+
+            <!-- Service 6 -->
+            <div
+              class="bg-bg-elevated/50 p-8 rounded-[32px] border border-border-light hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300 group"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div
+                class="w-16 h-16 rounded-[20px] bg-bg-surface border border-border-light flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+              >
+                <i data-lucide="activity" class="w-8 h-8"></i>
+              </div>
+              <h3
+                class="font-display text-2xl mb-3 group-hover:text-brand-primary transition-colors"
+              >
+                Diagnostics & Lab
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed mb-6">
+                State-of-the-art laboratory and imaging services ensuring quick,
+                precise, and reliable medical test results.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  X-Ray, MRI & CT Scans
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Comprehensive Blood Panels
+                </li>
+                <li class="flex items-center gap-2 text-sm text-text-secondary">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent"></i>
+                  Same-day Results
+                </li>
+              </ul>
+              <a
+                href="appointment.html"
+                class="inline-flex items-center gap-2 font-medium text-brand-primary hover:text-brand-secondary"
+                >Book <i data-lucide="arrow-right" class="w-4 h-4"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section
+        class="py-20 bg-brand-primary text-center relative overflow-hidden"
+      >
+        <!-- Decorative svg -->
+        <div
+          class="absolute inset-0 opacity-10"
+          style="
+            background-image: url(&quot;data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%221%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);
+          "
+        ></div>
+        <div class="max-w-3xl mx-auto px-6 relative z-10" data-aos="zoom-in">
+          <h2 class="font-display text-4xl text-text-inverse mb-6">
+            Need a specialized consultation?
+          </h2>
+          <p class="text-brand-light mb-10 text-lg">
+            Our patient care team is available to help you find the right
+            specialist and schedule your visit seamlessly.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="appointment.html"
+              class="bg-bg-surface text-brand-primary font-medium px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-lg"
+              >Book Now</a
+            >
+            <a
+              href="contact.html"
+              class="border border-white/30 text-text-inverse font-medium px-8 py-4 rounded-full hover:bg-white/10 transition-colors"
+              >Contact Support</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="bg-bg-elevated pt-20 pb-10 border-t border-border-light">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16"
+        >
+          <!-- Brand Column -->
+          <div class="lg:col-span-2">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm mb-6 max-w-sm">
+              Premium healthcare services that reach wherever you need them.
+              Delivering care that feels like home.
+            </p>
+
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  />
+                  <polygon
+                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 class="font-semibold mb-6">Services</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Mental Health</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Cardiology</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Dental Care</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h4 class="font-semibold mb-6">Company</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Doctors</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact & Legal -->
+          <div>
+            <h4 class="font-semibold mb-6">Contact</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="map-pin"
+                  class="w-4 h-4 mt-0.5 text-brand-primary shrink-0"
+                ></i>
+                <span>123 Health Ave, Medical District, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="phone"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>Emergency: 119</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="mail"
+                  class="w-4 h-4 text-brand-primary shrink-0"
+                ></i>
+                <span>care@vitara.health</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-border-light flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-muted"
+        >
+          <p>&copy; 2026 Vitara Health. All rights reserved.</p>
+          <div class="flex gap-4">
+            <a href="utility-privacy.html" class="hover:text-text-primary"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-text-primary">Terms of Service</a>
+            <a href="#" class="hover:text-text-primary">HIPAA Notice</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script to Initialize Icons and App -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

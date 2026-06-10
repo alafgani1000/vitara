@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vitara Wellness & Mental Health</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-sage selection:text-text-inverse min-h-screen flex flex-col font-body"
+  >
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-all duration-500 bg-bg-canvas/60 backdrop-blur-xl border-b border-white/20 py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index-wellness.html" class="flex items-center gap-3 group">
+          <div
+            class="w-8 h-8 rounded-full bg-brand-sage text-text-inverse flex items-center justify-center font-display text-xl transition-transform duration-500 group-hover:rotate-12"
+          >
+            <i data-lucide="leaf" class="w-4 h-4"></i>
+          </div>
+          <span
+            class="font-display font-medium text-2xl tracking-tight text-text-primary"
+            >VITARA
+            <span class="font-sans text-sm text-text-muted italic ml-1"
+              >Wellness</span
+            ></span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-10 text-sm font-medium text-text-secondary"
+        >
+          <a href="#" class="text-brand-sage transition-colors">Home</a>
+          <a href="#programs" class="hover:text-brand-sage transition-colors"
+            >Programs</a
+          >
+          <a href="#therapists" class="hover:text-brand-sage transition-colors"
+            >Therapists</a
+          >
+          <a href="#app" class="hover:text-brand-sage transition-colors"
+            >The App</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="#"
+            class="text-sm font-medium text-text-secondary hover:text-brand-sage transition-colors"
+            >Sign In</a
+          >
+          <a
+            href="#"
+            class="bg-text-primary text-text-inverse text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-sage transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >Start Journey</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+      <!-- Hero Section with Soft Aesthetics & Mood Check-in -->
+      <section
+        class="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-bg-canvas"
+      >
+        <!-- Pastel Gradients Background -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-60">
+          <div
+            class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-sage/20 rounded-full blur-[120px] transform translate-x-1/3 -translate-y-1/4"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-lavender/20 rounded-full blur-[100px] transform -translate-x-1/4 translate-y-1/4"
+          ></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            <div class="lg:w-1/2 text-center lg:text-left">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-sm border border-white/50 text-brand-sage text-sm font-medium mb-6 shadow-sm"
+              >
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Your safe space to grow</span>
+              </div>
+              <h1
+                class="font-display text-5xl md:text-6xl lg:text-7xl font-medium text-text-primary mb-6 leading-[1.1]"
+              >
+                Find your inner <br /><span class="text-brand-sage italic"
+                  >peace</span
+                >
+                & balance.
+              </h1>
+              <p
+                class="text-text-secondary text-lg md:text-xl leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0"
+              >
+                A holistic approach to mental well-being. Connect with
+                empathetic therapists, build mindful habits, and track your
+                emotional journey.
+              </p>
+              <div
+                class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              >
+                <a
+                  href="#"
+                  class="bg-brand-sage text-text-inverse font-medium px-8 py-4 rounded-full hover:opacity-90 transition-all hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto text-center"
+                >
+                  Match with a Therapist
+                </a>
+                <a
+                  href="#programs"
+                  class="bg-white/50 backdrop-blur-sm border border-border-default text-text-primary font-medium px-8 py-4 rounded-full hover:bg-white hover:border-brand-sage transition-all w-full sm:w-auto text-center"
+                >
+                  Explore Programs
+                </a>
+              </div>
+            </div>
+
+            <!-- Mood Check-in Widget -->
+            <div class="lg:w-1/2 w-full max-w-md mx-auto">
+              <div
+                class="bg-white/70 backdrop-blur-xl border border-white p-8 rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] float-anim relative"
+              >
+                <!-- Decorative elements -->
+                <div
+                  class="absolute -top-4 -right-4 w-12 h-12 bg-brand-lavender/30 rounded-full blur-md"
+                ></div>
+                <div
+                  class="absolute -bottom-6 -left-6 w-20 h-20 bg-brand-sage/20 rounded-full blur-xl"
+                ></div>
+
+                <div class="text-center mb-8 relative z-10">
+                  <h3
+                    class="font-display text-2xl font-medium text-text-primary mb-2"
+                  >
+                    How are you feeling today?
+                  </h3>
+                  <p class="text-sm text-text-secondary">
+                    Take a moment to check in with yourself.
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-5 gap-3 mb-8 relative z-10">
+                  <button
+                    class="flex flex-col items-center gap-2 group hover:-translate-y-1 transition-transform"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-full bg-status-error/10 flex items-center justify-center text-2xl border border-status-error/20 group-hover:bg-status-error/20 transition-colors"
+                    >
+                      😢
+                    </div>
+                    <span
+                      class="text-xs text-text-muted group-hover:text-text-primary font-medium"
+                      >Sad</span
+                    >
+                  </button>
+                  <button
+                    class="flex flex-col items-center gap-2 group hover:-translate-y-1 transition-transform"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-full bg-status-warning/10 flex items-center justify-center text-2xl border border-status-warning/20 group-hover:bg-status-warning/20 transition-colors"
+                    >
+                      😟
+                    </div>
+                    <span
+                      class="text-xs text-text-muted group-hover:text-text-primary font-medium"
+                      >Anxious</span
+                    >
+                  </button>
+                  <button
+                    class="flex flex-col items-center gap-2 group hover:-translate-y-1 transition-transform transform scale-110"
+                  >
+                    <div
+                      class="w-14 h-14 rounded-full bg-brand-lavender/20 flex items-center justify-center text-3xl border-2 border-brand-lavender shadow-sm"
+                    >
+                      😐
+                    </div>
+                    <span class="text-xs text-brand-lavender font-semibold"
+                      >Okay</span
+                    >
+                  </button>
+                  <button
+                    class="flex flex-col items-center gap-2 group hover:-translate-y-1 transition-transform"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-full bg-brand-sage/10 flex items-center justify-center text-2xl border border-brand-sage/20 group-hover:bg-brand-sage/20 transition-colors"
+                    >
+                      🙂
+                    </div>
+                    <span
+                      class="text-xs text-text-muted group-hover:text-text-primary font-medium"
+                      >Good</span
+                    >
+                  </button>
+                  <button
+                    class="flex flex-col items-center gap-2 group hover:-translate-y-1 transition-transform"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-full bg-status-success/10 flex items-center justify-center text-2xl border border-status-success/20 group-hover:bg-status-success/20 transition-colors"
+                    >
+                      🥰
+                    </div>
+                    <span
+                      class="text-xs text-text-muted group-hover:text-text-primary font-medium"
+                      >Great</span
+                    >
+                  </button>
+                </div>
+
+                <textarea
+                  rows="2"
+                  placeholder="Would you like to add a note?"
+                  class="w-full bg-bg-canvas/50 border border-border-light rounded-xl p-4 text-sm focus:outline-none focus:border-brand-sage focus:ring-1 focus:ring-brand-sage transition-all resize-none mb-4 relative z-10"
+                ></textarea>
+
+                <button
+                  class="w-full bg-text-primary text-text-inverse py-3.5 rounded-xl text-sm font-medium hover:bg-brand-sage transition-colors relative z-10 shadow-sm"
+                >
+                  Save Journal Entry
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Program Pillars -->
+      <section id="programs" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2
+              class="font-display text-3xl md:text-4xl font-medium text-text-primary mb-4"
+            >
+              Pillars of Well-being
+            </h2>
+            <p class="text-text-secondary text-lg">
+              Guided programs designed by clinical psychologists to help you
+              navigate life's challenges with resilience.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div
+              class="bg-bg-canvas rounded-[2rem] p-8 border border-border-light hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-brand-sage/10 flex items-center justify-center text-brand-sage mb-6 group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="flower-2" class="w-7 h-7"></i>
+              </div>
+              <h3
+                class="font-display text-xl font-medium text-text-primary mb-3"
+              >
+                Mindfulness
+              </h3>
+              <p class="text-sm text-text-secondary leading-relaxed mb-6">
+                Learn to stay present, observe your thoughts without judgment,
+                and cultivate daily gratitude.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center text-sm font-medium text-text-primary group-hover:text-brand-sage transition-colors"
+              >
+                Explore program
+                <i
+                  data-lucide="arrow-right"
+                  class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
+                ></i>
+              </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="bg-bg-canvas rounded-[2rem] p-8 border border-border-light hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-brand-lavender/20 flex items-center justify-center text-brand-lavender mb-6 group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="moon" class="w-7 h-7"></i>
+              </div>
+              <h3
+                class="font-display text-xl font-medium text-text-primary mb-3"
+              >
+                Deep Sleep
+              </h3>
+              <p class="text-sm text-text-secondary leading-relaxed mb-6">
+                Overcome insomnia and improve sleep quality with soundscapes,
+                wind-down routines, and CBT-I.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center text-sm font-medium text-text-primary group-hover:text-brand-lavender transition-colors"
+              >
+                Explore program
+                <i
+                  data-lucide="arrow-right"
+                  class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
+                ></i>
+              </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="bg-bg-canvas rounded-[2rem] p-8 border border-border-light hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-status-warning/10 flex items-center justify-center text-status-warning mb-6 group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="wind" class="w-7 h-7"></i>
+              </div>
+              <h3
+                class="font-display text-xl font-medium text-text-primary mb-3"
+              >
+                Stress Relief
+              </h3>
+              <p class="text-sm text-text-secondary leading-relaxed mb-6">
+                Practical tools to manage burnout, regulate your nervous system,
+                and find calm in chaos.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center text-sm font-medium text-text-primary group-hover:text-status-warning transition-colors"
+              >
+                Explore program
+                <i
+                  data-lucide="arrow-right"
+                  class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
+                ></i>
+              </a>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="bg-bg-canvas rounded-[2rem] p-8 border border-border-light hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-6 group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="heart" class="w-7 h-7"></i>
+              </div>
+              <h3
+                class="font-display text-xl font-medium text-text-primary mb-3"
+              >
+                Anxiety Care
+              </h3>
+              <p class="text-sm text-text-secondary leading-relaxed mb-6">
+                Cognitive restructuring exercises, panic SOS tools, and guided
+                sessions to soothe an anxious mind.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center text-sm font-medium text-text-primary group-hover:text-brand-primary transition-colors"
+              >
+                Explore program
+                <i
+                  data-lucide="arrow-right"
+                  class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Therapist Matching Section -->
+      <section
+        id="therapists"
+        class="py-24 bg-bg-elevated relative overflow-hidden"
+      >
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+              <div
+                class="absolute inset-0 bg-brand-sage/20 rounded-[3rem] transform rotate-3"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
+                alt="Empathetic therapist smiling"
+                class="relative z-10 rounded-[3rem] object-cover aspect-square shadow-xl w-full"
+              />
+
+              <!-- Floating Card -->
+              <div
+                class="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl shadow-xl z-20 w-64 border border-border-light"
+              >
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-12 h-12 rounded-full overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=100"
+                      alt="Avatar"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-sm text-text-primary">
+                      Sarah J., LMFT
+                    </h4>
+                    <p class="text-xs text-text-secondary">Matched 98%</p>
+                  </div>
+                </div>
+                <button
+                  class="w-full bg-brand-sage/10 text-brand-sage text-sm font-medium py-2 rounded-xl hover:bg-brand-sage hover:text-white transition-colors"
+                >
+                  Send a Message
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <h2
+                class="font-display text-4xl font-medium text-text-primary mb-6"
+              >
+                Find someone who truly understands.
+              </h2>
+              <p class="text-text-secondary text-lg leading-relaxed mb-8">
+                Therapy isn't one-size-fits-all. Our matching algorithm connects
+                you with licensed therapists based on your specific emotional
+                needs, communication style, and lived experiences.
+              </p>
+
+              <ul class="space-y-5 mb-10">
+                <li class="flex items-start gap-4">
+                  <div
+                    class="w-8 h-8 rounded-full bg-brand-lavender/20 flex items-center justify-center text-brand-lavender shrink-0 mt-0.5"
+                  >
+                    <i data-lucide="message-circle-heart" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-text-primary mb-1">
+                      Text, voice, or video sessions
+                    </h4>
+                    <p class="text-sm text-text-secondary">
+                      Communicate in the medium that feels safest to you.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div
+                    class="w-8 h-8 rounded-full bg-brand-lavender/20 flex items-center justify-center text-brand-lavender shrink-0 mt-0.5"
+                  >
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-text-primary mb-1">
+                      Vetted, licensed professionals
+                    </h4>
+                    <p class="text-sm text-text-secondary">
+                      Every therapist undergoes rigorous clinical and empathetic
+                      screening.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div
+                    class="w-8 h-8 rounded-full bg-brand-lavender/20 flex items-center justify-center text-brand-lavender shrink-0 mt-0.5"
+                  >
+                    <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-text-primary mb-1">
+                      Switch anytime, no questions asked
+                    </h4>
+                    <p class="text-sm text-text-secondary">
+                      If it's not a perfect fit, finding a new therapist is just
+                      a click away.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+
+              <button
+                class="bg-text-primary text-text-inverse font-medium px-8 py-4 rounded-full hover:bg-brand-sage transition-all shadow-lg flex items-center gap-2"
+              >
+                Take the Matching Quiz
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonial (Emotional Journey) -->
+      <section
+        class="py-24 bg-brand-sage text-text-inverse relative overflow-hidden"
+      >
+        <div class="absolute inset-0 opacity-10">
+          <!-- Abstract leaf pattern or noise could go here -->
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern
+                id="noise"
+                width="400"
+                height="400"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect width="400" height="400" fill="#fff" />
+                <!-- simulated noise -->
+                <circle cx="20" cy="20" r="1" fill="#000" />
+                <circle cx="80" cy="40" r="0.5" fill="#000" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#noise)" />
+          </svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+          <i
+            data-lucide="quote"
+            class="w-16 h-16 text-white/30 mx-auto mb-8"
+          ></i>
+          <h2
+            class="font-display text-3xl md:text-5xl font-medium leading-tight mb-10 text-balance"
+          >
+            "I used to think asking for help was a sign of weakness. Through
+            Vitara, I learned it's the bravest thing I've ever done. I finally
+            feel like myself again—but a softer, stronger version."
+          </h2>
+          <div class="flex items-center justify-center gap-4">
+            <div
+              class="w-14 h-14 rounded-full overflow-hidden border-2 border-white/30"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+                alt="Elena's avatar"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="text-left">
+              <p class="font-medium text-lg">Elena M.</p>
+              <p class="text-white/70 text-sm">Member since 2024</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- App Mockup Section -->
+      <section id="app" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2
+                class="font-display text-4xl font-medium text-text-primary mb-6"
+              >
+                Your pocket companion for emotional clarity.
+              </h2>
+              <p class="text-text-secondary text-lg leading-relaxed mb-8">
+                Take your wellness journey anywhere. The Vitara app provides
+                bite-sized exercises, daily tracking, and instant SOS tools when
+                you feel overwhelmed.
+              </p>
+
+              <div class="grid sm:grid-cols-2 gap-6 mb-10">
+                <div
+                  class="bg-bg-canvas p-6 rounded-3xl border border-border-light"
+                >
+                  <i
+                    data-lucide="bar-chart-2"
+                    class="w-6 h-6 text-brand-sage mb-4"
+                  ></i>
+                  <h4 class="font-medium text-text-primary mb-2">
+                    Mood Tracking
+                  </h4>
+                  <p class="text-sm text-text-secondary">
+                    Identify patterns and triggers over time.
+                  </p>
+                </div>
+                <div
+                  class="bg-bg-canvas p-6 rounded-3xl border border-border-light"
+                >
+                  <i
+                    data-lucide="wind"
+                    class="w-6 h-6 text-brand-lavender mb-4"
+                  ></i>
+                  <h4 class="font-medium text-text-primary mb-2">Breathwork</h4>
+                  <p class="text-sm text-text-secondary">
+                    Interactive animations to pace your breathing.
+                  </p>
+                </div>
+                <div
+                  class="bg-bg-canvas p-6 rounded-3xl border border-border-light"
+                >
+                  <i
+                    data-lucide="book"
+                    class="w-6 h-6 text-brand-accent mb-4"
+                  ></i>
+                  <h4 class="font-medium text-text-primary mb-2">
+                    Guided Journaling
+                  </h4>
+                  <p class="text-sm text-text-secondary">
+                    Prompts to help untangle complex thoughts.
+                  </p>
+                </div>
+                <div
+                  class="bg-bg-canvas p-6 rounded-3xl border border-border-light"
+                >
+                  <i
+                    data-lucide="shield-alert"
+                    class="w-6 h-6 text-status-warning mb-4"
+                  ></i>
+                  <h4 class="font-medium text-text-primary mb-2">SOS Tools</h4>
+                  <p class="text-sm text-text-secondary">
+                    Immediate grounding exercises for panic attacks.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="bg-text-primary text-text-inverse px-6 py-3 rounded-xl flex items-center gap-3 hover:bg-brand-sage transition-colors"
+                >
+                  <i data-lucide="apple" class="w-6 h-6"></i>
+                  <div class="text-left">
+                    <p class="text-[10px] leading-none mb-1 opacity-80">
+                      Download on the
+                    </p>
+                    <p class="text-sm font-semibold leading-none">App Store</p>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="bg-text-primary text-text-inverse px-6 py-3 rounded-xl flex items-center gap-3 hover:bg-brand-sage transition-colors"
+                >
+                  <i data-lucide="play" class="w-6 h-6"></i>
+                  <div class="text-left">
+                    <p class="text-[10px] leading-none mb-1 opacity-80">
+                      GET IT ON
+                    </p>
+                    <p class="text-sm font-semibold leading-none">
+                      Google Play
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Phone Mockup Container -->
+            <div class="relative flex justify-center lg:justify-end">
+              <div
+                class="absolute inset-0 bg-brand-lavender/10 rounded-full blur-[100px] pointer-events-none"
+              ></div>
+
+              <!-- The Phone -->
+              <div
+                class="relative w-[300px] h-[600px] bg-text-primary rounded-[3rem] border-[8px] border-text-primary shadow-2xl overflow-hidden z-10 flex flex-col"
+              >
+                <!-- Notch -->
+                <div
+                  class="absolute top-0 inset-x-0 h-6 bg-text-primary rounded-b-3xl w-40 mx-auto z-20"
+                ></div>
+
+                <!-- App Content inside Mockup -->
+                <div
+                  class="flex-1 bg-bg-canvas overflow-y-auto no-scrollbar relative"
+                >
+                  <div
+                    class="bg-brand-sage p-6 text-white pt-12 pb-10 rounded-b-[2rem]"
+                  >
+                    <h3 class="font-display text-2xl font-medium mb-1">
+                      Good morning, Elena.
+                    </h3>
+                    <p class="text-sm opacity-90">
+                      Ready for your daily check-in?
+                    </p>
+                  </div>
+
+                  <div class="p-5 -mt-6">
+                    <!-- Breathing Card -->
+                    <div
+                      class="bg-white rounded-2xl p-4 shadow-sm border border-border-light mb-4 flex items-center justify-between"
+                    >
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-10 h-10 rounded-full bg-brand-lavender/20 flex items-center justify-center text-brand-lavender"
+                        >
+                          <i data-lucide="wind" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                          <p class="font-medium text-sm text-text-primary">
+                            Box Breathing
+                          </p>
+                          <p class="text-[10px] text-text-secondary">
+                            3 min &middot; Calming
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        class="w-8 h-8 bg-brand-sage text-white rounded-full flex items-center justify-center"
+                      >
+                        <i data-lucide="play" class="w-3 h-3 ml-0.5"></i>
+                      </button>
+                    </div>
+
+                    <!-- Journal Card -->
+                    <div
+                      class="bg-white rounded-2xl p-4 shadow-sm border border-border-light mb-4"
+                    >
+                      <div class="flex items-center justify-between mb-3">
+                        <p class="font-medium text-sm text-text-primary">
+                          Today's Prompt
+                        </p>
+                        <i
+                          data-lucide="pen-tool"
+                          class="w-4 h-4 text-brand-sage"
+                        ></i>
+                      </div>
+                      <p class="text-xs text-text-secondary italic mb-4">
+                        "What is one boundary you can set today to protect your
+                        energy?"
+                      </p>
+                      <button
+                        class="w-full py-2 bg-bg-elevated text-xs font-medium text-text-primary rounded-xl hover:bg-brand-sage/10 transition-colors"
+                      >
+                        Start Writing
+                      </button>
+                    </div>
+
+                    <!-- Streak -->
+                    <div
+                      class="bg-white rounded-2xl p-4 shadow-sm border border-border-light flex justify-between items-center"
+                    >
+                      <div>
+                        <p
+                          class="text-[10px] text-text-secondary uppercase font-bold tracking-wider mb-1"
+                        >
+                          Current Streak
+                        </p>
+                        <p class="font-display text-2xl text-brand-sage">
+                          12
+                          <span class="text-sm text-text-secondary font-sans"
+                            >days</span
+                          >
+                        </p>
+                      </div>
+                      <i
+                        data-lucide="flame"
+                        class="w-8 h-8 text-brand-accent opacity-20"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="bg-bg-canvas border-t border-border-light py-12">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <a href="index-wellness.html" class="flex items-center gap-2">
+          <div
+            class="w-6 h-6 rounded-full bg-brand-sage text-text-inverse flex items-center justify-center font-display text-xs"
+          >
+            <i data-lucide="leaf" class="w-3 h-3"></i>
+          </div>
+          <span
+            class="font-display font-medium text-xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <div class="flex gap-6 text-sm font-medium text-text-secondary">
+          <a href="#" class="hover:text-brand-sage transition-colors"
+            >Emergency Resources</a
+          >
+          <a href="#" class="hover:text-brand-sage transition-colors"
+            >Privacy Policy</a
+          >
+          <a href="#" class="hover:text-brand-sage transition-colors"
+            >Terms of Use</a
+          >
+        </div>
+
+        <p class="text-xs text-text-muted">&copy; 2026 Vitara Wellness.</p>
+      </div>
+    </footer>
+
+    <!-- Initialize Icons & Scroll Logic -->
+    <script>
+      lucide.createIcons();
+
+      // Navbar Scroll Effect
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 20) {
+          nav.classList.add("shadow-sm", "bg-white/90");
+          nav.classList.remove("bg-bg-canvas/60");
+          nav.classList.replace("py-4", "py-3");
+        } else {
+          nav.classList.remove("shadow-sm", "bg-white/90");
+          nav.classList.add("bg-bg-canvas/60");
+          nav.classList.replace("py-3", "py-4");
+        }
+      });
+    </script>
+  </body>
+</html>

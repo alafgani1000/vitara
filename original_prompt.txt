@@ -1,0 +1,102 @@
+<USER_REQUEST>
+buatkan template dengan spesifikasi ini. aku ini teks tema dalam bahasa inggris 
+
+ 🏥 VITARA — Premium Medical & Digital Health HTML5 Template
+## Master Prompt, Design Blueprint & Product Strategy
+> **Versi:** 1.0.0 | **Tanggal:** Juni 2026 | **Tim:** PM + Analyst + UI/UX + Frontend + Software Engineer
+
+---
+
+## 🔍 GAP ANALISIS PASAR MEDICAL TEMPLATE 2026
+
+### Masalah dengan Template Medis yang Ada Sekarang
+
+Dari analisis 3.400+ template medis di ThemeForest dan kompetitor:
+
+| Kelemahan Kompetitor | Dampak |
+|---|---|
+| Semua pakai warna biru/putih klise | Tidak memorable, tidak beda |
+| Layout generik klinik tahun 2015 | Tidak cocok untuk digital health startup |
+| Tidak ada patient portal yang nyata | Hanya frontend kosong |
+| Tidak ada telemedicine UI | Tidak relevan dengan tren 2026 |
+| Typography membosankan | Tidak membangun brand premium |
+| Animasi seadanya | Tidak ada "wow factor" |
+| Hanya cocok untuk klinik fisik | Tidak cover health-tech / SaaS medis |
+| Dashboard klinis sangat generik | Tidak ada clinical workflow sesungguhnya |
+
+### Peluang yang Belum Diisi
+
+```
+✦ Template dengan aesthetic "medical luxury" — bukan steril, tapi warm & sophisticated
+✦ Bundle: Marketing site + Patient Portal + Clinical Dashboard dalam SATU paket
+✦ Niche baru: Digital Health SaaS / Telemedicine Platform template
+✦ Dark mode premium untuk healthcare (belum ada yang bagus)
+✦ Wearable health data visualization UI
+✦ AI health assistant chat interface
+✦ Mental health / wellness sub-niche yang sedang booming
+```
+
+### Data Pasar Pendukung
+
+```
+Digital healthcare market 2026   : $323.87 miliar
+Proyeksi 2033                     : $1.26 triliun (CAGR 21.4%)
+Telemedicine market 2030          : $460 miliar
+Smart wearable health market 2035 : $449 miliar
+Target pembeli template           : Health-tech startup, klinik premium,
+                                    telemedicine platform, wellness app,
+                                    hospital digital tran
+<truncated 36304 bytes>
+ale(1.01) + shadow deepens (SUBTLE, bukan dramatic)
+- Transisi 400ms cubic-bezier organic
+
+PENTING:
+- JANGAN gunakan warna biru klise medis biasa
+- JANGAN font Arial/Inter/Roboto
+- Terasa premium seperti One Medical atau Apple Health, bukan puskesmas online
+- Setiap detail harus mencerminkan TRUST dan CARE"
+```
+
+---
+
+## 📌 REFERENSI INSPIRASI
+
+```
+DESIGN INSPIRASI UTAMA:
+  onemedical.com      — warm, premium, patient-centric
+  health.apple.com    — clean data visualization, trustworthy
+  calm.com            — warm palette, breathing space, organic
+  headspace.com       — friendly healthcare, soft colors
+  forward.com         — tech-forward health, dark luxury
+
+DESAIN YANG HARUS DIHINDARI:
+  Template biru + putih generik ThemeForest
+  Stock foto dokter dengan jas putih pada latar putih
+  Bootstrap template yang terasa kaku dan klinis berlebihan
+
+KOMPETITOR LANGSUNG:
+  Mediax (ThemeForest) — bagus tapi terlalu standar, biru biasa
+  Hectolab (ThemeForest) — feature-rich tapi desain 2020
+  MediCenter — paling laris tapi sangat outdated secara estetika
+
+POSISI VITARA:
+  "Template medis yang terasa seperti produk Apple + One Medical —
+   bukan seperti website klinik pemerintah tahun 2015."
+```
+
+---
+
+*Dokumen ini adalah blueprint produk lengkap untuk VITARA. Setiap keputusan desain didasarkan pada gap analisis pasar, tren UX healthcare 2026, dan diferensiasi yang terukur dari kompetitor.*
+
+---
+
+**© 2026 VITARA Template Blueprint — Internal Product Development Document**
+*Warm Clinical Luxury · 37 Pages · 3 Variants · Patient Portal + Clinical Dashboard*
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-07T20:08:57+07:00.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

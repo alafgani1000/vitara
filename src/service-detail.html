@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardiology Services - Vitara Healthcare</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/css/vitara.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary min-h-screen flex flex-col"
+  >
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-all duration-300 bg-bg-surface/80 backdrop-blur-md border-b border-border-light py-4"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl transition-transform group-hover:scale-105"
+          >
+            <i data-lucide="cross" class="w-5 h-5"></i>
+          </div>
+          <span
+            class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+            >VITARA</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+          class="hidden md:flex space-x-8 text-sm font-medium text-text-secondary"
+        >
+          <a
+            href="index.html"
+            class="hover:text-brand-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="services.html"
+            class="text-brand-primary border-b-2 border-brand-primary pb-1"
+            >Services</a
+          >
+          <a
+            href="doctors.html"
+            class="hover:text-brand-primary transition-colors"
+            >Doctors</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-brand-primary transition-colors"
+            >About</a
+          >
+          <a href="blog.html" class="hover:text-brand-primary transition-colors"
+            >Blog</a
+          >
+          <a
+            href="contact.html"
+            class="hover:text-brand-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="auth-login.html"
+            class="text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-brand-primary hover:after:scale-x-100 after:transition-transform after:origin-bottom-right hover:after:origin-bottom-left"
+            >Portal Login</a
+          >
+          <a
+            href="appointment.html"
+            class="bg-brand-primary text-text-inverse text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-secondary transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >Book Appointment</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 pt-24">
+      <!-- Hero Section -->
+      <section
+        class="relative py-20 lg:py-28 overflow-hidden bg-bg-surface border-b border-border-light"
+      >
+        <div class="absolute inset-0 z-0">
+          <div
+            class="absolute top-0 right-0 w-1/2 h-full bg-brand-light/20 blur-3xl rounded-bl-full"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-brand-accent/5 blur-3xl rounded-tr-full"
+          ></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2">
+              <nav
+                class="flex text-sm text-text-muted mb-8"
+                aria-label="Breadcrumb"
+              >
+                <ol class="inline-flex items-center space-x-2">
+                  <li>
+                    <a
+                      href="services.html"
+                      class="hover:text-brand-primary transition-colors"
+                      >All Services</a
+                    >
+                  </li>
+                  <li>
+                    <div class="flex items-center">
+                      <i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i>
+                      <span class="text-text-primary font-medium"
+                        >Cardiology</span
+                      >
+                    </div>
+                  </li>
+                </ol>
+              </nav>
+
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-light/30 border border-brand-primary/20 text-brand-primary text-sm font-medium mb-6"
+              >
+                <i data-lucide="heart-pulse" class="w-4 h-4"></i>
+                <span>Advanced Heart Care</span>
+              </div>
+              <h1
+                class="font-display text-5xl md:text-6xl font-medium text-text-primary mb-6 leading-tight"
+              >
+                World-Class <br /><span class="italic text-brand-primary"
+                  >Cardiology</span
+                >
+                Services
+              </h1>
+              <p
+                class="text-text-secondary text-lg leading-relaxed mb-8 max-w-lg"
+              >
+                Comprehensive cardiovascular care utilizing state-of-the-art
+                diagnostics and minimally invasive treatments. Your heart's
+                health is our utmost priority.
+              </p>
+              <div class="flex flex-wrap items-center gap-4">
+                <a
+                  href="appointment.html"
+                  class="bg-brand-primary text-text-inverse font-medium px-8 py-4 rounded-full hover:bg-brand-secondary transition-all hover:shadow-xl hover:-translate-y-1"
+                >
+                  Book a Consultation
+                </a>
+                <a
+                  href="#specialists"
+                  class="border border-border-default text-text-primary font-medium px-8 py-4 rounded-full hover:border-brand-primary hover:text-brand-primary transition-all"
+                >
+                  Meet our Specialists
+                </a>
+              </div>
+            </div>
+
+            <div class="lg:w-1/2 relative w-full">
+              <div
+                class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative z-10"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000"
+                  alt="Cardiology procedure"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div
+                class="absolute -bottom-8 -left-8 bg-bg-surface p-6 rounded-2xl shadow-xl border border-border-light z-20 flex items-center gap-4"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-brand-light/50 flex items-center justify-center text-brand-primary"
+                >
+                  <i data-lucide="activity" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <p
+                    class="text-2xl font-display font-medium text-text-primary"
+                  >
+                    99.8%
+                  </p>
+                  <p class="text-sm text-text-secondary">Diagnostic Accuracy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What We Treat & Services -->
+      <section class="py-24 bg-bg-canvas">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-4">
+              <h2
+                class="font-display text-3xl font-medium text-text-primary mb-6"
+              >
+                Conditions We Treat
+              </h2>
+              <p class="text-text-secondary mb-8">
+                Our specialized cardiology team provides diagnosis and treatment
+                for a wide spectrum of cardiovascular conditions.
+              </p>
+
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-text-primary"
+                    >Coronary Artery Disease (CAD)</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-text-primary"
+                    >Arrhythmias (AFib, Tachycardia)</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-text-primary">Heart Failure</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-text-primary"
+                    >Hypertension (High Blood Pressure)</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-text-primary">Valvular Heart Disease</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-text-primary">Preventive Cardiology</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="lg:col-span-8">
+              <h2
+                class="font-display text-3xl font-medium text-text-primary mb-8"
+              >
+                Diagnostic & Treatment Procedures
+              </h2>
+
+              <div class="grid sm:grid-cols-2 gap-6">
+                <!-- Procedure 1 -->
+                <div
+                  class="bg-bg-surface border border-border-light p-8 rounded-3xl hover:border-brand-primary/30 hover:shadow-lg transition-all group"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-brand-light/30 flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+                  >
+                    <i data-lucide="monitor-waveform" class="w-6 h-6"></i>
+                  </div>
+                  <h3
+                    class="font-display text-xl font-medium text-text-primary mb-3"
+                  >
+                    Echocardiography
+                  </h3>
+                  <p class="text-text-secondary text-sm leading-relaxed">
+                    Advanced ultrasound imaging of the heart to evaluate
+                    structure, function, and valve operations in real-time
+                    without radiation.
+                  </p>
+                </div>
+
+                <!-- Procedure 2 -->
+                <div
+                  class="bg-bg-surface border border-border-light p-8 rounded-3xl hover:border-brand-primary/30 hover:shadow-lg transition-all group"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-brand-light/30 flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+                  >
+                    <i data-lucide="activity" class="w-6 h-6"></i>
+                  </div>
+                  <h3
+                    class="font-display text-xl font-medium text-text-primary mb-3"
+                  >
+                    Cardiac Stress Testing
+                  </h3>
+                  <p class="text-text-secondary text-sm leading-relaxed">
+                    Comprehensive evaluation of cardiovascular performance under
+                    physical exertion to detect coronary blockages.
+                  </p>
+                </div>
+
+                <!-- Procedure 3 -->
+                <div
+                  class="bg-bg-surface border border-border-light p-8 rounded-3xl hover:border-brand-primary/30 hover:shadow-lg transition-all group"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-brand-light/30 flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+                  >
+                    <i data-lucide="syringe" class="w-6 h-6"></i>
+                  </div>
+                  <h3
+                    class="font-display text-xl font-medium text-text-primary mb-3"
+                  >
+                    Cardiac Catheterization
+                  </h3>
+                  <p class="text-text-secondary text-sm leading-relaxed">
+                    Minimally invasive procedure used to diagnose and treat
+                    cardiovascular conditions including stent placement.
+                  </p>
+                </div>
+
+                <!-- Procedure 4 -->
+                <div
+                  class="bg-bg-surface border border-border-light p-8 rounded-3xl hover:border-brand-primary/30 hover:shadow-lg transition-all group"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-brand-light/30 flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-text-inverse transition-colors"
+                  >
+                    <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                  </div>
+                  <h3
+                    class="font-display text-xl font-medium text-text-primary mb-3"
+                  >
+                    Holter Monitoring
+                  </h3>
+                  <p class="text-text-secondary text-sm leading-relaxed">
+                    Continuous 24-48 hour ECG recording to detect intermittent
+                    arrhythmias that may not appear during standard tests.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Specialists -->
+      <section
+        id="specialists"
+        class="py-24 bg-bg-surface border-y border-border-light"
+      >
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2
+              class="font-display text-3xl md:text-4xl font-medium text-text-primary mb-4"
+            >
+              Meet Our Cardiology Specialists
+            </h2>
+            <p class="text-text-secondary text-lg">
+              Board-certified experts dedicated to delivering exceptional
+              cardiovascular care.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Doctor Card 1 -->
+            <div
+              class="group bg-bg-canvas rounded-3xl overflow-hidden border border-border-light hover:shadow-xl transition-all hover:-translate-y-1"
+            >
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=600"
+                  alt="Dr. Sarah Jenkins"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+
+                <div
+                  class="absolute bottom-6 left-6 right-6 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0"
+                >
+                  <a
+                    href="doctor-profile.html"
+                    class="bg-white text-text-primary text-sm font-medium px-5 py-2.5 rounded-full hover:bg-brand-primary hover:text-text-inverse transition-colors"
+                    >View Profile</a
+                  >
+                  <a
+                    href="appointment.html"
+                    class="w-10 h-10 bg-brand-primary text-text-inverse rounded-full flex items-center justify-center hover:bg-brand-secondary transition-colors"
+                    ><i data-lucide="calendar-plus" class="w-4 h-4"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3
+                      class="font-display text-xl font-medium text-text-primary"
+                    >
+                      Dr. Sarah Jenkins
+                    </h3>
+                    <p class="text-brand-primary text-sm font-medium">
+                      Interventional Cardiologist
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-center gap-1 bg-bg-surface px-2 py-1 rounded border border-border-default"
+                  >
+                    <i
+                      data-lucide="star"
+                      class="w-3.5 h-3.5 fill-brand-accent text-brand-accent"
+                    ></i>
+                    <span class="text-xs font-medium text-text-primary"
+                      >4.9</span
+                    >
+                  </div>
+                </div>
+                <p class="text-sm text-text-secondary mt-3">
+                  Specializing in minimally invasive cardiac catheterization and
+                  structural heart diseases.
+                </p>
+              </div>
+            </div>
+
+            <!-- Doctor Card 2 -->
+            <div
+              class="group bg-bg-canvas rounded-3xl overflow-hidden border border-border-light hover:shadow-xl transition-all hover:-translate-y-1"
+            >
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600"
+                  alt="Dr. Michael Chen"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+
+                <div
+                  class="absolute bottom-6 left-6 right-6 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0"
+                >
+                  <a
+                    href="doctor-profile.html"
+                    class="bg-white text-text-primary text-sm font-medium px-5 py-2.5 rounded-full hover:bg-brand-primary hover:text-text-inverse transition-colors"
+                    >View Profile</a
+                  >
+                  <a
+                    href="appointment.html"
+                    class="w-10 h-10 bg-brand-primary text-text-inverse rounded-full flex items-center justify-center hover:bg-brand-secondary transition-colors"
+                    ><i data-lucide="calendar-plus" class="w-4 h-4"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3
+                      class="font-display text-xl font-medium text-text-primary"
+                    >
+                      Dr. Michael Chen
+                    </h3>
+                    <p class="text-brand-primary text-sm font-medium">
+                      Electrophysiologist
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-center gap-1 bg-bg-surface px-2 py-1 rounded border border-border-default"
+                  >
+                    <i
+                      data-lucide="star"
+                      class="w-3.5 h-3.5 fill-brand-accent text-brand-accent"
+                    ></i>
+                    <span class="text-xs font-medium text-text-primary"
+                      >4.8</span
+                    >
+                  </div>
+                </div>
+                <p class="text-sm text-text-secondary mt-3">
+                  Expert in diagnosing and treating complex heart arrhythmias
+                  and AFib ablation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-24 bg-bg-canvas">
+        <div class="max-w-5xl mx-auto px-6">
+          <div
+            class="bg-brand-primary rounded-[40px] p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl"
+          >
+            <div
+              class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
+            ></div>
+
+            <div class="relative z-10">
+              <h2
+                class="font-display text-4xl md:text-5xl font-medium text-text-inverse mb-6"
+              >
+                Don't wait when it comes to your heart.
+              </h2>
+              <p
+                class="text-brand-light text-lg mb-10 max-w-2xl mx-auto leading-relaxed"
+              >
+                Early detection is critical in cardiovascular health. Schedule a
+                comprehensive consultation with our specialists today.
+              </p>
+              <div
+                class="flex flex-col sm:flex-row justify-center items-center gap-4"
+              >
+                <a
+                  href="appointment.html"
+                  class="bg-text-inverse text-brand-primary font-medium px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-xl w-full sm:w-auto text-center"
+                >
+                  Book Appointment
+                </a>
+                <a
+                  href="patient-telemedicine.html"
+                  class="border border-white/30 text-text-inverse font-medium px-8 py-4 rounded-full hover:bg-white/10 transition-colors w-full sm:w-auto text-center"
+                >
+                  Virtual Consultation
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-bg-elevated border-t border-border-light pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
+        >
+          <div class="lg:col-span-1">
+            <a href="index.html" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
+              >
+                <i data-lucide="cross" class="w-5 h-5"></i>
+              </div>
+              <span
+                class="font-display font-semibold text-2xl tracking-tight text-text-primary"
+                >VITARA</span
+              >
+            </a>
+            <p class="text-text-secondary text-sm leading-relaxed mb-6">
+              Premium healthcare tailored to your lifestyle. Combining
+              world-class medical expertise with digital convenience.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <i data-lucide="twitter" class="w-4 h-4"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-bg-surface border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors"
+              >
+                <i data-lucide="instagram" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-6">Departments</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >General Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Mental Health</a
+                >
+              </li>
+              <li>
+                <a
+                  href="service-detail.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Cardiology</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Dental Care</a
+                >
+              </li>
+              <li>
+                <a
+                  href="patient-telemedicine.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Telemedicine</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-6">Company</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="doctors.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Doctors</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-primary transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="blog.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-brand-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-text-primary mb-6">Contact Us</h4>
+            <ul class="space-y-4 text-sm text-text-secondary">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="map-pin"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                <span>1200 Healthcare Blvd,<br />New York, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="phone"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                <span>+1 (800) 555-0199</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="mail"
+                  class="w-5 h-5 text-brand-primary shrink-0"
+                ></i>
+                <span>care@vitarahealth.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-border-light pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-sm text-text-muted">
+            &copy; 2026 Vitara Healthcare. All rights reserved.
+          </p>
+          <div class="flex gap-6 text-sm text-text-muted">
+            <a
+              href="utility-privacy.html"
+              class="hover:text-text-primary transition-colors"
+              >Privacy Policy</a
+            >
+            <a
+              href="utility-terms.html"
+              class="hover:text-text-primary transition-colors"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+
+      // Simple Navbar Scroll Effect
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 20) {
+          nav.classList.add("shadow-sm");
+          nav.classList.replace("py-4", "py-3");
+        } else {
+          nav.classList.remove("shadow-sm");
+          nav.classList.replace("py-3", "py-4");
+        }
+      });
+    </script>
+  </body>
+</html>

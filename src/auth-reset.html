@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set New Password - Vitara Healthcare</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <link href="assets/css/vitara.min.css" rel="stylesheet" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-bg-canvas font-sans text-text-primary antialiased h-screen flex overflow-hidden"
+  >
+    <!-- Left Side: Image / Branding -->
+    <div class="hidden lg:flex lg:w-1/2 relative bg-brand-primary">
+      <!-- Background Image -->
+      <img
+        src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=2000"
+        alt="Clinic Interior"
+        class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-overlay"
+      />
+
+      <!-- Gradient Overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-brand-primary/90 via-brand-primary/40 to-transparent"
+      ></div>
+
+      <!-- Content -->
+      <div
+        class="relative z-10 p-12 flex flex-col justify-between h-full w-full"
+      >
+        <a href="index.html" class="flex items-center gap-2 group w-max">
+          <div
+            class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform"
+          >
+            <i data-lucide="cross" class="w-6 h-6 text-brand-primary"></i>
+          </div>
+          <span
+            class="text-2xl font-display font-semibold text-text-inverse tracking-tight"
+            >Vitara</span
+          >
+        </a>
+
+        <div class="max-w-md">
+          <h2
+            class="text-4xl font-display font-medium text-text-inverse leading-tight mb-6"
+          >
+            Redefining healthcare with a human touch.
+          </h2>
+          <div class="flex items-center gap-4">
+            <div class="flex -space-x-3">
+              <img
+                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=150"
+                class="w-10 h-10 rounded-full border-2 border-brand-primary object-cover"
+                alt="User"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+                class="w-10 h-10 rounded-full border-2 border-brand-primary object-cover"
+                alt="User"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150"
+                class="w-10 h-10 rounded-full border-2 border-brand-primary object-cover"
+                alt="User"
+              />
+            </div>
+            <p class="text-sm font-medium text-text-inverse/80">
+              Trusted by 10,000+ patients
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Form -->
+    <div
+      class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 overflow-y-auto"
+    >
+      <div class="w-full max-w-md">
+        <!-- Mobile Logo -->
+        <div class="lg:hidden flex items-center gap-2 mb-8">
+          <div
+            class="w-10 h-10 rounded-xl bg-brand-primary flex items-center justify-center shadow-sm"
+          >
+            <i data-lucide="cross" class="w-6 h-6 text-white"></i>
+          </div>
+          <span
+            class="text-2xl font-display font-semibold text-text-primary tracking-tight"
+            >Vitara</span
+          >
+        </div>
+
+        <!-- Back Link -->
+        <a
+          href="auth-login.html"
+          class="inline-flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors mb-6"
+        >
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to login
+        </a>
+
+        <!-- Header -->
+        <div class="mb-8">
+          <h1 class="text-3xl font-display font-medium text-text-primary mb-2">
+            Set new password
+          </h1>
+          <p class="text-text-secondary">
+            Your new password must be different from previous used passwords.
+          </p>
+        </div>
+
+        <!-- Form -->
+        <form action="auth-login.html" class="space-y-5">
+          <!-- Password -->
+          <div>
+            <label
+              for="password"
+              class="block text-sm font-medium text-text-primary mb-1.5"
+              >Password</label
+            >
+            <div class="relative">
+              <i
+                data-lucide="lock"
+                class="w-5 h-5 text-text-muted absolute left-3 top-1/2 -translate-y-1/2"
+              ></i>
+              <input
+                type="password"
+                id="password"
+                class="w-full bg-bg-canvas border border-border-default rounded-xl pl-10 pr-10 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
+                placeholder="••••••••"
+                required
+              />
+              <button
+                type="button"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors"
+              >
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <p class="text-xs text-text-muted mt-1.5">
+              Must be at least 8 characters.
+            </p>
+          </div>
+
+          <!-- Confirm Password -->
+          <div>
+            <label
+              for="confirm_password"
+              class="block text-sm font-medium text-text-primary mb-1.5"
+              >Confirm Password</label
+            >
+            <div class="relative">
+              <i
+                data-lucide="lock"
+                class="w-5 h-5 text-text-muted absolute left-3 top-1/2 -translate-y-1/2"
+              ></i>
+              <input
+                type="password"
+                id="confirm_password"
+                class="w-full bg-bg-canvas border border-border-default rounded-xl pl-10 pr-10 py-3 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
+                placeholder="••••••••"
+                required
+              />
+              <button
+                type="button"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors"
+              >
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="w-full bg-brand-primary text-text-inverse py-3 rounded-xl font-medium hover:bg-brand-secondary transition-colors shadow-sm mt-4"
+          >
+            Reset password
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Initialize Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
