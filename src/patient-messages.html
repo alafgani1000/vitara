@@ -3,454 +3,325 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Messages - Vitara Patient Portal</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>Messages | VITARA Patient Portal</title>
+    <meta name="description" content="Secure chat channel with your healthcare providers." />
 
     <!-- Tailwind CSS (compiled) -->
     <link rel="stylesheet" href="assets/css/vitara.min.css" />
-
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/lucide.min.js"></script>
+
+    <style>
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 99px; }
+
+      .nav-active {
+        background: linear-gradient(90deg, var(--brand-light) 0%, rgba(216,243,220,0.3) 100%);
+        border-left: 3px solid var(--brand-primary);
+      }
+    </style>
   </head>
-  <body
-    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary h-screen flex overflow-hidden"
-  >
-    <!-- Sidebar Navigation -->
-    <aside
-      class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20"
-    >
-      <div
-        class="h-16 flex items-center px-6 border-b border-border-light shrink-0"
-      >
-        <a href="index.html" class="flex items-center gap-2">
-          <div
-            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
-          >
-            <i data-lucide="cross" class="w-5 h-5"></i>
-          </div>
-          <span
-            class="font-display font-semibold text-xl tracking-tight text-text-primary"
-            >VITARA</span
-          >
-        </a>
-      </div>
 
-      <div class="flex-1 overflow-y-auto py-6 px-4 space-y-1 custom-scrollbar">
-        <p
-          class="px-3 text-xs font-medium text-text-muted uppercase tracking-wider mb-2"
-        >
-          Portal
-        </p>
-        <a
-          href="patient-dashboard.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Dashboard</span>
-        </a>
-        <a
-          href="patient-appointments.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="calendar" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Appointments</span>
-        </a>
-        <a
-          href="patient-records.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="folder-open" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Health Records</span>
-        </a>
-        <a
-          href="patient-prescriptions.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="pill" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Prescriptions</span>
-        </a>
-        <a
-          href="patient-lab-results.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="microscope" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Lab Results</span>
-        </a>
-        <a
-          href="patient-messages.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-light/50 text-brand-primary transition-colors"
-        >
-          <i data-lucide="message-square" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Messages</span>
-        </a>
-        <a
-          href="patient-telemedicine.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="video" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Telehealth</span>
-        </a>
-        <a
-          href="patient-wearable.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="activity" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Health Data</span>
-        </a>
-      </div>
+  <body class="bg-bg-canvas text-text-primary antialiased overflow-x-hidden font-body">
+    <div class="flex h-screen overflow-hidden">
 
-      <div class="p-4 border-t border-border-light shrink-0">
-        <a
-          href="patient-settings.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="settings" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Settings</span>
-        </a>
-        <a
-          href="auth-login.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-status-error hover:bg-status-error/10 transition-colors mt-1"
-        >
-          <i data-lucide="log-out" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Logout</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Main Workspace -->
-    <main class="flex-1 flex flex-col h-full bg-bg-canvas relative">
-      <!-- Top Header -->
-      <header
-        class="h-20 bg-bg-surface border-b border-border-light flex items-center justify-between px-8 shrink-0"
-      >
-        <div>
-          <h1 class="font-display text-2xl font-medium text-text-primary">
-            Messages
-          </h1>
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20 shrink-0">
+        <div class="h-16 flex items-center px-6 border-b border-border-light shrink-0">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <i data-lucide="cross" class="w-4 h-4"></i>
+            </div>
+            <span class="font-display font-semibold text-xl tracking-tight text-text-primary">VITARA</span>
+          </a>
         </div>
 
-        <div class="flex items-center gap-4">
-          <button
-            class="w-10 h-10 rounded-full bg-bg-canvas border border-border-default flex items-center justify-center text-text-secondary hover:text-brand-primary transition-colors relative"
-          >
-            <i data-lucide="bell" class="w-5 h-5"></i>
-          </button>
-          <div
-            class="h-10 w-10 rounded-full bg-brand-light overflow-hidden border-2 border-bg-surface shadow-sm cursor-pointer"
-          >
-            <img
-              src="https://ui-avatars.com/api/?name=Emma+Watson&background=e0f2fe&color=0284c7"
-              alt="User"
-              class="w-full h-full object-cover"
-            />
+        <!-- Patient Profile Mini Card -->
+        <div class="mx-4 my-4 p-3 rounded-2xl bg-bg-canvas border border-border-light flex items-center gap-3">
+          <div class="relative">
+            <img src="assets/img/general/avatar-placeholder.svg" alt="Patient" class="w-10 h-10 rounded-full object-cover border-2 border-brand-light" />
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-bg-surface"></span>
           </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-text-primary truncate">Sophia Lee</p>
+            <p class="text-xs text-text-muted font-mono">ID: VTR-4829</p>
+          </div>
+          <a href="patient-settings.html" class="text-text-muted hover:text-brand-primary transition-colors">
+            <i data-lucide="settings" class="w-4 h-4"></i>
+          </a>
         </div>
-      </header>
 
-      <!-- Messages Interface Layout -->
-      <div class="flex-1 flex overflow-hidden">
-        <!-- Left Panel: Conversation List -->
-        <div
-          class="w-1/3 lg:w-80 border-r border-border-light bg-bg-surface flex flex-col shrink-0"
-        >
-          <!-- Search & New Message -->
-          <div class="p-4 border-b border-border-light space-y-4">
-            <button
-              class="w-full bg-brand-primary text-text-inverse py-2.5 rounded-xl text-sm font-medium hover:bg-brand-secondary transition-all shadow-sm flex items-center justify-center gap-2"
-            >
-              <i data-lucide="edit" class="w-4 h-4"></i> New Message
+        <nav class="flex-1 overflow-y-auto py-2 px-3 space-y-0.5">
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-1">My Health</p>
+          <a href="patient-dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Dashboard</span>
+          </a>
+          <a href="patient-appointments.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="calendar-clock" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Appointments</span>
+            <span class="ml-auto bg-brand-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">1</span>
+          </a>
+          <a href="patient-records.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="folder-open" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Health Records</span>
+          </a>
+          <a href="patient-prescriptions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="pill" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Prescriptions</span>
+            <span class="ml-auto bg-status-warning text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+          </a>
+          <a href="patient-lab-results.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="microscope" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Lab Results</span>
+          </a>
+
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-4">Connect</p>
+          <a href="patient-messages.html" class="nav-active flex items-center gap-3 px-3 py-2.5 rounded-xl text-brand-primary transition-all">
+            <i data-lucide="message-square" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Messages</span>
+            <span class="ml-auto bg-status-error text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+          </a>
+          <a href="patient-telemedicine.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="video" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Telehealth</span>
+          </a>
+          <a href="patient-wearable.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="activity" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Health Data</span>
+          </a>
+        </nav>
+
+        <div class="p-4 border-t border-border-light shrink-0">
+          <a href="auth-login.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-status-error hover:bg-status-error/10 transition-colors">
+            <i data-lucide="log-out" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Log Out</span>
+          </a>
+        </div>
+      </aside>
+
+      <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+      <!-- MAIN WRAPPER: Two Column Split Pane Chat -->
+      <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        
+        <!-- Top bar with mobile toggle -->
+        <header class="h-16 bg-bg-surface border-b border-border-light flex items-center justify-between px-6 shrink-0 z-10">
+          <div class="flex items-center gap-4">
+            <button id="mobile-menu-btn" class="p-2 -ml-2 text-text-secondary hover:text-text-primary md:hidden rounded-lg hover:bg-bg-muted">
+              <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
+            <h1 class="font-display font-semibold text-lg text-text-primary">Inbox</h1>
+          </div>
+        </header>
 
-            <div class="relative">
-              <i
-                data-lucide="search"
-                class="w-4 h-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2"
-              ></i>
-              <input
-                type="text"
-                placeholder="Search messages..."
-                class="w-full bg-bg-canvas border border-border-default rounded-xl pl-9 pr-4 py-2 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
-              />
+        <div class="flex-1 flex overflow-hidden">
+          
+          <!-- Column 1: Chat List Panel (1/3 width) -->
+          <div class="w-full md:w-80 lg:w-96 border-r border-border-light bg-bg-surface flex flex-col shrink-0">
+            <!-- Search & Compose header -->
+            <div class="p-4 border-b border-border-light space-y-3 shrink-0">
+              <div class="flex items-center justify-between">
+                <h2 class="font-bold text-base text-text-primary">Conversations</h2>
+                <button class="p-2 bg-brand-light text-brand-primary rounded-xl hover:bg-brand-light/75 transition-all">
+                  <i data-lucide="square-pen" class="w-4.5 h-4.5"></i>
+                </button>
+              </div>
+              <div class="relative">
+                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted"></i>
+                <input type="text" placeholder="Search provider chat..." class="w-full pl-9 pr-4 py-1.5 bg-bg-canvas border border-border-light rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+              </div>
+            </div>
+
+            <!-- Chat List Scrollable -->
+            <div class="flex-1 overflow-y-auto divide-y divide-border-light/60">
+              
+              <!-- Item 1 (Active) -->
+              <div class="p-4 bg-brand-light/35 border-l-4 border-brand-primary flex gap-3 cursor-pointer transition-colors">
+                <div class="relative shrink-0">
+                  <img src="assets/img/doctors/doctor-4.svg" alt="Doctor" class="w-11 h-11 rounded-full object-cover border-2 border-brand-light" />
+                  <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-bg-surface"></span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-bold text-text-primary truncate">Dr. Michael Chen</p>
+                    <span class="text-[10px] text-text-muted font-medium">2m ago</span>
+                  </div>
+                  <p class="text-xs text-brand-primary font-semibold truncate mt-0.5">Your ECG results look good...</p>
+                  <div class="flex items-center gap-1.5 mt-1.5">
+                    <span class="px-1.5 py-0.5 bg-status-error text-white text-[9px] font-bold rounded-full">3</span>
+                    <span class="text-[10px] text-text-muted">Cardiology</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="p-4 hover:bg-bg-canvas/50 flex gap-3 cursor-pointer transition-colors">
+                <div class="relative shrink-0">
+                  <img src="assets/img/doctors/doctor-2.svg" alt="Doctor" class="w-11 h-11 rounded-full object-cover border border-border-light" />
+                  <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-bg-surface"></span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-bold text-text-primary truncate">Dr. Aisha Rahman</p>
+                    <span class="text-[10px] text-text-muted font-medium">Yesterday</span>
+                  </div>
+                  <p class="text-xs text-text-secondary truncate mt-0.5">Please increase your Metformin dose to...</p>
+                  <div class="flex items-center gap-1.5 mt-1.5">
+                    <span class="px-1.5 py-0.5 bg-status-error text-white text-[9px] font-bold rounded-full">1</span>
+                    <span class="text-[10px] text-text-muted">Endocrinology</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="p-4 hover:bg-bg-canvas/50 flex gap-3 cursor-pointer transition-colors">
+                <div class="w-11 h-11 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 border border-brand-primary/20">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-bold text-text-primary truncate">Vitara MedCenter Support</p>
+                    <span class="text-[10px] text-text-muted font-medium">2 days ago</span>
+                  </div>
+                  <p class="text-xs text-text-muted truncate mt-0.5">Your appointment on Oct 24th is...</p>
+                  <span class="text-[10px] text-text-muted block mt-1.5">Administrative</span>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          <!-- Chat List -->
-          <div class="flex-1 overflow-y-auto">
-            <!-- Chat Item (Active/Unread) -->
-            <div
-              class="p-4 border-b border-border-light cursor-pointer bg-brand-light/20 relative group"
-            >
-              <div
-                class="absolute left-0 top-0 bottom-0 w-1 bg-brand-primary"
-              ></div>
-              <div class="flex items-start gap-3">
-                <div class="relative shrink-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=100"
-                    alt="Dr. Sarah Jenkins"
-                    class="w-10 h-10 rounded-full object-cover"
-                  />
-                  <div
-                    class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-status-success rounded-full border-2 border-bg-surface"
-                  ></div>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="flex justify-between items-baseline mb-1">
-                    <h4 class="text-sm font-medium text-text-primary truncate">
-                      Dr. Sarah Jenkins
-                    </h4>
-                    <span class="text-[10px] font-medium text-brand-primary"
-                      >10:42 AM</span
-                    >
-                  </div>
-                  <p class="text-xs text-text-primary font-medium truncate">
-                    Your recent lab results look normal...
+          <!-- Column 2: Chat Conversation Panel (2/3 width) -->
+          <div class="hidden md:flex flex-1 flex-col bg-bg-canvas overflow-hidden relative">
+            
+            <!-- Chat Pane Header -->
+            <div class="h-16 bg-bg-surface border-b border-border-light px-6 flex items-center justify-between shrink-0">
+              <div class="flex items-center gap-3">
+                <img src="assets/img/doctors/doctor-4.svg" alt="Doctor" class="w-9 h-9 rounded-full object-cover border border-brand-light" />
+                <div>
+                  <p class="text-sm font-bold text-text-primary">Dr. Michael Chen</p>
+                  <p class="text-[10px] text-text-muted flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Online · Cardiologist
                   </p>
                 </div>
               </div>
-            </div>
-
-            <!-- Chat Item (Read) -->
-            <div
-              class="p-4 border-b border-border-light cursor-pointer hover:bg-bg-elevated transition-colors group"
-            >
-              <div class="flex items-start gap-3">
-                <div class="relative shrink-0">
-                  <div
-                    class="w-10 h-10 rounded-full bg-bg-canvas border border-border-default flex items-center justify-center text-text-muted"
-                  >
-                    <i data-lucide="building" class="w-5 h-5"></i>
-                  </div>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="flex justify-between items-baseline mb-1">
-                    <h4 class="text-sm font-medium text-text-primary truncate">
-                      Billing Department
-                    </h4>
-                    <span class="text-[10px] text-text-muted">Yesterday</span>
-                  </div>
-                  <p class="text-xs text-text-secondary truncate">
-                    Invoice #INV-2938 has been updated.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Chat Item (Read) -->
-            <div
-              class="p-4 border-b border-border-light cursor-pointer hover:bg-bg-elevated transition-colors group"
-            >
-              <div class="flex items-start gap-3">
-                <div class="relative shrink-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=100"
-                    alt="Dr. Michael Chen"
-                    class="w-10 h-10 rounded-full object-cover"
-                  />
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="flex justify-between items-baseline mb-1">
-                    <h4 class="text-sm font-medium text-text-primary truncate">
-                      Dr. Michael Chen
-                    </h4>
-                    <span class="text-[10px] text-text-muted">Oct 12</span>
-                  </div>
-                  <p class="text-xs text-text-secondary truncate">
-                    Please monitor your blood pressure over the weekend.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Panel: Active Chat Room -->
-        <div class="flex-1 flex flex-col bg-bg-canvas relative">
-          <!-- Chat Header -->
-          <div
-            class="h-16 border-b border-border-light bg-bg-surface px-6 flex items-center justify-between shrink-0"
-          >
-            <div class="flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=100"
-                alt="Dr. Sarah Jenkins"
-                class="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <h2 class="text-sm font-medium text-text-primary">
-                  Dr. Sarah Jenkins
-                </h2>
-                <p class="text-[11px] text-text-secondary">
-                  Cardiology Department &middot;
-                  <span class="text-status-success font-medium">Online</span>
-                </p>
-              </div>
-            </div>
-            <div class="flex gap-2">
-              <button
-                class="w-9 h-9 rounded-full hover:bg-bg-elevated flex items-center justify-center text-text-secondary transition-colors"
-                title="Start Video Call"
-              >
-                <i data-lucide="video" class="w-4 h-4"></i>
-              </button>
-              <button
-                class="w-9 h-9 rounded-full hover:bg-bg-elevated flex items-center justify-center text-text-secondary transition-colors"
-                title="More Options"
-              >
-                <i data-lucide="more-vertical" class="w-4 h-4"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- Chat History / Messages -->
-          <div class="flex-1 overflow-y-auto p-6 space-y-6 flex flex-col">
-            <!-- Date Separator -->
-            <div class="flex justify-center">
-              <span
-                class="text-[10px] font-medium text-text-muted bg-bg-surface px-3 py-1 rounded-full border border-border-light"
-                >Today, Oct 15</span
-              >
-            </div>
-
-            <!-- Message Received (Doctor) -->
-            <div class="flex items-end gap-3 max-w-[80%]">
-              <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=100"
-                alt="Dr. Sarah Jenkins"
-                class="w-6 h-6 rounded-full object-cover shrink-0"
-              />
-              <div
-                class="bg-bg-surface border border-border-light rounded-2xl rounded-bl-none p-4 shadow-sm relative group"
-              >
-                <p class="text-sm text-text-primary leading-relaxed">
-                  Hi Emma, I've reviewed your latest lipid panel. The results
-                  are looking much better than last month! Your LDL has dropped
-                  significantly.
-                </p>
-                <span
-                  class="text-[10px] text-text-muted absolute -bottom-5 left-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >10:41 AM</span
-                >
-              </div>
-            </div>
-
-            <!-- Message Received (Doctor) - Attachment -->
-            <div class="flex items-end gap-3 max-w-[80%]">
-              <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=100"
-                alt="Dr. Sarah Jenkins"
-                class="w-6 h-6 rounded-full object-cover shrink-0"
-              />
-              <div
-                class="bg-bg-surface border border-border-light rounded-2xl rounded-bl-none p-4 shadow-sm relative group"
-              >
-                <p class="text-sm text-text-primary leading-relaxed mb-3">
-                  I'm attaching the detailed lab report for your records.
-                </p>
-
-                <!-- Attachment Block -->
-                <a
-                  href="#"
-                  class="flex items-center gap-3 p-3 bg-bg-canvas border border-border-default rounded-xl hover:border-brand-primary transition-colors"
-                >
-                  <div
-                    class="w-10 h-10 rounded bg-status-error/10 text-status-error flex items-center justify-center"
-                  >
-                    <i data-lucide="file-text" class="w-5 h-5"></i>
-                  </div>
-                  <div class="flex-1">
-                    <p class="text-xs font-medium text-text-primary">
-                      Lipid_Panel_Results_Oct15.pdf
-                    </p>
-                    <p class="text-[10px] text-text-muted">1.2 MB</p>
-                  </div>
-                  <i data-lucide="download" class="w-4 h-4 text-text-muted"></i>
+              <div class="flex items-center gap-2">
+                <a href="patient-telemedicine.html" class="p-2 text-text-secondary hover:text-brand-primary hover:bg-bg-muted rounded-xl transition-all">
+                  <i data-lucide="video" class="w-5 h-5"></i>
                 </a>
-
-                <span
-                  class="text-[10px] text-text-muted absolute -bottom-5 left-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >10:42 AM</span
-                >
+                <button class="p-2 text-text-secondary hover:text-brand-primary hover:bg-bg-muted rounded-xl transition-all">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </button>
               </div>
             </div>
 
-            <!-- Message Sent (Patient) -->
-            <div
-              class="flex flex-row-reverse items-end gap-3 max-w-[80%] self-end mt-4"
-            >
-              <div
-                class="w-6 h-6 rounded-full bg-brand-light/50 border border-brand-primary/20 shrink-0"
-              ></div>
-              <!-- Placeholder for patient avatar if needed, or leave empty -->
-              <div
-                class="bg-brand-primary text-text-inverse rounded-2xl rounded-br-none p-4 shadow-sm relative group"
-              >
-                <p class="text-sm leading-relaxed">
-                  That's great news! Thank you Dr. Jenkins. Should I continue
-                  with the same dosage for my current medication?
-                </p>
-                <div
-                  class="absolute -bottom-5 right-1 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <span class="text-[10px] text-text-muted">11:05 AM</span>
-                  <i
-                    data-lucide="check-check"
-                    class="w-3 h-3 text-brand-primary"
-                  ></i>
+            <!-- Messages Window -->
+            <div class="flex-1 overflow-y-auto p-6 space-y-4">
+              <div class="flex justify-center my-2">
+                <span class="text-[10px] font-bold text-text-muted uppercase tracking-wider bg-bg-surface border border-border-light px-2.5 py-1 rounded-full">Today</span>
+              </div>
+
+              <!-- Message: Left (Dr. Chen) -->
+              <div class="flex items-start gap-3 max-w-lg">
+                <img src="assets/img/doctors/doctor-4.svg" alt="Dr. Chen" class="w-8 h-8 rounded-full object-cover border border-brand-light shrink-0" />
+                <div class="space-y-1.5">
+                  <div class="bg-bg-surface border border-border-light p-3.5 rounded-2xl rounded-tl-none shadow-sm text-sm text-text-primary leading-relaxed">
+                    Hi Sophia, I reviewed your recent ECG results and everything looks within normal range. Your heart rhythm is very stable.
+                  </div>
+                  <span class="text-[10px] text-text-muted pl-1">09:12 AM</span>
+                </div>
+              </div>
+
+              <!-- Message: Left (Dr. Chen) -->
+              <div class="flex items-start gap-3 max-w-lg">
+                <img src="assets/img/doctors/doctor-4.svg" alt="Dr. Chen" class="w-8 h-8 rounded-full object-cover border-brand-light shrink-0 opacity-0" />
+                <div class="space-y-1.5">
+                  <div class="bg-bg-surface border border-border-light p-3.5 rounded-2xl rounded-tl-none shadow-sm text-sm text-text-primary leading-relaxed">
+                    I do recommend continuing your current medication routine and we can discuss further in our October 24th appointment.
+                  </div>
+                  <span class="text-[10px] text-text-muted pl-1">09:13 AM</span>
+                </div>
+              </div>
+
+              <!-- Message: Right (Patient/Sophia) -->
+              <div class="flex items-start gap-3 max-w-lg ml-auto justify-end">
+                <div class="space-y-1.5 text-right">
+                  <div class="bg-brand-primary text-white p-3.5 rounded-2xl rounded-tr-none shadow-sm text-sm leading-relaxed text-left">
+                    Thank you, Dr. Chen! That is reassuring. Should I monitor anything specific before our appointment?
+                  </div>
+                  <span class="text-[10px] text-text-muted pr-1">09:18 AM</span>
+                </div>
+              </div>
+
+              <!-- Message: Left (Dr. Chen) -->
+              <div class="flex items-start gap-3 max-w-lg">
+                <img src="assets/img/doctors/doctor-4.svg" alt="Dr. Chen" class="w-8 h-8 rounded-full object-cover border border-brand-light shrink-0" />
+                <div class="space-y-1.5">
+                  <div class="bg-bg-surface border border-border-light p-3.5 rounded-2xl rounded-tl-none shadow-sm text-sm text-text-primary leading-relaxed">
+                    Yes, please track your blood pressure readings twice daily and note any symptoms like shortness of breath or unusual fatigue.
+                  </div>
+                  <span class="text-[10px] text-text-muted pl-1">09:20 AM</span>
+                </div>
+              </div>
+
+              <!-- Message: Right (Patient/Sophia) -->
+              <div class="flex items-start gap-3 max-w-lg ml-auto justify-end">
+                <div class="space-y-1.5 text-right">
+                  <div class="bg-brand-primary text-white p-3.5 rounded-2xl rounded-tr-none shadow-sm text-sm leading-relaxed text-left">
+                    Got it! I will use the wearable health app to track these. See you on the 24th!
+                  </div>
+                  <span class="text-[10px] text-text-muted pr-1">09:22 AM</span>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Chat Input Area -->
-          <div class="p-4 bg-bg-surface border-t border-border-light shrink-0">
-            <div
-              class="flex items-end gap-3 bg-bg-canvas border border-border-default rounded-2xl p-2 focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-brand-primary transition-all"
-            >
-              <button
-                class="w-10 h-10 shrink-0 flex items-center justify-center text-text-muted hover:text-brand-primary transition-colors rounded-xl"
-              >
-                <i data-lucide="paperclip" class="w-5 h-5"></i>
-              </button>
+            <!-- Message Input Area -->
+            <div class="p-4 border-t border-border-light bg-bg-surface space-y-3 shrink-0">
+              
+              <!-- Secure encryption banner -->
+              <div class="flex items-center gap-1.5 justify-center text-[10px] text-text-muted">
+                <i data-lucide="lock" class="w-3 h-3 text-status-success"></i>
+                This is a secure, HIPAA-compliant messaging channel. Do not use for emergencies.
+              </div>
 
-              <textarea
-                rows="1"
-                placeholder="Type your secure message..."
-                class="flex-1 bg-transparent border-none focus:ring-0 resize-none py-3 text-sm text-text-primary placeholder:text-text-muted max-h-32"
-                style="min-height: 44px; outline: none"
-              ></textarea>
-
-              <button
-                class="w-10 h-10 shrink-0 bg-brand-primary text-text-inverse flex items-center justify-center rounded-xl hover:bg-brand-secondary transition-colors shadow-sm"
-              >
-                <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
-              </button>
+              <div class="flex items-center gap-3">
+                <button class="p-2.5 text-text-secondary hover:text-text-primary hover:bg-bg-muted rounded-xl transition-all">
+                  <i data-lucide="paperclip" class="w-5 h-5"></i>
+                </button>
+                <input type="text" placeholder="Type a message to Dr. Chen..." class="flex-1 px-4 py-2.5 bg-bg-canvas border border-border-light rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                <button class="p-2.5 bg-brand-primary hover:bg-brand-primary-hover text-white rounded-xl shadow-sm transition-all">
+                  <i data-lucide="send-horizontal" class="w-5 h-5"></i>
+                </button>
+              </div>
             </div>
-            <p
-              class="text-center text-[10px] text-text-muted mt-2 flex items-center justify-center gap-1"
-            >
-              <i data-lucide="lock" class="w-3 h-3"></i> Secure, end-to-end
-              encrypted messaging
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
 
-    <!-- Initialize Icons -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
     <script>
       lucide.createIcons();
+
+      const sidebar = document.getElementById('sidebar');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
+
+      function toggleSidebar() {
+        sidebar.classList.toggle('hidden');
+        sidebar.classList.toggle('fixed');
+        sidebar.classList.toggle('inset-y-0');
+        sidebar.classList.toggle('left-0');
+        mobileSidebarOverlay.classList.toggle('hidden');
+      }
+
+      mobileMenuBtn?.addEventListener('click', toggleSidebar);
+      mobileSidebarOverlay?.addEventListener('click', toggleSidebar);
     </script>
   </body>
 </html>

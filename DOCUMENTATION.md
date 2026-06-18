@@ -124,8 +124,9 @@ If you are developing dynamic views (e.g., converting this template to React), y
 
 ## 📈 Third-Party Libraries
 
-VITARA is intentionally kept lightweight.
-1. **Lucide Icons**: Used for all SVG icons. It is loaded via CDN (`<script src="https://unpkg.com/lucide@latest"></script>`) and initialized with `lucide.createIcons();` before the closing `</body>` tag.
-2. **Chart.js**: Used specifically on the `patient-wearable.html` and `clinical-analytics.html` pages for beautiful data visualization. Loaded via CDN.
+VITARA is completely self-contained and works 100% offline:
+1. **Lucide Icons**: Used for all SVG icons. It is loaded locally via `<script src="assets/js/lucide.min.js"></script>` and initialized with `lucide.createIcons();` before the closing `</body>` tag.
+2. **Chart.js**: Used on the wearable health data and clinical analytics pages for data visualization. Loaded locally via `<script src="assets/js/chart.min.js"></script>`.
 
-No jQuery, Bootstrap, or heavy sliders are included, ensuring lightning-fast load times and easy migration to modern JS frameworks.
+No external CDN dependencies are included, ensuring privacy compliance, rapid loading speed, and reliable offline operations.
+

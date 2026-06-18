@@ -3,390 +3,303 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings | VITARA Patient Portal</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <title>Account Settings | VITARA Patient Portal</title>
+    <meta name="description" content="Manage your personal profile, notification preferences, security options, and medical details." />
 
     <!-- Tailwind CSS (compiled) -->
     <link rel="stylesheet" href="assets/css/vitara.min.css" />
-
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/lucide.min.js"></script>
+
+    <style>
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 99px; }
+
+      .nav-active {
+        background: linear-gradient(90deg, var(--brand-light) 0%, rgba(216,243,220,0.3) 100%);
+        border-left: 3px solid var(--brand-primary);
+      }
+    </style>
   </head>
-  <body
-    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary overflow-x-hidden"
-  >
+
+  <body class="bg-bg-canvas text-text-primary antialiased overflow-x-hidden font-body">
     <div class="flex h-screen overflow-hidden">
+
       <!-- SIDEBAR -->
-      <aside
-        class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20"
-      >
-        <div
-          class="h-16 flex items-center px-6 border-b border-border-light shrink-0"
-        >
-          <a href="index.html" class="flex items-center gap-2">
-            <div
-              class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
-            >
-              <i data-lucide="cross" class="w-5 h-5"></i>
+      <aside id="sidebar" class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20 shrink-0">
+        <div class="h-16 flex items-center px-6 border-b border-border-light shrink-0">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <i data-lucide="cross" class="w-4 h-4"></i>
             </div>
-            <span
-              class="font-display font-semibold text-xl tracking-tight text-text-primary"
-              >VITARA</span
-            >
+            <span class="font-display font-semibold text-xl tracking-tight text-text-primary">VITARA</span>
           </a>
         </div>
 
-        <div
-          class="flex-1 overflow-y-auto py-6 px-4 space-y-1 custom-scrollbar"
-        >
-          <p
-            class="px-3 text-xs font-medium text-text-muted uppercase tracking-wider mb-2"
-          >
-            Portal
-          </p>
-          <a
-            href="patient-dashboard.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+        <!-- Patient Profile Mini Card -->
+        <div class="mx-4 my-4 p-3 rounded-2xl bg-bg-canvas border border-border-light flex items-center gap-3">
+          <div class="relative">
+            <img src="assets/img/general/avatar-placeholder.svg" alt="Patient" class="w-10 h-10 rounded-full object-cover border-2 border-brand-light" />
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-bg-surface"></span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-text-primary truncate">Sophia Lee</p>
+            <p class="text-xs text-text-muted font-mono">ID: VTR-4829</p>
+          </div>
+          <a href="patient-settings.html" class="text-brand-primary transition-colors">
+            <i data-lucide="settings" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto py-2 px-3 space-y-0.5">
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-1">My Health</p>
+          <a href="patient-dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Dashboard</span>
           </a>
-          <a
-            href="patient-appointments.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="calendar" class="w-5 h-5"></i>
+          <a href="patient-appointments.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="calendar-clock" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Appointments</span>
+            <span class="ml-auto bg-brand-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">1</span>
           </a>
-          <a
-            href="patient-records.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="folder-open" class="w-5 h-5"></i>
+          <a href="patient-records.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="folder-open" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Health Records</span>
           </a>
-          <a
-            href="patient-prescriptions.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="pill" class="w-5 h-5"></i>
+          <a href="patient-prescriptions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="pill" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Prescriptions</span>
+            <span class="ml-auto bg-status-warning text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
           </a>
-          <a
-            href="patient-lab-results.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="microscope" class="w-5 h-5"></i>
+          <a href="patient-lab-results.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="microscope" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Lab Results</span>
           </a>
-          <a
-            href="patient-messages.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="message-square" class="w-5 h-5"></i>
+
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-4">Connect</p>
+          <a href="patient-messages.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="message-square" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Messages</span>
+            <span class="ml-auto bg-status-error text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
           </a>
-          <a
-            href="patient-telemedicine.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="video" class="w-5 h-5"></i>
+          <a href="patient-telemedicine.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="video" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Telehealth</span>
           </a>
-          <a
-            href="patient-wearable.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="activity" class="w-5 h-5"></i>
+          <a href="patient-wearable.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="activity" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Health Data</span>
           </a>
-        </div>
+        </nav>
 
         <div class="p-4 border-t border-border-light shrink-0">
-          <a
-            href="patient-settings.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-light/50 text-brand-primary transition-colors"
-          >
-            <i data-lucide="settings" class="w-5 h-5"></i>
-            <span class="font-medium text-sm">Settings</span>
-          </a>
-          <a
-            href="auth-login.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-status-error hover:bg-status-error/10 transition-colors mt-1"
-          >
-            <i data-lucide="log-out" class="w-5 h-5"></i>
-            <span class="font-medium text-sm">Logout</span>
+          <a href="auth-login.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-status-error hover:bg-status-error/10 transition-colors">
+            <i data-lucide="log-out" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Log Out</span>
           </a>
         </div>
       </aside>
 
-      <!-- MAIN CONTENT AREA -->
-      <div class="flex-1 flex flex-col relative overflow-hidden">
-        <!-- TOPBAR -->
-        <header
-          class="h-20 bg-bg-canvas/80 backdrop-blur-md border-b border-border-light flex items-center justify-between px-6 md:px-10 z-10 sticky top-0"
-        >
+      <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+      <!-- MAIN WRAPPER -->
+      <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        
+        <header class="h-16 bg-bg-surface border-b border-border-light flex items-center justify-between px-6 shrink-0 z-10">
           <div class="flex items-center gap-4">
-            <button
-              class="md:hidden text-text-secondary hover:text-brand-primary transition-colors"
-            >
-              <i data-lucide="menu" class="w-6 h-6"></i>
+            <button id="mobile-menu-btn" class="p-2 -ml-2 text-text-secondary hover:text-text-primary md:hidden rounded-lg hover:bg-bg-muted">
+              <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
-            <h2
-              class="font-display text-2xl font-medium text-text-primary hidden sm:block"
-            >
-              Settings
-            </h2>
-          </div>
-
-          <div class="flex items-center gap-4 sm:gap-6">
-            <button
-              class="relative text-text-secondary hover:text-brand-primary transition-colors"
-            >
-              <i data-lucide="bell" class="w-6 h-6"></i>
-              <span
-                class="absolute top-0 right-0 w-2.5 h-2.5 bg-status-warning rounded-full border-2 border-bg-canvas"
-              ></span>
-            </button>
-
-            <div class="h-8 w-px bg-border-light"></div>
-
-            <div class="flex items-center gap-3 cursor-pointer group">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100"
-                alt="Patient"
-                class="w-10 h-10 rounded-full object-cover border-2 border-transparent group-hover:border-brand-primary transition-colors"
-              />
-              <div class="hidden md:block text-right">
-                <p
-                  class="text-sm font-semibold text-text-primary leading-none mb-1"
-                >
-                  Sophia Lee
-                </p>
-                <p class="text-xs text-text-muted leading-none">ID: VTR-4829</p>
-              </div>
-              <i
-                data-lucide="chevron-down"
-                class="w-4 h-4 text-text-muted group-hover:text-brand-primary transition-colors"
-              ></i>
-            </div>
+            <h1 class="font-display font-semibold text-lg text-text-primary">Account Settings</h1>
           </div>
         </header>
 
-        <!-- PAGE CONTENT -->
-        <main class="flex-1 overflow-y-auto p-6 md:p-10 pb-24">
-          <!-- SETTINGS CONTENT -->
-          <div class="max-w-5xl mx-auto">
-            <div class="mb-8">
-              <h1
-                class="text-3xl font-display font-medium text-text-primary mb-2"
-              >
-                Settings
-              </h1>
-              <p class="text-text-secondary text-sm">
-                Manage your personal information and preferences.
-              </p>
-            </div>
-
-            <div class="flex flex-col md:flex-row gap-8 items-start">
-              <!-- Settings Sidebar -->
-              <div
-                class="w-full md:w-64 shrink-0 bg-bg-surface rounded-3xl border border-border-light shadow-sm p-4 sticky top-24"
-              >
-                <nav class="space-y-1">
-                  <a
-                    href="#"
-                    class="flex items-center gap-3 px-4 py-3 bg-brand-primary/10 text-brand-primary rounded-xl font-medium transition-colors"
-                  >
-                    <i data-lucide="user" class="w-4 h-4"></i> Profile Details
-                  </a>
-                  <a
-                    href="#"
-                    class="flex items-center gap-3 px-4 py-3 text-text-secondary hover:bg-bg-canvas hover:text-text-primary rounded-xl font-medium transition-colors"
-                  >
-                    <i data-lucide="credit-card" class="w-4 h-4"></i> Billing &
-                    Insurance
-                  </a>
-                  <a
-                    href="#"
-                    class="flex items-center gap-3 px-4 py-3 text-text-secondary hover:bg-bg-canvas hover:text-text-primary rounded-xl font-medium transition-colors"
-                  >
-                    <i data-lucide="bell" class="w-4 h-4"></i> Notifications
-                  </a>
-                  <a
-                    href="#"
-                    class="flex items-center gap-3 px-4 py-3 text-text-secondary hover:bg-bg-canvas hover:text-text-primary rounded-xl font-medium transition-colors"
-                  >
-                    <i data-lucide="shield-check" class="w-4 h-4"></i> Security
-                  </a>
-                </nav>
-              </div>
-
-              <!-- Settings Form -->
-              <div
-                class="flex-1 bg-bg-surface rounded-3xl border border-border-light shadow-sm p-6 md:p-10 w-full"
-              >
-                <!-- Profile Photo -->
-                <div
-                  class="flex items-center gap-6 mb-10 pb-8 border-b border-border-light"
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300"
-                    alt="Sophia Lee"
-                    class="w-24 h-24 rounded-full object-cover shadow-sm"
-                  />
-                  <div>
-                    <h3 class="text-lg font-medium text-text-primary mb-3">
-                      Profile Photo
-                    </h3>
-                    <div class="flex items-center gap-3">
-                      <button
-                        class="bg-brand-primary text-text-inverse px-5 py-2.5 rounded-xl text-sm font-medium hover:bg-brand-secondary transition-colors"
-                      >
-                        Change Photo
-                      </button>
-                      <button
-                        class="bg-bg-canvas text-status-error border border-border-default px-5 py-2.5 rounded-xl text-sm font-medium hover:border-status-error hover:bg-status-error/5 transition-colors"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Form Fields -->
-                <form class="space-y-8">
-                  <div>
-                    <h3 class="text-xl font-display text-text-primary mb-6">
-                      Personal Information
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div class="space-y-2">
-                        <label
-                          class="text-sm font-medium text-text-primary block"
-                          >First Name</label
-                        >
-                        <input
-                          type="text"
-                          value="Sophia"
-                          class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-                        />
-                      </div>
-                      <div class="space-y-2">
-                        <label
-                          class="text-sm font-medium text-text-primary block"
-                          >Last Name</label
-                        >
-                        <input
-                          type="text"
-                          value="Lee"
-                          class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-                        />
-                      </div>
-                      <div class="space-y-2">
-                        <label
-                          class="text-sm font-medium text-text-primary block"
-                          >Date of Birth</label
-                        >
-                        <input
-                          type="date"
-                          value="1992-05-14"
-                          class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-                        />
-                      </div>
-                      <div class="space-y-2">
-                        <label
-                          class="text-sm font-medium text-text-primary block"
-                          >Gender</label
-                        >
-                        <select
-                          class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary transition-shadow cursor-pointer appearance-none"
-                        >
-                          <option selected>Female</option>
-                          <option>Male</option>
-                          <option>Other</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr class="border-border-light" />
-
-                  <div>
-                    <h3 class="text-xl font-display text-text-primary mb-6">
-                      Contact Details
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div class="space-y-2">
-                        <label
-                          class="text-sm font-medium text-text-primary block"
-                          >Email Address</label
-                        >
-                        <input
-                          type="email"
-                          value="sophia.lee@example.com"
-                          class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-                        />
-                      </div>
-                      <div class="space-y-2">
-                        <label
-                          class="text-sm font-medium text-text-primary block"
-                          >Phone Number</label
-                        >
-                        <input
-                          type="tel"
-                          value="+1 (555) 987-6543"
-                          class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-                        />
-                      </div>
-                      <div class="space-y-2 md:col-span-2">
-                        <label
-                          class="text-sm font-medium text-text-primary block"
-                          >Home Address</label
-                        >
-                        <input
-                          type="text"
-                          value="456 Magnolia Lane, Apt 2B, Seattle, WA 98101"
-                          class="w-full bg-bg-canvas border border-border-default rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="flex justify-end gap-4 pt-6 border-t border-border-light"
-                  >
-                    <button
-                      type="button"
-                      class="bg-bg-canvas text-text-primary border border-border-default px-6 py-3 rounded-xl font-medium hover:bg-border-light/50 transition-colors"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      class="bg-brand-primary text-text-inverse px-6 py-3 rounded-xl font-medium hover:bg-brand-secondary transition-colors shadow-md"
-                    >
-                      Save Changes
-                    </button>
-                  </div>
-                </form>
-              </div>
+        <!-- Main Scrollable Split View -->
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 flex flex-col lg:flex-row gap-8">
+          
+          <!-- Left sticky local tabs navigation -->
+          <div class="w-full lg:w-56 shrink-0">
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-2.5 space-y-1 sticky top-0">
+              <button class="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-semibold bg-brand-light text-brand-primary text-left">
+                <i data-lucide="user" class="w-4 h-4"></i> Profile Details
+              </button>
+              <button class="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-medium text-text-secondary hover:bg-bg-canvas hover:text-text-primary text-left">
+                <i data-lucide="bell" class="w-4 h-4"></i> Notifications
+              </button>
+              <button class="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-medium text-text-secondary hover:bg-bg-canvas hover:text-text-primary text-left">
+                <i data-lucide="lock" class="w-4 h-4"></i> Security & Password
+              </button>
+              <button class="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-medium text-text-secondary hover:bg-bg-canvas hover:text-text-primary text-left">
+                <i data-lucide="shield" class="w-4 h-4"></i> Privacy & Data
+              </button>
+              <button class="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-medium text-text-secondary hover:bg-bg-canvas hover:text-text-primary text-left">
+                <i data-lucide="credit-card" class="w-4 h-4"></i> Billing & Insurance
+              </button>
             </div>
           </div>
+
+          <!-- Right Content Panel -->
+          <div class="flex-1 space-y-6">
+            
+            <!-- Section 1: Profile Photo Card -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-6 shadow-sm flex flex-col sm:flex-row items-center gap-6">
+              <div class="relative w-20 h-20 shrink-0">
+                <img src="assets/img/general/avatar-placeholder.svg" alt="Profile" class="w-20 h-20 rounded-full object-cover border-2 border-brand-light" />
+                <button class="absolute bottom-0 right-0 p-1.5 bg-brand-primary text-white hover:bg-brand-primary-hover rounded-full shadow-md transition-all border border-bg-surface">
+                  <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+              <div class="text-center sm:text-left">
+                <h3 class="font-bold text-base text-text-primary">Sophia Lee</h3>
+                <p class="text-xs text-text-muted mt-0.5">Patient Account ID: VTR-4829 · Registered since Feb 2025</p>
+                <div class="flex flex-wrap gap-2 mt-3 justify-center sm:justify-start">
+                  <button class="bg-brand-primary hover:bg-brand-primary-hover text-white px-3 py-1.5 rounded-xl text-xs font-semibold shadow-sm transition-all">Upload New</button>
+                  <button class="bg-bg-canvas hover:bg-bg-muted text-text-primary px-3 py-1.5 rounded-xl text-xs font-semibold border border-border-light transition-all">Delete Photo</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Personal Information Form -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-6 shadow-sm space-y-6">
+              <h3 class="font-bold text-base text-text-primary">Personal Details</h3>
+              
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm" onsubmit="event.preventDefault();">
+                <div>
+                  <label class="block text-xs font-semibold text-text-secondary mb-1.5">First Name</label>
+                  <input type="text" value="Sophia" class="w-full px-4 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-text-secondary mb-1.5">Last Name</label>
+                  <input type="text" value="Lee" class="w-full px-4 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-text-secondary mb-1.5">Date of Birth</label>
+                  <input type="text" value="Jan 15, 1990" class="w-full px-4 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-text-secondary mb-1.5">Gender</label>
+                  <input type="text" value="Female" class="w-full px-4 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-text-secondary mb-1.5">Email Address</label>
+                  <input type="email" value="sophia.lee@email.com" class="w-full px-4 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-text-secondary mb-1.5">Phone Number</label>
+                  <input type="tel" value="+1 (555) 234-5678" class="w-full px-4 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-xs font-semibold text-text-secondary mb-1.5">Emergency Contact</label>
+                  <input type="text" value="Robert Lee (Spouse) · +1 (555) 876-5432" class="w-full px-4 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+
+                <div class="md:col-span-2 pt-2 text-right">
+                  <button type="submit" class="bg-brand-primary hover:bg-brand-primary-hover text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-sm transition-all">
+                    Save Form Changes
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Section 3: Medical Information Card -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-6 shadow-sm space-y-4">
+              <h3 class="font-bold text-base text-text-primary">Medical Reference Summary</h3>
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="bg-bg-canvas p-3 rounded-xl border border-border-light">
+                  <span class="text-text-muted block mb-0.5">Blood Type</span>
+                  <span class="font-bold text-text-primary">O+ (Positive)</span>
+                </div>
+                <div class="bg-bg-canvas p-3 rounded-xl border border-border-light">
+                  <span class="text-text-muted block mb-0.5">Allergies</span>
+                  <span class="font-bold text-status-error">Penicillin, Dust Mites</span>
+                </div>
+                <div class="bg-bg-canvas p-3 rounded-xl border border-border-light">
+                  <span class="text-text-muted block mb-0.5">Chronic Diagnoses</span>
+                  <span class="font-bold text-text-primary">Hypertension, Type 2 Diabetes</span>
+                </div>
+                <div class="bg-bg-canvas p-3 rounded-xl border border-border-light">
+                  <span class="text-text-muted block mb-0.5">Primary Care Doctor</span>
+                  <span class="font-bold text-brand-primary">Dr. Michael Chen</span>
+                </div>
+              </div>
+              <div class="p-3 bg-brand-light/35 border border-brand-primary/20 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-brand-primary"></i>
+                  <span class="text-xs font-semibold text-text-primary">Insurance Provider: BlueCross Gold (#BC-9928-X)</span>
+                </div>
+                <a href="#" class="text-xs font-bold text-brand-primary hover:underline">View Card</a>
+              </div>
+            </div>
+
+            <!-- Section 4: Notifications tab preview content -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-6 shadow-sm space-y-4">
+              <h3 class="font-bold text-base text-text-primary">Quick Notification Preferences</h3>
+              <div class="space-y-3 text-xs">
+                
+                <!-- Toggle 1 -->
+                <div class="flex items-center justify-between p-2 rounded-lg hover:bg-bg-canvas/50 transition-colors">
+                  <div>
+                    <p class="font-semibold text-text-primary">Appointment Reminders</p>
+                    <p class="text-[10px] text-text-muted">Receive email and SMS notifications 24 hours prior to visits.</p>
+                  </div>
+                  <input type="checkbox" checked class="w-4 h-4 accent-brand-primary cursor-pointer" />
+                </div>
+
+                <!-- Toggle 2 -->
+                <div class="flex items-center justify-between p-2 rounded-lg hover:bg-bg-canvas/50 transition-colors">
+                  <div>
+                    <p class="font-semibold text-text-primary">Lab Results Ready Alerts</p>
+                    <p class="text-[10px] text-text-muted">Get notified instantly when clinical lab tests are verified.</p>
+                  </div>
+                  <input type="checkbox" checked class="w-4 h-4 accent-brand-primary cursor-pointer" />
+                </div>
+
+                <!-- Toggle 3 -->
+                <div class="flex items-center justify-between p-2 rounded-lg hover:bg-bg-canvas/50 transition-colors">
+                  <div>
+                    <p class="font-semibold text-text-primary">Prescription Refill Reminders</p>
+                    <p class="text-[10px] text-text-muted">Get notifications when active medication supply falls below 20%.</p>
+                  </div>
+                  <input type="checkbox" checked class="w-4 h-4 accent-brand-primary cursor-pointer" />
+                </div>
+
+                <!-- Toggle 4 -->
+                <div class="flex items-center justify-between p-2 rounded-lg hover:bg-bg-canvas/50 transition-colors">
+                  <div>
+                    <p class="font-semibold text-text-primary">Weekly Health tips</p>
+                    <p class="text-[10px] text-text-muted">Receive educational tips compiled by on-call practitioners.</p>
+                  </div>
+                  <input type="checkbox" class="w-4 h-4 accent-brand-primary cursor-pointer" />
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
         </main>
       </div>
+
     </div>
 
-    <!-- Initialize Icons -->
     <script>
       lucide.createIcons();
+
+      const sidebar = document.getElementById('sidebar');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
+
+      function toggleSidebar() {
+        sidebar.classList.toggle('hidden');
+        sidebar.classList.toggle('fixed');
+        sidebar.classList.toggle('inset-y-0');
+        sidebar.classList.toggle('left-0');
+        mobileSidebarOverlay.classList.toggle('hidden');
+      }
+
+      mobileMenuBtn?.addEventListener('click', toggleSidebar);
+      mobileSidebarOverlay?.addEventListener('click', toggleSidebar);
     </script>
   </body>
 </html>

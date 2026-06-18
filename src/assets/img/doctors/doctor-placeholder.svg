@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#d8f3dc"/>
+  <circle cx="200" cy="175" r="130" fill="#2d6a4f" opacity="0.08"/>
+  <circle cx="200" cy="145" r="65" fill="#2d6a4f" opacity="0.25"/>
+  <circle cx="200" cy="143" r="52" fill="#2d6a4f" opacity="0.4"/>
+  <ellipse cx="200" cy="330" rx="100" ry="90" fill="#2d6a4f" opacity="0.2"/>
+  <ellipse cx="200" cy="310" rx="85" ry="75" fill="#2d6a4f" opacity="0.35"/>
+  <rect x="148" y="260" width="104" height="110" rx="8" fill="white" opacity="0.5"/>
+  <rect x="189" y="285" width="22" height="6" rx="3" fill="#2d6a4f" opacity="0.6"/>
+  <rect x="197" y="277" width="6" height="22" rx="3" fill="#2d6a4f" opacity="0.6"/>
+  <rect x="0" y="450" width="400" height="50" fill="#2d6a4f" opacity="0.15"/>
+  <text x="200" y="481" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#2d6a4f" font-weight="600">Dr. Placeholder</text>
+</svg>

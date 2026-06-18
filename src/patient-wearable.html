@@ -3,578 +3,447 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Health Data & Wearables - Vitara Patient Portal</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>Health Data | VITARA Patient Portal</title>
+    <meta name="description" content="Synchronize and track health data from your wearable smart bands." />
 
     <!-- Tailwind CSS (compiled) -->
     <link rel="stylesheet" href="assets/css/vitara.min.css" />
-
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
+    <script src="assets/js/lucide.min.js"></script>
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+
+    <style>
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 99px; }
+
+      @keyframes pulse-ring {
+        0% { transform: scale(0.85); opacity: 1; }
+        100% { transform: scale(1.4); opacity: 0; }
+      }
+      .pulse-ring::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        background: currentColor;
+        animation: pulse-ring 1.8s ease-out infinite;
+      }
+
+      .nav-active {
+        background: linear-gradient(90deg, var(--brand-light) 0%, rgba(216,243,220,0.3) 100%);
+        border-left: 3px solid var(--brand-primary);
+      }
+    </style>
   </head>
-  <body
-    class="bg-bg-canvas text-text-primary antialiased flex h-screen overflow-hidden font-body selection:bg-brand-light selection:text-brand-primary"
-  >
-    <!-- Sidebar -->
-    <aside
-      class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20"
-    >
-      <div
-        class="h-16 flex items-center px-6 border-b border-border-light shrink-0"
-      >
-        <a href="index.html" class="flex items-center gap-2">
-          <div
-            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
-          >
-            <i data-lucide="cross" class="w-5 h-5"></i>
-          </div>
-          <span
-            class="font-display font-semibold text-xl tracking-tight text-text-primary"
-            >VITARA</span
-          >
-        </a>
-      </div>
 
-      <div class="flex-1 overflow-y-auto py-6 px-4 space-y-1 custom-scrollbar">
-        <p
-          class="px-3 text-xs font-medium text-text-muted uppercase tracking-wider mb-2"
-        >
-          Portal
-        </p>
-        <a
-          href="patient-dashboard.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Dashboard</span>
-        </a>
-        <a
-          href="patient-appointments.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="calendar" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Appointments</span>
-        </a>
-        <a
-          href="patient-records.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="folder-open" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Health Records</span>
-        </a>
-        <a
-          href="patient-prescriptions.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="pill" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Prescriptions</span>
-        </a>
-        <a
-          href="patient-lab-results.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="microscope" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Lab Results</span>
-        </a>
-        <a
-          href="patient-messages.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="message-square" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Messages</span>
-        </a>
-        <a
-          href="patient-telemedicine.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="video" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Telehealth</span>
-        </a>
-        <a
-          href="patient-wearable.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-light/50 text-brand-primary transition-colors"
-        >
-          <i data-lucide="activity" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Health Data</span>
-        </a>
-      </div>
+  <body class="bg-bg-canvas text-text-primary antialiased overflow-x-hidden font-body">
+    <div class="flex h-screen overflow-hidden">
 
-      <div class="p-4 border-t border-border-light shrink-0">
-        <a
-          href="patient-settings.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="settings" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Settings</span>
-        </a>
-        <a
-          href="auth-login.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-status-error hover:bg-status-error/10 transition-colors mt-1"
-        >
-          <i data-lucide="log-out" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Logout</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Main Content Wrapper -->
-    <div
-      class="flex-1 flex flex-col h-screen overflow-hidden bg-bg-canvas relative z-10"
-    >
-      <!-- Top Header -->
-      <header
-        class="h-16 bg-white border-b border-border-light flex items-center justify-between px-6 shrink-0 z-20"
-      >
-        <div class="flex items-center gap-4">
-          <button class="md:hidden text-text-secondary hover:text-text-primary">
-            <i data-lucide="menu" class="w-6 h-6"></i>
-          </button>
-          <h2
-            class="font-display font-medium text-lg text-text-primary hidden sm:block"
-          >
-            Health Data Integration
-          </h2>
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20 shrink-0">
+        <div class="h-16 flex items-center px-6 border-b border-border-light shrink-0">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <i data-lucide="cross" class="w-4 h-4"></i>
+            </div>
+            <span class="font-display font-semibold text-xl tracking-tight text-text-primary">VITARA</span>
+          </a>
         </div>
 
-        <div class="flex items-center gap-4">
-          <div class="flex items-center gap-3 cursor-pointer group">
-            <img
-              src="https://ui-avatars.com/api/?name=Alex+Doe&background=1B3A2F&color=fff"
-              alt="User Avatar"
-              class="w-8 h-8 rounded-full ring-2 ring-transparent group-hover:ring-brand-primary transition-all"
-            />
-            <div class="hidden sm:block text-sm">
-              <p class="font-medium text-text-primary leading-none">Alex Doe</p>
-            </div>
+        <!-- Patient Profile Mini Card -->
+        <div class="mx-4 my-4 p-3 rounded-2xl bg-bg-canvas border border-border-light flex items-center gap-3">
+          <div class="relative">
+            <img src="assets/img/general/avatar-placeholder.svg" alt="Patient" class="w-10 h-10 rounded-full object-cover border-2 border-brand-light" />
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-bg-surface"></span>
           </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-text-primary truncate">Sophia Lee</p>
+            <p class="text-xs text-text-muted font-mono">ID: VTR-4829</p>
+          </div>
+          <a href="patient-settings.html" class="text-text-muted hover:text-brand-primary transition-colors">
+            <i data-lucide="settings" class="w-4 h-4"></i>
+          </a>
         </div>
-      </header>
 
-      <!-- Page Content -->
-      <main class="flex-1 overflow-y-auto p-6 lg:p-8 custom-scrollbar">
-        <div class="max-w-6xl mx-auto">
-          <div
-            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8"
-          >
-            <div>
-              <h1 class="font-display text-2xl font-medium text-text-primary">
-                Wearable Devices & Vitals
-              </h1>
-              <p class="text-text-secondary text-sm mt-1">
-                Real-time health telemetry synced from your devices.
-              </p>
+        <nav class="flex-1 overflow-y-auto py-2 px-3 space-y-0.5">
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-1">My Health</p>
+          <a href="patient-dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Dashboard</span>
+          </a>
+          <a href="patient-appointments.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="calendar-clock" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Appointments</span>
+            <span class="ml-auto bg-brand-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">1</span>
+          </a>
+          <a href="patient-records.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="folder-open" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Health Records</span>
+          </a>
+          <a href="patient-prescriptions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="pill" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Prescriptions</span>
+            <span class="ml-auto bg-status-warning text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+          </a>
+          <a href="patient-lab-results.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="microscope" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Lab Results</span>
+          </a>
+
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-4">Connect</p>
+          <a href="patient-messages.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="message-square" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Messages</span>
+            <span class="ml-auto bg-status-error text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+          </a>
+          <a href="patient-telemedicine.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="video" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Telehealth</span>
+          </a>
+          <a href="patient-wearable.html" class="nav-active flex items-center gap-3 px-3 py-2.5 rounded-xl text-brand-primary transition-all">
+            <i data-lucide="activity" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Health Data</span>
+          </a>
+        </nav>
+
+        <div class="p-4 border-t border-border-light shrink-0">
+          <a href="auth-login.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-status-error hover:bg-status-error/10 transition-colors">
+            <i data-lucide="log-out" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Log Out</span>
+          </a>
+        </div>
+      </aside>
+
+      <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+      <!-- MAIN WRAPPER -->
+      <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        
+        <header class="h-16 bg-bg-surface border-b border-border-light flex items-center justify-between px-6 shrink-0 z-10">
+          <div class="flex items-center gap-4">
+            <button id="mobile-menu-btn" class="p-2 -ml-2 text-text-secondary hover:text-text-primary md:hidden rounded-lg hover:bg-bg-muted">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+            <h1 class="font-display font-semibold text-lg text-text-primary">Wearable Data</h1>
+          </div>
+          <div class="flex items-center gap-4">
+            <button class="relative p-2 text-text-secondary hover:text-text-primary rounded-lg hover:bg-bg-muted">
+              <i data-lucide="bell" class="w-5 h-5"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-status-error rounded-full ring-2 ring-bg-surface"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Main Scrollable Content -->
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 space-y-6">
+
+          <!-- Device Connection Banner -->
+          <div class="bg-brand-light/30 border border-brand-primary/20 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0">
+                <i data-lucide="watch" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-text-primary">Vitara Smart Band Connected</p>
+                <p class="text-xs text-text-muted mt-0.5">Last synchronized: 2 minutes ago</p>
+              </div>
             </div>
-            <div class="flex gap-2">
-              <div
-                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-status-success/10 text-status-success text-sm font-medium"
-              >
-                <span
-                  class="w-2 h-2 rounded-full bg-status-success animate-pulse"
-                ></span>
-                Live Sync Active
+            <button class="bg-brand-primary hover:bg-brand-primary-hover text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Sync Now
+            </button>
+          </div>
+
+          <!-- Real-time Vitals Row (4 Cards) -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <!-- Card 1 -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-4 space-y-2 shadow-sm">
+              <div class="flex justify-between items-center text-text-muted">
+                <span class="text-xs font-semibold">Heart Rate</span>
+                <span class="w-2 h-2 bg-status-error rounded-full pulse-ring relative"></span>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-2xl font-bold text-text-primary leading-none">64</span>
+                <span class="text-xs text-text-secondary">bpm</span>
+              </div>
+              <p class="text-[10px] text-text-muted">Normal resting state</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-4 space-y-2 shadow-sm">
+              <div class="flex justify-between items-center text-text-muted">
+                <span class="text-xs font-semibold">SpO2</span>
+                <i data-lucide="droplet" class="w-4 h-4 text-brand-primary"></i>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-2xl font-bold text-text-primary leading-none">98</span>
+                <span class="text-xs text-text-secondary">%</span>
+              </div>
+              <p class="text-[10px] text-text-muted">Oxygen saturation: Good</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-4 space-y-2 shadow-sm">
+              <div class="flex justify-between items-center text-text-muted">
+                <span class="text-xs font-semibold">Steps Today</span>
+                <i data-lucide="footprints" class="w-4 h-4 text-brand-primary"></i>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-2xl font-bold text-text-primary leading-none">7,842</span>
+                <span class="text-xs text-text-muted">/ 10k</span>
+              </div>
+              <div class="w-full bg-bg-canvas h-1 rounded-full overflow-hidden border border-border-light">
+                <div class="bg-brand-primary h-full" style="width: 78%"></div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-4 space-y-2 shadow-sm">
+              <div class="flex justify-between items-center text-text-muted">
+                <span class="text-xs font-semibold">Sleep</span>
+                <i data-lucide="moon" class="w-4 h-4 text-brand-primary"></i>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-2xl font-bold text-text-primary leading-none">7h 23m</span>
+              </div>
+              <p class="text-[10px] text-text-muted">Quality Score: 82/100 (Good)</p>
+            </div>
+
+          </div>
+
+          <!-- Heart Rate Line Chart (Full Width Card) -->
+          <div class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+              <div>
+                <h3 class="font-bold text-base text-text-primary">Heart Rate History</h3>
+                <p class="text-xs text-text-muted">Daily averages over the last week</p>
+              </div>
+              <div class="flex gap-1 bg-bg-canvas p-1 rounded-xl border border-border-light">
+                <button class="px-3 py-1 text-xs font-semibold bg-bg-surface border border-border-light rounded-lg text-text-primary">7D</button>
+                <button class="px-3 py-1 text-xs font-medium text-text-secondary hover:text-text-primary">30D</button>
+                <button class="px-3 py-1 text-xs font-medium text-text-secondary hover:text-text-primary">3M</button>
+              </div>
+            </div>
+            
+            <div class="w-full relative h-[220px]">
+              <canvas id="heartRateChart"></canvas>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 border-t border-border-light pt-4 text-center">
+              <div>
+                <span class="text-[10px] text-text-muted block font-semibold uppercase tracking-wider">Average HR</span>
+                <span class="text-base font-bold text-text-primary">65.7 bpm</span>
+              </div>
+              <div>
+                <span class="text-[10px] text-text-muted block font-semibold uppercase tracking-wider">Minimum HR</span>
+                <span class="text-base font-bold text-text-primary">62 bpm</span>
+              </div>
+              <div>
+                <span class="text-[10px] text-text-muted block font-semibold uppercase tracking-wider">Maximum HR</span>
+                <span class="text-base font-bold text-text-primary">71 bpm</span>
               </div>
             </div>
           </div>
 
-          <!-- Daily Summary Highlights -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <!-- Heart Rate -->
-            <div
-              class="bg-white rounded-2xl p-5 border border-border-light shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform"
-            >
-              <div class="flex justify-between items-start mb-4">
-                <div
-                  class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-500"
-                >
-                  <i data-lucide="heart" class="w-5 h-5 fill-rose-500"></i>
-                </div>
-                <span class="text-xs font-medium text-text-muted"
-                  >Avg Today</span
-                >
-              </div>
+          <!-- Split: Activity Bar Chart & Sleep stages Donut Chart -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- Activity Chart -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
               <div>
-                <div class="flex items-baseline gap-1">
-                  <span
-                    class="font-display text-3xl font-medium text-text-primary"
-                    >72</span
-                  >
-                  <span class="text-sm text-text-secondary">bpm</span>
-                </div>
-                <p class="text-xs text-status-success mt-1">
-                  <i data-lucide="trending-down" class="w-3 h-3 inline"></i> 4
-                  bpm vs yesterday
-                </p>
+                <h3 class="font-bold text-base text-text-primary">Activity Progress</h3>
+                <p class="text-xs text-text-muted">Daily step counts compared to weekly average</p>
+              </div>
+              <div class="relative h-[160px]">
+                <canvas id="stepsChart"></canvas>
+              </div>
+              <div class="flex justify-between items-center border-t border-border-light pt-3 text-xs text-text-secondary">
+                <span>7D Total: <b>48,293 steps</b></span>
+                <span>Active Minutes: <b>312 min</b></span>
               </div>
             </div>
 
-            <!-- Steps -->
-            <div
-              class="bg-white rounded-2xl p-5 border border-border-light shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform"
-            >
-              <div class="flex justify-between items-start mb-4">
-                <div
-                  class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500"
-                >
-                  <i data-lucide="footprints" class="w-5 h-5"></i>
-                </div>
-                <span class="text-xs font-medium text-text-muted">Today</span>
-              </div>
+            <!-- Sleep Stages Chart -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
               <div>
-                <div class="flex items-baseline gap-1">
-                  <span
-                    class="font-display text-3xl font-medium text-text-primary"
-                    >8,432</span
-                  >
-                  <span class="text-sm text-text-secondary">steps</span>
-                </div>
-                <!-- Progress Bar -->
-                <div class="h-1.5 w-full bg-bg-muted rounded-full mt-3">
-                  <div class="h-full bg-blue-500 rounded-full w-[84%]"></div>
-                </div>
+                <h3 class="font-bold text-base text-text-primary">Sleep Stages</h3>
+                <p class="text-xs text-text-muted">Visual breakdown of sleep phases last night</p>
               </div>
-            </div>
-
-            <!-- Sleep -->
-            <div
-              class="bg-white rounded-2xl p-5 border border-border-light shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform"
-            >
-              <div class="flex justify-between items-start mb-4">
-                <div
-                  class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500"
-                >
-                  <i data-lucide="moon" class="w-5 h-5 fill-indigo-500"></i>
-                </div>
-                <span class="text-xs font-medium text-text-muted"
-                  >Last Night</span
-                >
-              </div>
-              <div>
-                <div class="flex items-baseline gap-1">
-                  <span
-                    class="font-display text-3xl font-medium text-text-primary"
-                    >7<span class="text-xl">h</span> 12<span class="text-xl"
-                      >m</span
-                    ></span
-                  >
-                </div>
-                <p class="text-xs text-status-success mt-1">Optimal duration</p>
-              </div>
-            </div>
-
-            <!-- Blood Oxygen -->
-            <div
-              class="bg-white rounded-2xl p-5 border border-border-light shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform"
-            >
-              <div class="flex justify-between items-start mb-4">
-                <div
-                  class="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-500"
-                >
-                  <i data-lucide="droplet" class="w-5 h-5 fill-cyan-500"></i>
-                </div>
-                <span class="text-xs font-medium text-text-muted">SpO2</span>
-              </div>
-              <div>
-                <div class="flex items-baseline gap-1">
-                  <span
-                    class="font-display text-3xl font-medium text-text-primary"
-                    >98</span
-                  >
-                  <span class="text-sm text-text-secondary">%</span>
-                </div>
-                <p class="text-xs text-text-muted mt-1">Taken 2 hrs ago</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid lg:grid-cols-3 gap-8">
-            <!-- Left: Main Charts -->
-            <div class="lg:col-span-2 space-y-8">
-              <!-- Heart Rate Chart -->
-              <div
-                class="bg-white rounded-2xl border border-border-light shadow-sm p-6"
-              >
-                <div class="flex justify-between items-center mb-6">
-                  <div>
-                    <h3 class="font-medium text-text-primary">
-                      Heart Rate Trends
-                    </h3>
-                    <p class="text-xs text-text-secondary mt-1">Past 7 Days</p>
-                  </div>
-                  <select
-                    class="text-sm border border-border-default rounded-lg px-3 py-1.5 focus:outline-none focus:border-brand-primary"
-                  >
-                    <option>Weekly</option>
-                    <option>Monthly</option>
-                    <option>Yearly</option>
-                  </select>
-                </div>
-                <div class="h-[250px] w-full relative">
-                  <canvas id="hrChart"></canvas>
-                </div>
-              </div>
-
-              <!-- Sleep Cycles Chart -->
-              <div
-                class="bg-white rounded-2xl border border-border-light shadow-sm p-6"
-              >
-                <div class="flex justify-between items-center mb-6">
-                  <div>
-                    <h3 class="font-medium text-text-primary">
-                      Sleep Analysis
-                    </h3>
-                    <p class="text-xs text-text-secondary mt-1">
-                      Last Night's Sleep Stages
-                    </p>
-                  </div>
-                </div>
-                <div class="h-[200px] w-full relative">
+              <div class="relative h-[160px] flex items-center justify-center">
+                <div class="w-32 h-32">
                   <canvas id="sleepChart"></canvas>
                 </div>
+                <!-- Sleep stats legend next to donut -->
+                <div class="ml-4 space-y-1 text-xs">
+                  <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#1B3A2F]"></span> Deep: 20%</div>
+                  <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#2d7a5f]"></span> Light: 45%</div>
+                  <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#B5935A]"></span> REM: 25%</div>
+                  <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-status-error"></span> Awake: 10%</div>
+                </div>
+              </div>
+              <div class="flex justify-between items-center border-t border-border-light pt-3 text-xs text-text-secondary">
+                <span>Bedtime: <b>10:45 PM</b></span>
+                <span>Wake: <b>6:08 AM</b></span>
               </div>
             </div>
 
-            <!-- Right: Connected Devices -->
-            <div class="space-y-6">
-              <div
-                class="bg-white rounded-2xl border border-border-light shadow-sm p-6"
-              >
-                <h3
-                  class="font-medium text-text-primary mb-4 flex items-center gap-2"
-                >
-                  <i
-                    data-lucide="bluetooth"
-                    class="w-5 h-5 text-text-muted"
-                  ></i>
-                  Connected Devices
-                </h3>
+          </div>
 
-                <div class="space-y-4">
-                  <!-- Apple Watch -->
-                  <div
-                    class="flex items-center justify-between p-3 bg-bg-surface rounded-xl border border-brand-primary/20"
-                  >
-                    <div class="flex items-center gap-3">
-                      <div
-                        class="w-10 h-10 bg-white rounded-lg border border-border-light flex items-center justify-center"
-                      >
-                        <i
-                          data-lucide="watch"
-                          class="w-6 h-6 text-text-primary"
-                        ></i>
-                      </div>
-                      <div>
-                        <p class="font-medium text-sm text-text-primary">
-                          Apple Watch Series 9
-                        </p>
-                        <p
-                          class="text-xs text-status-success flex items-center gap-1"
-                        >
-                          <i data-lucide="check-circle-2" class="w-3 h-3"></i>
-                          Synced 5m ago
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      class="text-text-muted hover:text-status-error transition-colors"
-                    >
-                      <i data-lucide="unlink" class="w-4 h-4"></i>
-                    </button>
-                  </div>
-
-                  <!-- Oura Ring -->
-                  <div
-                    class="flex items-center justify-between p-3 bg-white rounded-xl border border-border-light hover:border-border-default transition-colors"
-                  >
-                    <div class="flex items-center gap-3">
-                      <div
-                        class="w-10 h-10 bg-bg-canvas rounded-lg flex items-center justify-center opacity-70"
-                      >
-                        <i
-                          data-lucide="circle-dashed"
-                          class="w-6 h-6 text-text-secondary"
-                        ></i>
-                      </div>
-                      <div>
-                        <p
-                          class="font-medium text-sm text-text-primary opacity-80"
-                        >
-                          Oura Ring Gen3
-                        </p>
-                        <p class="text-xs text-text-muted">Disconnected</p>
-                      </div>
-                    </div>
-                    <button
-                      class="text-brand-primary hover:underline text-xs font-medium"
-                    >
-                      Connect
-                    </button>
-                  </div>
-
-                  <button
-                    class="w-full py-3 border border-dashed border-border-default rounded-xl text-sm font-medium text-text-secondary hover:text-brand-primary hover:border-brand-primary transition-colors flex items-center justify-center gap-2 mt-4"
-                  >
-                    <i data-lucide="plus" class="w-4 h-4"></i> Add Device
-                  </button>
-                </div>
-              </div>
-
-              <!-- Data Sharing Notice -->
-              <div
-                class="bg-brand-light/30 rounded-2xl border border-brand-primary/20 p-5"
-              >
-                <div class="flex items-start gap-3">
-                  <i
-                    data-lucide="shield-check"
-                    class="w-5 h-5 text-brand-primary mt-0.5"
-                  ></i>
-                  <div>
-                    <h4 class="font-medium text-sm text-brand-primary mb-1">
-                      Clinical Integration
-                    </h4>
-                    <p class="text-xs text-text-secondary leading-relaxed">
-                      Your wearable data is securely shared with your primary
-                      care team to help monitor your wellness and adjust
-                      treatment plans remotely.
-                    </p>
-                  </div>
-                </div>
-              </div>
+          <!-- Health Trends Table -->
+          <div class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
+            <h3 class="font-bold text-base text-text-primary">Weekly Health Trends</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-border-light text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                    <th class="py-2 pb-3">Time Period</th>
+                    <th class="py-2 pb-3">Avg Heart Rate</th>
+                    <th class="py-2 pb-3">Avg Steps / Day</th>
+                    <th class="py-2 pb-3">Sleep Quality Score</th>
+                    <th class="py-2 pb-3">Weight</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-light text-xs text-text-secondary">
+                  <tr class="hover:bg-bg-canvas/40 transition-colors">
+                    <td class="py-3 font-semibold text-text-primary">This Week</td>
+                    <td class="py-3">65 bpm</td>
+                    <td class="py-3">6,899 steps</td>
+                    <td class="py-3">82/100 (Good)</td>
+                    <td class="py-3">62.5 kg</td>
+                  </tr>
+                  <tr class="hover:bg-bg-canvas/40 transition-colors">
+                    <td class="py-3 font-semibold text-text-primary">Last Week</td>
+                    <td class="py-3">68 bpm</td>
+                    <td class="py-3">7,234 steps</td>
+                    <td class="py-3">78/100 (Normal)</td>
+                    <td class="py-3">63.0 kg</td>
+                  </tr>
+                  <tr class="hover:bg-bg-canvas/40 transition-colors">
+                    <td class="py-3 font-semibold text-text-primary">2 Weeks Ago</td>
+                    <td class="py-3">70 bpm</td>
+                    <td class="py-3">6,102 steps</td>
+                    <td class="py-3">75/100 (Normal)</td>
+                    <td class="py-3">63.4 kg</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        </div>
-      </main>
+
+        </main>
+      </div>
+
     </div>
 
-    <!-- Initialize Icons & Charts -->
+    <!-- Charts setup scripts -->
     <script>
       lucide.createIcons();
 
-      // Chart.js Configuration
-      // Common options
-      const fontFam = "'Inter', sans-serif";
-      const gridColor = "#e5e7eb"; // border-light
-      const textColor = "#6b7280"; // text-muted
+      const sidebar = document.getElementById('sidebar');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
 
-      // 1. Heart Rate Chart (Line)
-      const ctxHR = document.getElementById("hrChart").getContext("2d");
+      function toggleSidebar() {
+        sidebar.classList.toggle('hidden');
+        sidebar.classList.toggle('fixed');
+        sidebar.classList.toggle('inset-y-0');
+        sidebar.classList.toggle('left-0');
+        mobileSidebarOverlay.classList.toggle('hidden');
+      }
 
-      // Create gradient
-      const gradientHR = ctxHR.createLinearGradient(0, 0, 0, 400);
-      gradientHR.addColorStop(0, "rgba(244, 63, 94, 0.2)"); // Rose 500
-      gradientHR.addColorStop(1, "rgba(244, 63, 94, 0)");
+      mobileMenuBtn?.addEventListener('click', toggleSidebar);
+      mobileSidebarOverlay?.addEventListener('click', toggleSidebar);
 
-      new Chart(ctxHR, {
-        type: "line",
+      // Heart Rate Chart
+      const hrCtx = document.getElementById('heartRateChart').getContext('2d');
+      new Chart(hrCtx, {
+        type: 'line',
         data: {
-          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-          datasets: [
-            {
-              label: "Avg Heart Rate (bpm)",
-              data: [70, 72, 75, 71, 74, 82, 72], // Sat was active
-              borderColor: "#f43f5e", // rose-500
-              backgroundColor: gradientHR,
-              borderWidth: 2,
-              pointBackgroundColor: "#fff",
-              pointBorderColor: "#f43f5e",
-              pointBorderWidth: 2,
-              pointRadius: 4,
-              fill: true,
-              tension: 0.4,
-            },
-          ],
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [{
+            label: 'Avg Heart Rate',
+            data: [62, 68, 65, 71, 63, 67, 64],
+            borderColor: '#1B3A2F',
+            backgroundColor: 'rgba(27, 58, 47, 0.05)',
+            borderWidth: 2.5,
+            fill: true,
+            tension: 0.35,
+            pointBackgroundColor: '#1B3A2F',
+            pointRadius: 4
+          }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: "#1E1E24",
-              titleFont: { family: fontFam, size: 13 },
-              bodyFont: { family: fontFam, size: 14, weight: "bold" },
-              padding: 12,
-              cornerRadius: 8,
-              displayColors: false,
-            },
+            legend: { display: false }
           },
           scales: {
             y: {
-              beginAtZero: false,
-              min: 50,
-              max: 100,
-              grid: { color: gridColor, drawBorder: false },
-              ticks: { font: { family: fontFam }, color: textColor },
+              grid: { color: 'rgba(0,0,0,0.03)' },
+              ticks: { font: { size: 10 } }
             },
             x: {
-              grid: { display: false, drawBorder: false },
-              ticks: { font: { family: fontFam }, color: textColor },
-            },
-          },
-        },
+              grid: { display: false },
+              ticks: { font: { size: 10 } }
+            }
+          }
+        }
       });
 
-      // 2. Sleep Chart (Bar/Gantt style approximation)
-      const ctxSleep = document.getElementById("sleepChart").getContext("2d");
-      new Chart(ctxSleep, {
-        type: "bar",
+      // Steps Activity Chart
+      const stepsCtx = document.getElementById('stepsChart').getContext('2d');
+      new Chart(stepsCtx, {
+        type: 'bar',
         data: {
-          labels: ["Deep", "Core", "REM", "Awake"],
-          datasets: [
-            {
-              label: "Time (Hours)",
-              data: [1.8, 3.5, 1.9, 0.2],
-              backgroundColor: [
-                "#4f46e5", // indigo-600 (Deep)
-                "#818cf8", // indigo-400 (Core)
-                "#c7d2fe", // indigo-200 (REM)
-                "#fbbf24", // amber-400 (Awake)
-              ],
-              borderRadius: 6,
-              barPercentage: 0.6,
-            },
-          ],
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [{
+            data: [6200, 7100, 5400, 8900, 7500, 8042, 5150],
+            backgroundColor: '#2d7a5f',
+            borderRadius: 6
+          }]
         },
         options: {
-          indexAxis: "y", // horizontal bar chart
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
-            legend: { display: false },
+            legend: { display: false }
           },
           scales: {
-            x: {
-              grid: { color: gridColor, drawBorder: false },
-              ticks: {
-                font: { family: fontFam },
-                color: textColor,
-                callback: function (val) {
-                  return val + "h";
-                },
-              },
-            },
             y: {
-              grid: { display: false, drawBorder: false },
-              ticks: {
-                font: { family: fontFam, weight: "500" },
-                color: "#1E1E24",
-              }, // text-primary
+              grid: { color: 'rgba(0,0,0,0.03)' },
+              ticks: { font: { size: 9 } }
             },
-          },
+            x: {
+              grid: { display: false },
+              ticks: { font: { size: 9 } }
+            }
+          }
+        }
+      });
+
+      // Sleep Stages Chart
+      const sleepCtx = document.getElementById('sleepChart').getContext('2d');
+      new Chart(sleepCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Deep', 'Light', 'REM', 'Awake'],
+          datasets: [{
+            data: [20, 45, 25, 10],
+            backgroundColor: ['#1B3A2F', '#2d7a5f', '#B5935A', '#ef4444'],
+            borderWidth: 0
+          }]
         },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          cutout: '70%'
+        }
       });
     </script>
   </body>

@@ -4,566 +4,362 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clinical Dashboard | VITARA Clinical Admin</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="description" content="Manage your patient appointments, clinical schedules, and electronic medical records." />
 
     <!-- Tailwind CSS (compiled) -->
     <link rel="stylesheet" href="assets/css/vitara.min.css" />
-
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/lucide.min.js"></script>
+    <!-- Chart.js -->
+    <script src="assets/js/chart.min.js"></script>
+
+    <style>
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 99px; }
+
+      @keyframes pulse-ring {
+        0% { transform: scale(0.85); opacity: 1; }
+        100% { transform: scale(1.4); opacity: 0; }
+      }
+      .pulse-ring::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        background: currentColor;
+        animation: pulse-ring 1.8s ease-out infinite;
+      }
+
+      .nav-active {
+        background: linear-gradient(90deg, var(--brand-light) 0%, rgba(216,243,220,0.3) 100%);
+        border-left: 3px solid var(--brand-primary);
+      }
+    </style>
   </head>
-  <body
-    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary overflow-x-hidden"
-  >
+
+  <body class="bg-bg-canvas text-text-primary antialiased overflow-x-hidden font-body">
     <div class="flex h-screen overflow-hidden">
-      <!-- SIDEBAR (CLINICAL VIEW - DARK) -->
-      <aside
-        class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20"
-      >
-        <div
-          class="h-16 flex items-center px-6 border-b border-border-light shrink-0"
-        >
-          <a href="index.html" class="flex items-center gap-2">
-            <div
-              class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
-            >
-              <i data-lucide="cross" class="w-5 h-5"></i>
+
+      <!-- SIDEBAR (CLINICAL VIEW - DARK GREEN BRAND) -->
+      <aside id="sidebar" class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20 shrink-0">
+        <!-- Logo -->
+        <div class="h-16 flex items-center px-6 border-b border-border-light shrink-0">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <i data-lucide="cross" class="w-4 h-4"></i>
             </div>
-            <span
-              class="font-display font-semibold text-xl tracking-tight text-text-primary"
-              >VITARA
-              <span class="font-sans font-normal text-xs opacity-70 ml-1"
-                >PRO</span
-              ></span
-            >
+            <span class="font-display font-semibold text-xl tracking-tight text-text-primary">VITARA <span class="text-xs bg-brand-light text-brand-primary px-1.5 py-0.5 rounded font-mono font-bold">PRO</span></span>
           </a>
         </div>
 
-        <div
-          class="flex-1 overflow-y-auto py-6 px-4 space-y-1 custom-scrollbar"
-        >
-          <p
-            class="px-3 text-xs font-medium text-text-muted uppercase tracking-wider mb-2"
-          >
-            Clinical
-          </p>
-          <a
-            href="clinical-dashboard.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-light/50 text-brand-primary transition-colors"
-          >
-            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-            <span class="font-medium text-sm">Dashboard</span>
+        <!-- Clinician Profile Mini Card -->
+        <div class="mx-4 my-4 p-3 rounded-2xl bg-bg-canvas border border-border-light flex items-center gap-3">
+          <div class="relative">
+            <img src="assets/img/doctors/doctor-4.svg" alt="Doctor" class="w-10 h-10 rounded-full object-cover border-2 border-brand-light" />
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-bg-surface"></span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-text-primary truncate">Dr. Michael Chen</p>
+            <p class="text-xs text-text-muted font-mono truncate">Chief Cardiologist</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto py-2 px-3 space-y-0.5">
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-1">Clinical Operations</p>
+          <a href="clinical-dashboard.html" class="nav-active flex items-center gap-3 px-3 py-2.5 rounded-xl text-brand-primary transition-all">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Dashboard</span>
           </a>
-          <a
-            href="clinical-patients.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="users" class="w-5 h-5"></i>
+          <a href="clinical-patients.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="users" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Patients</span>
           </a>
-          <a
-            href="clinical-schedule.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="calendar" class="w-5 h-5"></i>
+          <a href="clinical-schedule.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="calendar" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Schedule</span>
+            <span class="ml-auto bg-brand-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">4</span>
           </a>
-          <a
-            href="clinical-prescriptions.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="pill" class="w-5 h-5"></i>
+          <a href="clinical-prescriptions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="pill" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Prescriptions</span>
           </a>
-          <a
-            href="clinical-messages.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="message-square" class="w-5 h-5"></i>
+          <a href="clinical-messages.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="message-square" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Messages</span>
+            <span class="ml-auto bg-status-error text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">1</span>
           </a>
-          <a
-            href="clinical-analytics.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+          <a href="clinical-analytics.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="bar-chart-3" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Analytics</span>
           </a>
-        </div>
+        </nav>
 
+        <!-- Sidebar Footer -->
         <div class="p-4 border-t border-border-light shrink-0">
-          <a
-            href="#"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted transition-colors"
-          >
-            <i data-lucide="settings" class="w-5 h-5"></i>
-            <span class="font-medium text-sm">Settings</span>
-          </a>
-          <a
-            href="auth-login.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-status-error hover:bg-status-error/10 transition-colors mt-1"
-          >
-            <i data-lucide="log-out" class="w-5 h-5"></i>
-            <span class="font-medium text-sm">Logout</span>
+          <a href="auth-login.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-status-error hover:bg-status-error/10 transition-colors">
+            <i data-lucide="log-out" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Log Out</span>
           </a>
         </div>
       </aside>
 
-      <!-- MAIN CONTENT AREA -->
-      <div class="flex-1 flex flex-col relative overflow-hidden">
-        <!-- TOPBAR -->
-        <header
-          class="h-20 bg-bg-canvas/80 backdrop-blur-md border-b border-border-light flex items-center justify-between px-6 md:px-10 z-10 sticky top-0"
-        >
-          <div class="flex items-center gap-4 flex-1">
-            <button
-              class="md:hidden text-text-secondary hover:text-brand-primary transition-colors"
-            >
-              <i data-lucide="menu" class="w-6 h-6"></i>
+      <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+      <!-- MAIN WRAPPER -->
+      <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        
+        <!-- Topbar -->
+        <header class="h-16 bg-bg-surface border-b border-border-light flex items-center justify-between px-6 shrink-0 z-10">
+          <div class="flex items-center gap-4">
+            <button id="mobile-menu-btn" class="p-2 -ml-2 text-text-secondary hover:text-text-primary md:hidden rounded-lg hover:bg-bg-muted">
+              <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
-            <!-- Global Search -->
-            <div class="hidden sm:flex items-center relative w-full max-w-md">
-              <i
-                data-lucide="search"
-                class="w-5 h-5 text-text-muted absolute left-4"
-              ></i>
-              <input
-                type="text"
-                placeholder="Search patients, ID, or records..."
-                class="w-full bg-bg-surface border border-border-default rounded-full pl-12 pr-4 py-2.5 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-              />
-            </div>
+            <h1 class="font-display font-semibold text-lg text-text-primary">Clinical Dashboard</h1>
           </div>
-
-          <div class="flex items-center gap-4 sm:gap-6">
-            <button
-              class="bg-brand-primary text-text-inverse px-4 py-2 rounded-full text-sm font-medium hover:bg-brand-secondary transition-colors hidden md:flex items-center gap-2"
-            >
-              <i data-lucide="plus" class="w-4 h-4"></i> New Record
+          <div class="flex items-center gap-4">
+            <button class="relative p-2 text-text-secondary hover:text-text-primary rounded-lg hover:bg-bg-muted">
+              <i data-lucide="bell" class="w-5 h-5"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-status-error rounded-full ring-2 ring-bg-surface"></span>
             </button>
-
-            <div class="h-8 w-px bg-border-light mx-2 hidden md:block"></div>
-
-            <button
-              class="relative text-text-secondary hover:text-brand-primary transition-colors"
-            >
-              <i data-lucide="bell" class="w-6 h-6"></i>
-              <span
-                class="absolute top-0 right-0 w-2.5 h-2.5 bg-status-error rounded-full border-2 border-bg-canvas"
-              ></span>
-            </button>
-
-            <div class="flex items-center gap-3 cursor-pointer group ml-2">
-              <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=150"
-                alt="Dr. Michael Chen"
-                class="w-10 h-10 rounded-full object-cover border-2 border-transparent group-hover:border-brand-primary transition-colors"
-              />
-              <div class="hidden lg:block text-right">
-                <p
-                  class="text-sm font-semibold text-text-primary leading-none mb-1"
-                >
-                  Dr. Michael Chen
-                </p>
-                <p class="text-xs text-brand-primary font-medium leading-none">
-                  Cardiology
-                </p>
-              </div>
-            </div>
           </div>
         </header>
 
-        <!-- PAGE CONTENT -->
-        <main class="flex-1 overflow-y-auto p-6 md:p-10 pb-24 bg-bg-canvas">
-          <!-- DASHBOARD CONTENT -->
-          <div class="max-w-7xl mx-auto space-y-8">
-            <!-- Header -->
-            <div
-              class="flex flex-col md:flex-row md:items-center justify-between gap-4"
-            >
+        <!-- Main Scrollable Content -->
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 space-y-6">
+          
+          <!-- Cross-Portal Live Alert Widget (Sophia Lee's Elevated LDL) -->
+          <div class="bg-status-error/10 border border-status-error/20 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex gap-3">
+              <div class="w-10 h-10 rounded-xl bg-status-error/25 text-status-error flex items-center justify-center shrink-0">
+                <i data-lucide="alert-octagon" class="w-5 h-5"></i>
+              </div>
               <div>
-                <h1
-                  class="text-3xl font-display font-medium text-text-primary mb-1"
-                >
-                  Good Morning, Dr. Chen
-                </h1>
-                <p class="text-text-secondary text-sm">
-                  You have 8 appointments and 3 tasks pending today.
-                </p>
-              </div>
-              <div class="flex items-center gap-3">
-                <button
-                  class="bg-bg-surface border border-border-default text-text-primary px-4 py-2.5 rounded-xl text-sm font-medium hover:border-brand-primary transition-colors flex items-center gap-2 shadow-sm"
-                >
-                  <i data-lucide="calendar" class="w-4 h-4"></i> View Calendar
-                </button>
+                <p class="font-semibold text-text-primary">Urgent Lab Review Required</p>
+                <p class="text-xs text-text-muted mt-0.5">Patient <b>Sophia Lee</b> (ID: VTR-4829) has a Lipid Panel with <b>LDL 142 mg/dL (High)</b>. Action required: doctor dietary review.</p>
               </div>
             </div>
+            <div class="flex gap-2">
+              <a href="clinical-patient-detail.html" class="bg-status-error hover:bg-status-error/95 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-sm transition-all whitespace-nowrap">
+                Review EMR & Results
+              </a>
+            </div>
+          </div>
 
-            <!-- Quick Stats -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div
-                class="bg-bg-surface rounded-2xl border border-border-light p-6 shadow-sm flex items-start gap-4 hover:border-brand-primary/50 transition-colors"
-              >
-                <div
-                  class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center text-brand-primary shrink-0"
-                >
-                  <i data-lucide="users" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-text-secondary font-medium mb-1">
-                    Total Patients Seen
-                  </p>
-                  <h3
-                    class="text-2xl font-display font-semibold text-text-primary mb-2"
-                  >
-                    1,248
-                  </h3>
-                  <div
-                    class="flex items-center gap-1.5 text-xs font-medium text-status-success"
-                  >
-                    <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
-                    <span>+12% this month</span>
-                  </div>
-                </div>
+          <!-- Summary Stats Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-5 flex items-center gap-4 hover:border-brand-primary/40 transition-all shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0">
+                <i data-lucide="users" class="w-6 h-6"></i>
               </div>
-
-              <div
-                class="bg-bg-surface rounded-2xl border border-border-light p-6 shadow-sm flex items-start gap-4 hover:border-brand-primary/50 transition-colors"
-              >
-                <div
-                  class="w-12 h-12 rounded-full bg-status-warning/10 flex items-center justify-center text-status-warning shrink-0"
-                >
-                  <i data-lucide="clock" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-text-secondary font-medium mb-1">
-                    Avg. Wait Time
-                  </p>
-                  <h3
-                    class="text-2xl font-display font-semibold text-text-primary mb-2"
-                  >
-                    14 min
-                  </h3>
-                  <div
-                    class="flex items-center gap-1.5 text-xs font-medium text-status-success"
-                  >
-                    <i data-lucide="trending-down" class="w-3.5 h-3.5"></i>
-                    <span>-2 min vs last week</span>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="bg-bg-surface rounded-2xl border border-status-error/30 p-6 shadow-sm flex items-start gap-4 hover:border-status-error/60 transition-colors"
-              >
-                <div
-                  class="w-12 h-12 rounded-full bg-status-error/10 flex items-center justify-center text-status-error shrink-0"
-                >
-                  <i data-lucide="alert-triangle" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-text-secondary font-medium mb-1">
-                    Urgent Reviews
-                  </p>
-                  <h3
-                    class="text-2xl font-display font-semibold text-text-primary mb-2"
-                  >
-                    3
-                  </h3>
-                  <div
-                    class="flex items-center gap-1.5 text-xs font-medium text-status-error"
-                  >
-                    <span>Requires immediate attention</span>
-                  </div>
-                </div>
+              <div>
+                <p class="text-xs text-text-muted">Total Active Patients</p>
+                <p class="text-xl font-bold text-text-primary">1,248</p>
+                <span class="text-[10px] text-status-success font-semibold flex items-center gap-0.5 mt-0.5">
+                  <i data-lucide="trending-up" class="w-3 h-3"></i> +12% this month
+                </span>
               </div>
             </div>
-
-            <!-- Main Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <!-- Today's Schedule -->
-              <div class="lg:col-span-2 space-y-6">
-                <div class="flex items-center justify-between">
-                  <h2
-                    class="text-xl font-display font-medium text-text-primary"
-                  >
-                    Today's Schedule
-                  </h2>
-                  <a
-                    href="#"
-                    class="text-sm font-medium text-brand-primary hover:text-brand-secondary transition-colors"
-                    >View All</a
-                  >
-                </div>
-
-                <div
-                  class="bg-bg-surface border border-border-light rounded-2xl shadow-sm relative p-6"
-                >
-                  <!-- Timeline Track (visual) -->
-                  <div
-                    class="absolute left-[100px] top-6 bottom-6 w-px bg-border-light hidden sm:block"
-                  ></div>
-
-                  <div class="relative z-10 flex flex-col gap-6">
-                    <!-- Appt 1 (Past) -->
-                    <div class="flex flex-col sm:flex-row gap-6 opacity-60">
-                      <div class="sm:w-16 text-right shrink-0">
-                        <p class="text-sm font-medium text-text-primary">
-                          09:00
-                        </p>
-                        <p class="text-xs text-text-muted">AM</p>
-                      </div>
-                      <div
-                        class="flex-1 bg-bg-canvas border border-border-light rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
-                      >
-                        <div class="flex items-center gap-4">
-                          <img
-                            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
-                            alt="Sophia Lee"
-                            class="w-10 h-10 rounded-full object-cover grayscale"
-                          />
-                          <div>
-                            <h4
-                              class="font-medium text-text-primary line-through"
-                            >
-                              Sophia Lee
-                            </h4>
-                            <p class="text-xs text-text-secondary">
-                              Annual Physical
-                            </p>
-                          </div>
-                        </div>
-                        <span
-                          class="px-2.5 py-1 rounded-md bg-border-light text-text-secondary text-xs font-semibold uppercase tracking-wider"
-                          >Completed</span
-                        >
-                      </div>
-                    </div>
-
-                    <!-- Appt 2 (Current) -->
-                    <div class="flex flex-col sm:flex-row gap-6 relative">
-                      <!-- Current time indicator -->
-                      <div
-                        class="absolute -left-6 top-1/2 -translate-y-1/2 w-1.5 h-12 bg-brand-primary rounded-r-md hidden sm:block"
-                      ></div>
-                      <div class="sm:w-16 text-right shrink-0 relative">
-                        <div
-                          class="absolute -right-[18px] top-1.5 w-3 h-3 rounded-full bg-brand-primary border-4 border-bg-surface hidden sm:block shadow-sm"
-                        ></div>
-                        <p class="text-sm font-medium text-brand-primary">
-                          10:00
-                        </p>
-                        <p class="text-xs text-brand-primary/70">AM</p>
-                      </div>
-                      <div
-                        class="flex-1 bg-brand-primary/5 border border-brand-primary/20 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-sm"
-                      >
-                        <div class="flex items-center gap-4">
-                          <div
-                            class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-brand-primary font-bold"
-                          >
-                            JD
-                          </div>
-                          <div>
-                            <h4 class="font-medium text-brand-primary">
-                              James Doe
-                            </h4>
-                            <p class="text-xs text-text-secondary">
-                              Hypertension Follow-up
-                            </p>
-                          </div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                          <span
-                            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-status-success/10 text-status-success text-[10px] font-bold uppercase tracking-wider"
-                          >
-                            <i data-lucide="video" class="w-3 h-3"></i>
-                            Telehealth
-                          </span>
-                          <a
-                            href="clinical-patient-detail.html"
-                            class="bg-brand-primary text-text-inverse px-4 py-2 rounded-lg text-xs font-medium hover:bg-brand-secondary transition-colors"
-                            >Start Visit</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Appt 3 (Upcoming) -->
-                    <div class="flex flex-col sm:flex-row gap-6">
-                      <div class="sm:w-16 text-right shrink-0 relative">
-                        <div
-                          class="absolute -right-[18px] top-1.5 w-3 h-3 rounded-full bg-border-dark border-4 border-bg-surface hidden sm:block"
-                        ></div>
-                        <p class="text-sm font-medium text-text-primary">
-                          11:30
-                        </p>
-                        <p class="text-xs text-text-muted">AM</p>
-                      </div>
-                      <div
-                        class="flex-1 bg-bg-surface border border-border-default rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-brand-primary/30 transition-colors"
-                      >
-                        <div class="flex items-center gap-4">
-                          <img
-                            src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=150"
-                            alt="Robert Smith"
-                            class="w-10 h-10 rounded-full object-cover"
-                          />
-                          <div>
-                            <h4 class="font-medium text-text-primary">
-                              Robert Smith
-                            </h4>
-                            <p class="text-xs text-text-secondary">
-                              ECG Results Review
-                            </p>
-                          </div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                          <span
-                            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-border-light text-text-secondary text-[10px] font-bold uppercase tracking-wider"
-                          >
-                            <i data-lucide="map-pin" class="w-3 h-3"></i> Room 2
-                          </span>
-                          <button
-                            class="text-brand-primary hover:text-brand-secondary p-2 transition-colors"
-                          >
-                            <i data-lucide="more-vertical" class="w-4 h-4"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-5 flex items-center gap-4 hover:border-brand-primary/40 transition-all shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0">
+                <i data-lucide="clock" class="w-6 h-6"></i>
               </div>
-
-              <!-- Right Sidebar (Tasks & Alerts) -->
-              <div class="space-y-6">
-                <h2 class="text-xl font-display font-medium text-text-primary">
-                  Action Required
-                </h2>
-
-                <!-- Urgent Labs -->
-                <div
-                  class="bg-status-error/5 border border-status-error/20 rounded-2xl p-5 shadow-sm"
-                >
-                  <div class="flex items-center justify-between mb-4">
-                    <h3
-                      class="font-medium text-text-primary flex items-center gap-2"
-                    >
-                      <i
-                        data-lucide="flask-conical"
-                        class="w-4 h-4 text-status-error"
-                      ></i>
-                      Critical Labs
-                    </h3>
-                    <span
-                      class="bg-status-error text-white text-xs font-bold px-2 py-0.5 rounded-full"
-                      >1</span
-                    >
-                  </div>
-                  <div
-                    class="bg-bg-surface border border-status-error/10 rounded-xl p-4 cursor-pointer hover:shadow-md transition-shadow"
-                  >
-                    <div class="flex justify-between items-start mb-2">
-                      <p class="text-sm font-medium text-text-primary">
-                        William Davis
-                      </p>
-                      <span
-                        class="text-[10px] text-status-error font-bold uppercase tracking-wider"
-                        >High Priority</span
-                      >
-                    </div>
-                    <p class="text-xs text-text-secondary mb-3">
-                      HbA1c value is critically high (11.2%). Requires immediate
-                      medication adjustment.
-                    </p>
-                    <button
-                      class="text-xs font-medium text-brand-primary hover:text-brand-secondary transition-colors"
-                    >
-                      Review Results &rarr;
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Prescription Refills -->
-                <div
-                  class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm"
-                >
-                  <div class="flex items-center justify-between mb-4">
-                    <h3
-                      class="font-medium text-text-primary flex items-center gap-2"
-                    >
-                      <i
-                        data-lucide="pill"
-                        class="w-4 h-4 text-brand-primary"
-                      ></i>
-                      Pending Refills
-                    </h3>
-                    <span
-                      class="bg-border-dark text-text-inverse text-xs font-bold px-2 py-0.5 rounded-full"
-                      >2</span
-                    >
-                  </div>
-
-                  <div class="space-y-3">
-                    <div
-                      class="flex items-center justify-between group cursor-pointer border-b border-border-light pb-3 last:border-0 last:pb-0"
-                    >
-                      <div>
-                        <p
-                          class="text-sm font-medium text-text-primary group-hover:text-brand-primary transition-colors"
-                        >
-                          Lisinopril 10mg
-                        </p>
-                        <p class="text-xs text-text-secondary">
-                          Emma Watson (DOB: '85)
-                        </p>
-                      </div>
-                      <button
-                        class="bg-brand-light text-brand-primary w-8 h-8 rounded flex items-center justify-center hover:bg-brand-primary hover:text-white transition-colors"
-                      >
-                        <i data-lucide="check" class="w-4 h-4"></i>
-                      </button>
-                    </div>
-                    <div
-                      class="flex items-center justify-between group cursor-pointer border-b border-border-light pb-3 last:border-0 last:pb-0"
-                    >
-                      <div>
-                        <p
-                          class="text-sm font-medium text-text-primary group-hover:text-brand-primary transition-colors"
-                        >
-                          Atorvastatin 20mg
-                        </p>
-                        <p class="text-xs text-text-secondary">
-                          John Smith (DOB: '72)
-                        </p>
-                      </div>
-                      <button
-                        class="bg-brand-light text-brand-primary w-8 h-8 rounded flex items-center justify-center hover:bg-brand-primary hover:text-white transition-colors"
-                      >
-                        <i data-lucide="check" class="w-4 h-4"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+              <div>
+                <p class="text-xs text-text-muted">Avg. Wait Time</p>
+                <p class="text-xl font-bold text-text-primary">14 min</p>
+                <span class="text-[10px] text-status-success font-semibold flex items-center gap-0.5 mt-0.5">
+                  <i data-lucide="trending-down" class="w-3 h-3"></i> -2 min vs last week
+                </span>
+              </div>
+            </div>
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-5 flex items-center gap-4 hover:border-status-error/30 transition-all shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-status-error/10 text-status-error flex items-center justify-center shrink-0">
+                <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <p class="text-xs text-text-muted">Urgent Reviews</p>
+                <p class="text-xl font-bold text-status-error">3</p>
+                <span class="text-[10px] text-text-muted mt-0.5 block">Requires immediate actions</span>
               </div>
             </div>
           </div>
+
+          <!-- Split: Schedule and Activity Chart -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Schedule Table (2 cols) -->
+            <div class="lg:col-span-2 bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
+              <div class="flex justify-between items-center">
+                <h3 class="font-bold text-base text-text-primary">Today's Schedule</h3>
+                <a href="clinical-schedule.html" class="text-xs font-semibold text-brand-primary hover:underline">View Schedule EMR</a>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="border-b border-border-light text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                      <th class="py-2 pb-3">Patient</th>
+                      <th class="py-2 pb-3">Time</th>
+                      <th class="py-2 pb-3">Consult Type</th>
+                      <th class="py-2 pb-3">Status</th>
+                      <th class="py-2 pb-3 text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-border-light text-xs text-text-secondary">
+                    <tr class="hover:bg-bg-canvas/50 transition-colors">
+                      <td class="py-3 font-semibold text-text-primary">
+                        <div class="flex items-center gap-2.5">
+                          <img src="assets/img/general/avatar-placeholder.svg" alt="Sophia Lee" class="w-7 h-7 rounded-full object-cover border border-brand-light" />
+                          <span>Sophia Lee</span>
+                        </div>
+                      </td>
+                      <td class="py-3">10:00 AM (30m)</td>
+                      <td class="py-3"><span class="px-2 py-0.5 bg-brand-light text-brand-primary rounded-full text-[10px] font-semibold">Telemedicine</span></td>
+                      <td class="py-3"><span class="text-status-success font-semibold">Confirmed</span></td>
+                      <td class="py-3 text-right"><a href="clinical-patient-detail.html" class="text-brand-primary font-bold hover:underline">Start Consult</a></td>
+                    </tr>
+                    <tr class="hover:bg-bg-canvas/50 transition-colors">
+                      <td class="py-3 font-semibold text-text-primary">
+                        <div class="flex items-center gap-2.5">
+                          <img src="assets/img/general/avatar-placeholder.svg" alt="James Miller" class="w-7 h-7 rounded-full object-cover border border-border-light" />
+                          <span>James Miller</span>
+                        </div>
+                      </td>
+                      <td class="py-3">11:15 AM (45m)</td>
+                      <td class="py-3"><span class="px-2 py-0.5 bg-bg-canvas text-text-secondary border border-border-light rounded-full text-[10px] font-medium">In-Person</span></td>
+                      <td class="py-3"><span class="text-status-warning font-semibold">Waiting</span></td>
+                      <td class="py-3 text-right"><a href="clinical-patient-detail.html" class="text-brand-primary font-bold hover:underline">Call Patient</a></td>
+                    </tr>
+                    <tr class="hover:bg-bg-canvas/50 transition-colors">
+                      <td class="py-3 font-semibold text-text-primary">
+                        <div class="flex items-center gap-2.5">
+                          <img src="assets/img/general/avatar-placeholder.svg" alt="Olivia Davis" class="w-7 h-7 rounded-full object-cover border border-border-light" />
+                          <span>Olivia Davis</span>
+                        </div>
+                      </td>
+                      <td class="py-3">01:30 PM (30m)</td>
+                      <td class="py-3"><span class="px-2 py-0.5 bg-brand-light text-brand-primary rounded-full text-[10px] font-semibold">Telemedicine</span></td>
+                      <td class="py-3"><span class="text-text-muted">Scheduled</span></td>
+                      <td class="py-3 text-right"><a href="#" class="text-text-muted font-bold cursor-not-allowed">Open</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Urgent metrics chart (1 col) -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
+              <div>
+                <h3 class="font-bold text-base text-text-primary">Biomarker Distribution</h3>
+                <p class="text-xs text-text-muted">Overview of patient lipid level ranges</p>
+              </div>
+              <div class="relative h-[160px] flex items-center justify-center">
+                <canvas id="lipidDistributionChart"></canvas>
+              </div>
+              <div class="flex justify-between items-center border-t border-border-light pt-3 text-xs text-text-secondary">
+                <span>Safe LDL: <b>65%</b></span>
+                <span>Borderline/High: <b>35%</b></span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Weekly Patient Volume Chart -->
+          <div class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
+            <div>
+              <h3 class="font-bold text-base text-text-primary">Patient Appointment Volume</h3>
+              <p class="text-xs text-text-muted">Weekly consult counts (Telemedicine vs In-Person)</p>
+            </div>
+            <div class="relative h-[200px]">
+              <canvas id="weeklyVolumeChart"></canvas>
+            </div>
+          </div>
+
         </main>
       </div>
+
     </div>
 
-    <!-- Initialize Icons -->
+    <!-- Charts setup scripts -->
     <script>
       lucide.createIcons();
+
+      const sidebar = document.getElementById('sidebar');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
+
+      function toggleSidebar() {
+        sidebar.classList.toggle('hidden');
+        sidebar.classList.toggle('fixed');
+        sidebar.classList.toggle('inset-y-0');
+        sidebar.classList.toggle('left-0');
+        mobileSidebarOverlay.classList.toggle('hidden');
+      }
+
+      mobileMenuBtn?.addEventListener('click', toggleSidebar);
+      mobileSidebarOverlay?.addEventListener('click', toggleSidebar);
+
+      // Lipid Distribution Chart
+      const lipidCtx = document.getElementById('lipidDistributionChart').getContext('2d');
+      new Chart(lipidCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Safe (<100)', 'Borderline (100-130)', 'High (>130)'],
+          datasets: [{
+            data: [65, 20, 15],
+            backgroundColor: ['#1B3A2F', '#B5935A', '#ef4444'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          cutout: '70%'
+        }
+      });
+
+      // Weekly Volume Chart
+      const volCtx = document.getElementById('weeklyVolumeChart').getContext('2d');
+      new Chart(volCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [
+            {
+              label: 'Telemedicine',
+              data: [12, 19, 15, 24, 18, 10, 4],
+              backgroundColor: '#1B3A2F',
+              borderRadius: 4
+            },
+            {
+              label: 'In-Person',
+              data: [8, 12, 10, 15, 14, 2, 0],
+              backgroundColor: '#B5935A',
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { font: { size: 10 } }
+          },
+          scales: {
+            y: {
+              grid: { color: 'rgba(0,0,0,0.03)' },
+              ticks: { font: { size: 10 } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { font: { size: 10 } }
+            }
+          }
+        }
+      });
     </script>
   </body>
 </html>

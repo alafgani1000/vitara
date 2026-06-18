@@ -3,564 +3,282 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-Prescribing - Vitara EHR</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>E-Prescribing EHR | VITARA Clinical Admin</title>
+    <meta name="description" content="Manage and authorize pending refill requests, write e-prescriptions, and review history." />
 
     <!-- Tailwind CSS (compiled) -->
     <link rel="stylesheet" href="assets/css/vitara.min.css" />
-
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/lucide.min.js"></script>
+
+    <style>
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 99px; }
+
+      .nav-active {
+        background: linear-gradient(90deg, var(--brand-light) 0%, rgba(216,243,220,0.3) 100%);
+        border-left: 3px solid var(--brand-primary);
+      }
+    </style>
   </head>
-  <body
-    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary h-screen flex overflow-hidden"
-  >
-    <!-- Clinical Sidebar (Dark Theme) -->
-    <aside
-      class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20"
-    >
-      <div
-        class="h-16 flex items-center px-6 border-b border-border-light shrink-0"
-      >
-        <a href="index.html" class="flex items-center gap-2">
-          <div
-            class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
-          >
-            <i data-lucide="cross" class="w-5 h-5"></i>
-          </div>
-          <span
-            class="font-display font-semibold text-xl tracking-tight text-text-primary"
-            >VITARA
-            <span class="font-sans font-normal text-xs opacity-70 ml-1"
-              >PRO</span
-            ></span
-          >
-        </a>
-      </div>
 
-      <div class="flex-1 overflow-y-auto py-6 px-4 space-y-1 custom-scrollbar">
-        <p
-          class="px-3 text-xs font-medium text-text-muted uppercase tracking-wider mb-2"
-        >
-          Clinical
-        </p>
-        <a
-          href="clinical-dashboard.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Dashboard</span>
-        </a>
-        <a
-          href="clinical-patients.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="users" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Patients</span>
-        </a>
-        <a
-          href="clinical-schedule.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="calendar" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Schedule</span>
-        </a>
-        <a
-          href="clinical-prescriptions.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-light/50 text-brand-primary transition-colors"
-        >
-          <i data-lucide="pill" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Prescriptions</span>
-        </a>
-        <a
-          href="clinical-messages.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="message-square" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Messages</span>
-        </a>
-        <a
-          href="clinical-analytics.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-        >
-          <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Analytics</span>
-        </a>
-      </div>
+  <body class="bg-bg-canvas text-text-primary antialiased overflow-x-hidden font-body">
+    <div class="flex h-screen overflow-hidden">
 
-      <div class="p-4 border-t border-border-light shrink-0">
-        <a
-          href="#"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted transition-colors"
-        >
-          <i data-lucide="settings" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Settings</span>
-        </a>
-        <a
-          href="auth-login.html"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-status-error hover:bg-status-error/10 transition-colors mt-1"
-        >
-          <i data-lucide="log-out" class="w-5 h-5"></i>
-          <span class="font-medium text-sm">Logout</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Main Workspace -->
-    <main
-      class="flex-1 flex flex-col h-full bg-bg-canvas relative overflow-y-auto"
-    >
-      <!-- Top Header -->
-      <header
-        class="h-20 bg-bg-surface border-b border-border-light flex items-center justify-between px-8 shrink-0 sticky top-0 z-10"
-      >
-        <div>
-          <h1 class="font-display text-2xl font-medium text-text-primary">
-            E-Prescribing (eRx)
-          </h1>
-        </div>
-
-        <div class="flex items-center gap-6">
-          <!-- Search Global -->
-          <div class="relative hidden md:block w-64">
-            <i
-              data-lucide="search"
-              class="w-4 h-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2"
-            ></i>
-            <input
-              type="text"
-              placeholder="Search patients or meds..."
-              class="w-full bg-bg-canvas border border-border-default rounded-full pl-9 pr-4 py-1.5 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
-            />
-          </div>
-        </div>
-      </header>
-
-      <div class="p-8 max-w-7xl mx-auto w-full">
-        <div class="grid lg:grid-cols-12 gap-8">
-          <!-- Left: Rx History & Queues -->
-          <div class="lg:col-span-7 space-y-6">
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-4">
-              <div
-                class="bg-bg-surface border border-border-light rounded-2xl p-4 flex flex-col justify-center shadow-sm"
-              >
-                <span
-                  class="text-text-secondary text-xs font-medium mb-1 uppercase tracking-wider"
-                  >Refill Requests</span
-                >
-                <div class="flex items-end gap-2">
-                  <span
-                    class="font-display text-3xl font-medium text-status-warning"
-                    >12</span
-                  >
-                </div>
-              </div>
-              <div
-                class="bg-bg-surface border border-border-light rounded-2xl p-4 flex flex-col justify-center shadow-sm"
-              >
-                <span
-                  class="text-text-secondary text-xs font-medium mb-1 uppercase tracking-wider"
-                  >Pending Auth</span
-                >
-                <div class="flex items-end gap-2">
-                  <span
-                    class="font-display text-3xl font-medium text-status-info"
-                    >3</span
-                  >
-                </div>
-              </div>
-              <div
-                class="bg-bg-surface border border-border-light rounded-2xl p-4 flex flex-col justify-center shadow-sm"
-              >
-                <span
-                  class="text-text-secondary text-xs font-medium mb-1 uppercase tracking-wider"
-                  >Sent Today</span
-                >
-                <div class="flex items-end gap-2">
-                  <span
-                    class="font-display text-3xl font-medium text-text-primary"
-                    >45</span
-                  >
-                </div>
-              </div>
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20 shrink-0">
+        <!-- Logo -->
+        <div class="h-16 flex items-center px-6 border-b border-border-light shrink-0">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <i data-lucide="cross" class="w-4 h-4"></i>
             </div>
+            <span class="font-display font-semibold text-xl tracking-tight text-text-primary">VITARA <span class="text-xs bg-brand-light text-brand-primary px-1.5 py-0.5 rounded font-mono font-bold">PRO</span></span>
+          </a>
+        </div>
 
-            <!-- Action Needed Queue -->
-            <div
-              class="bg-bg-surface border border-border-light rounded-3xl overflow-hidden shadow-sm"
-            >
-              <div
-                class="px-6 py-4 border-b border-border-light flex justify-between items-center bg-bg-canvas"
-              >
-                <h2 class="font-display text-lg font-medium text-text-primary">
-                  Action Needed
-                  <span
-                    class="ml-2 text-xs font-sans bg-status-error/10 text-status-error px-2 py-0.5 rounded-full font-medium"
-                    >12 Requests</span
-                  >
-                </h2>
-                <button
-                  class="text-sm text-brand-primary hover:text-brand-secondary font-medium transition-colors"
-                >
-                  View All
-                </button>
+        <!-- Clinician Profile Mini Card -->
+        <div class="mx-4 my-4 p-3 rounded-2xl bg-bg-canvas border border-border-light flex items-center gap-3">
+          <div class="relative">
+            <img src="assets/img/doctors/doctor-4.svg" alt="Doctor" class="w-10 h-10 rounded-full object-cover border-2 border-brand-light" />
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-bg-surface"></span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-text-primary truncate">Dr. Michael Chen</p>
+            <p class="text-xs text-text-muted font-mono truncate">Chief Cardiologist</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto py-2 px-3 space-y-0.5">
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-1">Clinical Operations</p>
+          <a href="clinical-dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Dashboard</span>
+          </a>
+          <a href="clinical-patients.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="users" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Patients</span>
+          </a>
+          <a href="clinical-schedule.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="calendar" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Schedule</span>
+            <span class="ml-auto bg-brand-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">4</span>
+          </a>
+          <a href="clinical-prescriptions.html" class="nav-active flex items-center gap-3 px-3 py-2.5 rounded-xl text-brand-primary transition-all">
+            <i data-lucide="pill" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Prescriptions</span>
+          </a>
+          <a href="clinical-messages.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="message-square" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Messages</span>
+            <span class="ml-auto bg-status-error text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">1</span>
+          </a>
+          <a href="clinical-analytics.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="bar-chart-3" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-medium text-sm">Analytics</span>
+          </a>
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="p-4 border-t border-border-light shrink-0">
+          <a href="auth-login.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-status-error hover:bg-status-error/10 transition-colors">
+            <i data-lucide="log-out" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Log Out</span>
+          </a>
+        </div>
+      </aside>
+
+      <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+      <!-- MAIN WRAPPER -->
+      <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        
+        <header class="h-16 bg-bg-surface border-b border-border-light flex items-center justify-between px-6 shrink-0 z-10">
+          <div class="flex items-center gap-4">
+            <button id="mobile-menu-btn" class="p-2 -ml-2 text-text-secondary hover:text-text-primary md:hidden rounded-lg hover:bg-bg-muted">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+            <h1 class="font-display font-semibold text-lg text-text-primary">E-Prescribing</h1>
+          </div>
+        </header>
+
+        <!-- Main Split View -->
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 flex flex-col lg:flex-row gap-6">
+          
+          <!-- Left Column (2/3 width): Refill requests queue -->
+          <div class="flex-1 space-y-6">
+            
+            <!-- Pending Refills queue -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
+              <div class="flex justify-between items-center pb-2 border-b border-border-light">
+                <h3 class="font-bold text-base text-text-primary">Refill Authorization Requests</h3>
+                <span class="text-xs bg-status-warning/15 text-status-warning px-2.5 py-0.5 rounded-full font-semibold">2 Pending Action</span>
               </div>
-              <div class="divide-y divide-border-light">
-                <!-- Refill Request Item -->
-                <div class="p-6 hover:bg-bg-canvas transition-colors">
-                  <div class="flex justify-between items-start mb-3">
-                    <div class="flex gap-3">
-                      <div
-                        class="w-10 h-10 rounded-full bg-brand-light/30 text-brand-primary flex items-center justify-center font-display font-medium"
-                      >
-                        RJ
-                      </div>
-                      <div>
-                        <h3 class="font-medium text-text-primary text-sm">
-                          Robert Johnson
-                        </h3>
-                        <p class="text-xs text-text-secondary">
-                          DOB: 11/02/1975 &middot; Male
-                        </p>
-                      </div>
+
+              <div class="space-y-4">
+                
+                <!-- Refill item 1: Lisinopril for Sophia Lee (Requires High Risk Check) -->
+                <div class="p-4 rounded-xl bg-status-error/5 border border-status-error/15 flex flex-col sm:flex-row justify-between gap-4">
+                  <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                      <img src="assets/img/general/avatar-placeholder.svg" alt="Sophia Lee" class="w-7 h-7 rounded-full object-cover border border-brand-light" />
+                      <span class="font-bold text-sm text-text-primary">Sophia Lee</span>
+                      <span class="px-2 py-0.5 rounded bg-status-error/10 text-status-error text-[9px] font-bold uppercase tracking-wider">High Risk</span>
                     </div>
-                    <span
-                      class="text-[10px] font-bold tracking-wider text-status-warning bg-status-warning/10 border border-status-warning/20 px-2 py-1 rounded uppercase"
-                      >Refill Request</span
-                    >
-                  </div>
-                  <div
-                    class="bg-bg-canvas border border-border-default rounded-xl p-3 mb-4"
-                  >
-                    <div class="flex items-start gap-2">
-                      <i
-                        data-lucide="pill"
-                        class="w-4 h-4 text-text-secondary shrink-0 mt-0.5"
-                      ></i>
-                      <div>
-                        <p class="font-medium text-sm text-text-primary">
-                          Lisinopril 10mg Tablet
-                        </p>
-                        <p class="text-xs text-text-secondary">
-                          Sig: Take 1 tablet by oral route daily
-                        </p>
-                        <p class="text-xs text-text-muted mt-1">
-                          Requested by: Vitara Digital Pharmacy
-                        </p>
-                      </div>
+                    <div class="text-xs text-text-secondary space-y-0.5">
+                      <p><span class="font-semibold">Request:</span> Lisinopril 10mg (30 Tablets, 1 Refill)</p>
+                      <p class="text-status-error font-semibold flex items-center gap-1">
+                        <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> Warning: Patient's last LDL was 142 mg/dL (High).
+                      </p>
                     </div>
                   </div>
-                  <div class="flex gap-3">
-                    <button
-                      class="flex-1 bg-brand-primary text-text-inverse text-sm font-medium py-2 rounded-lg hover:bg-brand-secondary transition-colors shadow-sm"
-                    >
+                  <div class="flex items-center gap-2 shrink-0">
+                    <button class="bg-status-error hover:bg-status-error/95 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm transition-all">
+                      Hold / Edit
+                    </button>
+                    <button class="bg-bg-canvas border border-border-light hover:bg-bg-muted text-text-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">
+                      Approve
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Refill item 2: Metformin for Sophia Lee -->
+                <div class="p-4 rounded-xl bg-bg-canvas border border-border-light flex flex-col sm:flex-row justify-between gap-4">
+                  <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                      <img src="assets/img/general/avatar-placeholder.svg" alt="Sophia Lee" class="w-7 h-7 rounded-full object-cover border border-brand-light" />
+                      <span class="font-bold text-sm text-text-primary">Sophia Lee</span>
+                      <span class="px-2 py-0.5 rounded bg-status-success/15 text-status-success text-[9px] font-bold uppercase tracking-wider">Routine</span>
+                    </div>
+                    <div class="text-xs text-text-secondary">
+                      <p><span class="font-semibold">Request:</span> Metformin 500mg (60 Tablets, 3 Refills)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2 shrink-0">
+                    <button class="bg-brand-primary hover:bg-brand-primary-hover text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm transition-all">
                       Approve Refill
                     </button>
-                    <button
-                      class="flex-1 bg-bg-surface border border-status-error text-status-error text-sm font-medium py-2 rounded-lg hover:bg-status-error hover:text-text-inverse transition-colors"
-                    >
-                      Deny
+                    <button class="bg-bg-surface border border-border-light hover:bg-bg-muted text-text-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">
+                      Reject
                     </button>
                   </div>
                 </div>
+
               </div>
             </div>
 
-            <!-- Recent Prescriptions -->
-            <div
-              class="bg-bg-surface border border-border-light rounded-3xl overflow-hidden shadow-sm"
-            >
-              <div
-                class="px-6 py-4 border-b border-border-light flex justify-between items-center"
-              >
-                <h2 class="font-display text-lg font-medium text-text-primary">
-                  Recently Sent
-                </h2>
-                <button class="text-text-muted hover:text-text-primary">
-                  <i data-lucide="filter" class="w-4 h-4"></i>
-                </button>
-              </div>
+            <!-- E-prescriptions history -->
+            <div class="bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-4">
+              <h3 class="font-bold text-base text-text-primary">E-Prescribing History</h3>
               <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                   <thead>
-                    <tr
-                      class="bg-bg-canvas border-b border-border-light text-xs uppercase tracking-wider text-text-muted"
-                    >
-                      <th class="px-6 py-3 font-medium">Patient</th>
-                      <th class="px-6 py-3 font-medium">Medication</th>
-                      <th class="px-6 py-3 font-medium">Pharmacy</th>
-                      <th class="px-6 py-3 font-medium text-right">Status</th>
+                    <tr class="border-b border-border-light text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                      <th class="py-2 pb-3">Patient</th>
+                      <th class="py-2 pb-3">Medication</th>
+                      <th class="py-2 pb-3">Dosage</th>
+                      <th class="py-2 pb-3">Date Sent</th>
+                      <th class="py-2 pb-3">Status</th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-border-light text-sm">
-                    <tr class="hover:bg-bg-canvas transition-colors">
-                      <td class="px-6 py-4 font-medium text-text-primary">
-                        Emma Watson
-                      </td>
-                      <td class="px-6 py-4">
-                        <span class="block text-text-primary"
-                          >Atorvastatin 20mg</span
-                        >
-                        <span class="block text-xs text-text-muted"
-                          >#30, 0 Refills</span
-                        >
-                      </td>
-                      <td class="px-6 py-4 text-text-secondary">CVS #1234</td>
-                      <td class="px-6 py-4 text-right">
-                        <span
-                          class="inline-flex items-center gap-1 text-xs font-medium text-status-success bg-status-success/10 px-2 py-1 rounded"
-                        >
-                          <i data-lucide="check" class="w-3 h-3"></i> Sent
-                        </span>
-                      </td>
+                  <tbody class="divide-y divide-border-light text-xs text-text-secondary">
+                    <tr class="hover:bg-bg-canvas/40 transition-colors">
+                      <td class="py-3 font-semibold text-text-primary">Sophia Lee</td>
+                      <td class="py-3">Atorvastatin 20mg</td>
+                      <td class="py-3">1 tab daily at bedtime</td>
+                      <td class="py-3">Oct 10, 2026</td>
+                      <td class="py-3"><span class="text-status-success font-semibold">Dispensed</span></td>
                     </tr>
-                    <tr class="hover:bg-bg-canvas transition-colors">
-                      <td class="px-6 py-4 font-medium text-text-primary">
-                        Michael Scott
-                      </td>
-                      <td class="px-6 py-4">
-                        <span class="block text-text-primary"
-                          >Amoxicillin 500mg</span
-                        >
-                        <span class="block text-xs text-text-muted"
-                          >#21, 0 Refills</span
-                        >
-                      </td>
-                      <td class="px-6 py-4 text-text-secondary">
-                        Walgreens #992
-                      </td>
-                      <td class="px-6 py-4 text-right">
-                        <span
-                          class="inline-flex items-center gap-1 text-xs font-medium text-status-success bg-status-success/10 px-2 py-1 rounded"
-                        >
-                          <i data-lucide="check" class="w-3 h-3"></i> Sent
-                        </span>
-                      </td>
+                    <tr class="hover:bg-bg-canvas/40 transition-colors">
+                      <td class="py-3 font-semibold text-text-primary">James Miller</td>
+                      <td class="py-3">Amoxicillin 500mg</td>
+                      <td class="py-3">1 tab tid for 10 days</td>
+                      <td class="py-3">Sep 01, 2026</td>
+                      <td class="py-3"><span class="text-text-muted">Completed</span></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
+
           </div>
 
-          <!-- Right: Create New Rx -->
-          <div class="lg:col-span-5">
-            <div
-              class="bg-bg-surface border border-border-light rounded-3xl p-6 shadow-sm sticky top-28"
-            >
-              <h2
-                class="font-display text-xl font-medium text-text-primary mb-6 flex items-center gap-2"
-              >
-                <i
-                  data-lucide="plus-circle"
-                  class="w-5 h-5 text-brand-primary"
-                ></i>
-                Create New Rx
-              </h2>
-
-              <form class="space-y-5">
-                <!-- Select Patient -->
-                <div>
-                  <label
-                    class="block text-xs font-medium text-text-secondary mb-1.5 uppercase tracking-wider"
-                    >Select Patient</label
-                  >
-                  <div class="relative">
-                    <i
-                      data-lucide="search"
-                      class="w-4 h-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2"
-                    ></i>
-                    <input
-                      type="text"
-                      placeholder="Search by name or DOB..."
-                      class="w-full bg-bg-canvas border border-border-default rounded-xl pl-9 pr-4 py-2.5 text-sm focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
-                    />
-                  </div>
-                  <!-- Mock Selected state -->
-                  <div
-                    class="mt-2 flex items-center justify-between bg-brand-light/20 border border-brand-primary/20 rounded-xl p-3"
-                  >
-                    <div class="flex items-center gap-3">
-                      <div
-                        class="w-8 h-8 bg-brand-primary text-text-inverse rounded-full flex items-center justify-center text-xs font-medium"
-                      >
-                        SL
-                      </div>
-                      <div>
-                        <p class="text-sm font-medium text-text-primary">
-                          Sarah Lee
-                        </p>
-                        <p class="text-[10px] text-text-secondary">
-                          DOB: 03/15/1990
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      class="text-text-muted hover:text-status-error transition-colors"
-                    >
-                      <i data-lucide="x" class="w-4 h-4"></i>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Medication Search -->
-                <div>
-                  <label
-                    class="block text-xs font-medium text-text-secondary mb-1.5 uppercase tracking-wider"
-                    >Medication</label
-                  >
-                  <div class="relative">
-                    <i
-                      data-lucide="pill"
-                      class="w-4 h-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2"
-                    ></i>
-                    <input
-                      type="text"
-                      placeholder="Search drug database..."
-                      value="Metoprolol Succinate ER 25mg"
-                      class="w-full bg-bg-canvas border border-border-default rounded-xl pl-9 pr-4 py-2.5 text-sm focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
-                    />
-                  </div>
-                </div>
-
-                <!-- SIG & Details -->
-                <div
-                  class="bg-bg-canvas border border-border-default rounded-xl p-4 space-y-4"
-                >
-                  <div>
-                    <label
-                      class="block text-xs font-medium text-text-secondary mb-1.5"
-                      >Sig (Directions)</label
-                    >
-                    <input
-                      type="text"
-                      placeholder="e.g., Take 1 tablet daily"
-                      value="Take 1 tablet by mouth daily"
-                      class="w-full bg-bg-surface border border-border-default rounded-lg px-3 py-2 text-sm focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
-                    />
-                  </div>
-
-                  <div class="grid grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        class="block text-xs font-medium text-text-secondary mb-1.5"
-                        >Dispense Amount</label
-                      >
-                      <div class="relative">
-                        <input
-                          type="number"
-                          value="30"
-                          class="w-full bg-bg-surface border border-border-default rounded-lg px-3 py-2 text-sm focus:border-brand-primary focus:ring-1 focus:ring-brand-primary"
-                        />
-                        <span
-                          class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-text-muted"
-                          >tabs</span
-                        >
-                      </div>
-                    </div>
-                    <div>
-                      <label
-                        class="block text-xs font-medium text-text-secondary mb-1.5"
-                        >Refills</label
-                      >
-                      <select
-                        class="w-full bg-bg-surface border border-border-default rounded-lg px-3 py-2 text-sm focus:border-brand-primary focus:ring-1 focus:ring-brand-primary appearance-none"
-                      >
-                        <option>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option selected>3</option>
-                        <option>PRN</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="flex items-center gap-2 pt-2">
-                    <input
-                      type="checkbox"
-                      id="daw"
-                      class="rounded border-border-default text-brand-primary focus:ring-brand-primary bg-bg-surface"
-                    />
-                    <label
-                      for="daw"
-                      class="text-xs font-medium text-text-secondary cursor-pointer"
-                      >Dispense as Written (DAW)</label
-                    >
-                  </div>
-                </div>
-
-                <!-- Pharmacy Selection -->
-                <div>
-                  <label
-                    class="block text-xs font-medium text-text-secondary mb-1.5 uppercase tracking-wider"
-                    >Pharmacy</label
-                  >
-                  <div
-                    class="bg-bg-canvas border border-border-default rounded-xl p-3 flex justify-between items-center cursor-pointer hover:border-brand-primary transition-colors"
-                  >
-                    <div class="flex gap-3 items-center">
-                      <div
-                        class="w-8 h-8 rounded bg-status-success/10 text-status-success flex items-center justify-center"
-                      >
-                        <i data-lucide="store" class="w-4 h-4"></i>
-                      </div>
-                      <div>
-                        <p class="font-medium text-sm text-text-primary">
-                          Vitara Digital Pharmacy
-                        </p>
-                        <p class="text-[10px] text-text-secondary">
-                          Mail Order (Patient Preferred)
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      class="text-brand-primary text-xs font-medium"
-                    >
-                      Change
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Actions -->
-                <div class="pt-4 border-t border-border-light flex gap-3">
-                  <button
-                    type="button"
-                    class="flex-1 py-3 text-sm font-medium text-text-secondary bg-bg-canvas border border-border-default rounded-xl hover:bg-bg-elevated transition-colors"
-                  >
-                    Save as Draft
-                  </button>
-                  <button
-                    type="button"
-                    class="flex-1 py-3 text-sm font-medium text-text-inverse bg-brand-primary rounded-xl hover:bg-brand-secondary transition-all shadow-sm flex items-center justify-center gap-2"
-                  >
-                    <i data-lucide="send" class="w-4 h-4"></i> Transmit to
-                    Pharmacy
-                  </button>
-                </div>
-              </form>
+          <!-- Right Column (1/3 width): E-prescribing form -->
+          <div class="w-full lg:w-96 bg-bg-surface border border-border-light rounded-2xl p-5 shadow-sm space-y-5 shrink-0">
+            <div class="pb-2 border-b border-border-light">
+              <h3 class="font-bold text-base text-text-primary">Write E-Prescription</h3>
             </div>
-          </div>
-        </div>
-      </div>
-    </main>
 
-    <!-- Initialize Icons -->
+            <form class="space-y-4 text-xs" onsubmit="event.preventDefault();">
+              <div>
+                <label class="block font-semibold text-text-secondary mb-1">Select Patient</label>
+                <select class="w-full px-3 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary">
+                  <option>Sophia Lee (MRN: VTR-4829)</option>
+                  <option>James Miller (MRN: VTR-9920)</option>
+                  <option>Olivia Davis (MRN: VTR-3829)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-text-secondary mb-1">Medication Name</label>
+                <input type="text" placeholder="e.g. Atorvastatin 20mg" class="w-full px-3 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+              </div>
+
+              <div>
+                <label class="block font-semibold text-text-secondary mb-1">Dosage & Frequency</label>
+                <input type="text" placeholder="e.g. 1 tablet by mouth daily at evening" class="w-full px-3 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block font-semibold text-text-secondary mb-1">Quantity</label>
+                  <input type="number" placeholder="30" class="w-full px-3 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+                <div>
+                  <label class="block font-semibold text-text-secondary mb-1">Refills Allowed</label>
+                  <input type="number" placeholder="3" class="w-full px-3 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-text-secondary mb-1">Preferred Pharmacy</label>
+                <select class="w-full px-3 py-2 bg-bg-canvas border border-border-light rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-primary">
+                  <option>Vitara MedCenter Pharmacy</option>
+                  <option>CVS Pharmacy #4829</option>
+                  <option>Walgreens Pharmacy #0182</option>
+                </select>
+              </div>
+
+              <button type="submit" class="w-full bg-brand-primary hover:bg-brand-primary-hover text-white py-2.5 rounded-xl text-xs font-semibold shadow-sm transition-all text-center">
+                Send to Pharmacy & EMR
+              </button>
+            </form>
+          </div>
+
+        </main>
+      </div>
+
+    </div>
+
     <script>
       lucide.createIcons();
+
+      const sidebar = document.getElementById('sidebar');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
+
+      function toggleSidebar() {
+        sidebar.classList.toggle('hidden');
+        sidebar.classList.toggle('fixed');
+        sidebar.classList.toggle('inset-y-0');
+        sidebar.classList.toggle('left-0');
+        mobileSidebarOverlay.classList.toggle('hidden');
+      }
+
+      mobileMenuBtn?.addEventListener('click', toggleSidebar);
+      mobileSidebarOverlay?.addEventListener('click', toggleSidebar);
     </script>
   </body>
 </html>

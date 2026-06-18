@@ -3,580 +3,290 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Patients | VITARA Clinical Admin</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <title>Patients Directory | VITARA Clinical Admin</title>
+    <meta name="description" content="View and manage electronic health records, demographics, and risk factors for active patients." />
 
     <!-- Tailwind CSS (compiled) -->
     <link rel="stylesheet" href="assets/css/vitara.min.css" />
-
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/lucide.min.js"></script>
+
+    <style>
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 99px; }
+
+      .nav-active {
+        background: linear-gradient(90deg, var(--brand-light) 0%, rgba(216,243,220,0.3) 100%);
+        border-left: 3px solid var(--brand-primary);
+      }
+    </style>
   </head>
-  <body
-    class="bg-bg-canvas text-text-primary antialiased selection:bg-brand-light selection:text-brand-primary overflow-x-hidden"
-  >
+
+  <body class="bg-bg-canvas text-text-primary antialiased overflow-x-hidden font-body">
     <div class="flex h-screen overflow-hidden">
-      <!-- SIDEBAR (CLINICAL VIEW - DARK) -->
-      <aside
-        class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20"
-      >
-        <div
-          class="h-16 flex items-center px-6 border-b border-border-light shrink-0"
-        >
-          <a href="index.html" class="flex items-center gap-2">
-            <div
-              class="w-8 h-8 rounded bg-brand-primary text-text-inverse flex items-center justify-center font-display text-xl"
-            >
-              <i data-lucide="cross" class="w-5 h-5"></i>
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="w-64 bg-bg-surface border-r border-border-light flex flex-col transition-all duration-300 hidden md:flex z-20 shrink-0">
+        <!-- Logo -->
+        <div class="h-16 flex items-center px-6 border-b border-border-light shrink-0">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <i data-lucide="cross" class="w-4 h-4"></i>
             </div>
-            <span
-              class="font-display font-semibold text-xl tracking-tight text-text-primary"
-              >VITARA
-              <span class="font-sans font-normal text-xs opacity-70 ml-1"
-                >PRO</span
-              ></span
-            >
+            <span class="font-display font-semibold text-xl tracking-tight text-text-primary">VITARA <span class="text-xs bg-brand-light text-brand-primary px-1.5 py-0.5 rounded font-mono font-bold">PRO</span></span>
           </a>
         </div>
 
-        <div
-          class="flex-1 overflow-y-auto py-6 px-4 space-y-1 custom-scrollbar"
-        >
-          <p
-            class="px-3 text-xs font-medium text-text-muted uppercase tracking-wider mb-2"
-          >
-            Clinical
-          </p>
-          <a
-            href="clinical-dashboard.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+        <!-- Clinician Profile Mini Card -->
+        <div class="mx-4 my-4 p-3 rounded-2xl bg-bg-canvas border border-border-light flex items-center gap-3">
+          <div class="relative">
+            <img src="assets/img/doctors/doctor-4.svg" alt="Doctor" class="w-10 h-10 rounded-full object-cover border-2 border-brand-light" />
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-bg-surface"></span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-text-primary truncate">Dr. Michael Chen</p>
+            <p class="text-xs text-text-muted font-mono truncate">Chief Cardiologist</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto py-2 px-3 space-y-0.5">
+          <p class="px-3 text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 mt-1">Clinical Operations</p>
+          <a href="clinical-dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Dashboard</span>
           </a>
-          <a
-            href="clinical-patients.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-light/50 text-brand-primary transition-colors"
-          >
-            <i data-lucide="users" class="w-5 h-5"></i>
-            <span class="font-medium text-sm">Patients</span>
+          <a href="clinical-patients.html" class="nav-active flex items-center gap-3 px-3 py-2.5 rounded-xl text-brand-primary transition-all">
+            <i data-lucide="users" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Patients</span>
           </a>
-          <a
-            href="clinical-schedule.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="calendar" class="w-5 h-5"></i>
+          <a href="clinical-schedule.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="calendar" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Schedule</span>
+            <span class="ml-auto bg-brand-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">4</span>
           </a>
-          <a
-            href="clinical-prescriptions.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="pill" class="w-5 h-5"></i>
+          <a href="clinical-prescriptions.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="pill" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Prescriptions</span>
           </a>
-          <a
-            href="clinical-messages.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="message-square" class="w-5 h-5"></i>
+          <a href="clinical-messages.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="message-square" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Messages</span>
+            <span class="ml-auto bg-status-error text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">1</span>
           </a>
-          <a
-            href="clinical-analytics.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-colors"
-          >
-            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+          <a href="clinical-analytics.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-text-secondary hover:bg-bg-muted hover:text-text-primary transition-all">
+            <i data-lucide="bar-chart-3" class="w-4.5 h-4.5 shrink-0"></i>
             <span class="font-medium text-sm">Analytics</span>
           </a>
-        </div>
+        </nav>
 
+        <!-- Sidebar Footer -->
         <div class="p-4 border-t border-border-light shrink-0">
-          <a
-            href="#"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-bg-muted transition-colors"
-          >
-            <i data-lucide="settings" class="w-5 h-5"></i>
-            <span class="font-medium text-sm">Settings</span>
-          </a>
-          <a
-            href="auth-login.html"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-status-error hover:bg-status-error/10 transition-colors mt-1"
-          >
-            <i data-lucide="log-out" class="w-5 h-5"></i>
-            <span class="font-medium text-sm">Logout</span>
+          <a href="auth-login.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-status-error hover:bg-status-error/10 transition-colors">
+            <i data-lucide="log-out" class="w-4.5 h-4.5 shrink-0"></i>
+            <span class="font-semibold text-sm">Log Out</span>
           </a>
         </div>
       </aside>
 
-      <!-- MAIN CONTENT AREA -->
-      <div class="flex-1 flex flex-col relative overflow-hidden">
-        <!-- TOPBAR -->
-        <header
-          class="h-20 bg-bg-canvas/80 backdrop-blur-md border-b border-border-light flex items-center justify-between px-6 md:px-10 z-10 sticky top-0"
-        >
-          <div class="flex items-center gap-4 flex-1">
-            <button
-              class="md:hidden text-text-secondary hover:text-brand-primary transition-colors"
-            >
-              <i data-lucide="menu" class="w-6 h-6"></i>
+      <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+      <!-- MAIN WRAPPER -->
+      <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+        
+        <header class="h-16 bg-bg-surface border-b border-border-light flex items-center justify-between px-6 shrink-0 z-10">
+          <div class="flex items-center gap-4">
+            <button id="mobile-menu-btn" class="p-2 -ml-2 text-text-secondary hover:text-text-primary md:hidden rounded-lg hover:bg-bg-muted">
+              <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
-            <!-- Global Search -->
-            <div class="hidden sm:flex items-center relative w-full max-w-md">
-              <i
-                data-lucide="search"
-                class="w-5 h-5 text-text-muted absolute left-4"
-              ></i>
-              <input
-                type="text"
-                placeholder="Search patients, ID, or records..."
-                class="w-full bg-bg-surface border border-border-default rounded-full pl-12 pr-4 py-2.5 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-              />
-            </div>
-          </div>
-
-          <div class="flex items-center gap-4 sm:gap-6">
-            <button
-              class="bg-brand-primary text-text-inverse px-4 py-2 rounded-full text-sm font-medium hover:bg-brand-secondary transition-colors hidden md:flex items-center gap-2"
-            >
-              <i data-lucide="plus" class="w-4 h-4"></i> New Record
-            </button>
-
-            <div class="h-8 w-px bg-border-light mx-2 hidden md:block"></div>
-
-            <button
-              class="relative text-text-secondary hover:text-brand-primary transition-colors"
-            >
-              <i data-lucide="bell" class="w-6 h-6"></i>
-              <span
-                class="absolute top-0 right-0 w-2.5 h-2.5 bg-status-error rounded-full border-2 border-bg-canvas"
-              ></span>
-            </button>
-
-            <div class="flex items-center gap-3 cursor-pointer group ml-2">
-              <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=150"
-                alt="Dr. Michael Chen"
-                class="w-10 h-10 rounded-full object-cover border-2 border-transparent group-hover:border-brand-primary transition-colors"
-              />
-              <div class="hidden lg:block text-right">
-                <p
-                  class="text-sm font-semibold text-text-primary leading-none mb-1"
-                >
-                  Dr. Michael Chen
-                </p>
-                <p class="text-xs text-brand-primary font-medium leading-none">
-                  Cardiology
-                </p>
-              </div>
-            </div>
+            <h1 class="font-display font-semibold text-lg text-text-primary">Patients Directory</h1>
           </div>
         </header>
 
-        <!-- PAGE CONTENT -->
-        <main class="flex-1 overflow-y-auto p-6 md:p-10 pb-24 bg-bg-canvas">
-          <!-- PATIENTS DIRECTORY CONTENT -->
-          <div class="max-w-7xl mx-auto space-y-6">
-            <!-- Header -->
-            <div
-              class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2"
-            >
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 space-y-6">
+
+          <!-- Summary Info Strip -->
+          <div class="bg-brand-light/30 border border-brand-primary/20 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
               <div>
-                <h1
-                  class="text-3xl font-display font-medium text-text-primary mb-1"
-                >
-                  Patient Directory
-                </h1>
-                <p class="text-text-secondary text-sm">
-                  Manage all registered patients in the clinic.
-                </p>
-              </div>
-              <div class="flex items-center gap-3">
-                <button
-                  class="bg-brand-primary text-text-inverse px-5 py-2.5 rounded-xl text-sm font-medium hover:bg-brand-secondary transition-colors shadow-sm flex items-center gap-2"
-                >
-                  <i data-lucide="user-plus" class="w-4 h-4"></i> Add Patient
-                </button>
+                <p class="font-semibold text-text-primary">Patients Management</p>
+                <p class="text-xs text-text-muted mt-0.5">1,248 Registered Patients · 42 Added this week · 3 Action Needed</p>
               </div>
             </div>
+            <button class="bg-brand-primary hover:bg-brand-primary-hover text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5">
+              <i data-lucide="user-plus" class="w-4 h-4"></i> Add New Patient
+            </button>
+          </div>
 
-            <!-- Toolbar (Filters & Search) -->
-            <div
-              class="bg-bg-surface border border-border-light rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row items-center gap-4"
-            >
-              <div class="relative w-full sm:w-96">
-                <i
-                  data-lucide="search"
-                  class="w-4 h-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2"
-                ></i>
-                <input
-                  type="text"
-                  placeholder="Search by name, ID, or phone..."
-                  class="w-full bg-bg-canvas border border-border-default rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-shadow"
-                />
-              </div>
-
-              <div class="h-8 w-px bg-border-light hidden sm:block"></div>
-
-              <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-                <select
-                  class="bg-bg-canvas border border-border-default rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-brand-primary transition-shadow cursor-pointer appearance-none min-w-[140px]"
-                >
-                  <option>All Statuses</option>
-                  <option>Active</option>
-                  <option>Inactive</option>
-                  <option>Admitted</option>
-                </select>
-
-                <select
-                  class="bg-bg-canvas border border-border-default rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-brand-primary transition-shadow cursor-pointer appearance-none min-w-[140px]"
-                >
-                  <option>Any Doctor</option>
-                  <option>Dr. Michael Chen</option>
-                  <option>Dr. Sarah Jenkins</option>
-                </select>
-              </div>
-
-              <div class="ml-auto sm:block hidden">
-                <div
-                  class="flex bg-bg-canvas border border-border-default rounded-lg p-1"
-                >
-                  <button
-                    class="p-1.5 rounded bg-bg-surface shadow-sm text-brand-primary"
-                  >
-                    <i data-lucide="list" class="w-4 h-4"></i>
-                  </button>
-                  <button
-                    class="p-1.5 rounded text-text-muted hover:text-text-primary"
-                  >
-                    <i data-lucide="grid" class="w-4 h-4"></i>
-                  </button>
-                </div>
-              </div>
+          <!-- Filters Bar -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-light pb-2">
+            <div class="flex gap-2">
+              <button class="px-4 py-2 text-sm font-semibold border-b-2 border-brand-primary text-brand-primary">All Patients</button>
+              <button class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-text-primary">High Risk</button>
+              <button class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-text-primary">Recently Added</button>
             </div>
-
-            <!-- Patient Table -->
-            <div
-              class="bg-bg-surface border border-border-light rounded-2xl shadow-sm overflow-hidden"
-            >
-              <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse min-w-[800px]">
-                  <thead>
-                    <tr
-                      class="bg-bg-canvas/50 border-b border-border-light text-xs uppercase tracking-wider text-text-secondary font-semibold"
-                    >
-                      <th class="p-4 pl-6 w-12">
-                        <input
-                          type="checkbox"
-                          class="rounded border-border-default text-brand-primary focus:ring-brand-primary"
-                        />
-                      </th>
-                      <th class="p-4">Patient Name</th>
-                      <th class="p-4">Patient ID</th>
-                      <th class="p-4">Primary Care</th>
-                      <th class="p-4">Last Visit</th>
-                      <th class="p-4">Status</th>
-                      <th class="p-4 text-right pr-6">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-border-light text-sm">
-                    <!-- Row 1 -->
-                    <tr
-                      class="hover:bg-bg-canvas/50 transition-colors group cursor-pointer"
-                      onclick="
-                        window.location.href = 'clinical-patient-detail.html'
-                      "
-                    >
-                      <td class="p-4 pl-6" onclick="event.stopPropagation()">
-                        <input
-                          type="checkbox"
-                          class="rounded border-border-default text-brand-primary focus:ring-brand-primary"
-                        />
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center gap-3">
-                          <img
-                            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
-                            alt="Sophia Lee"
-                            class="w-9 h-9 rounded-full object-cover shadow-sm"
-                          />
-                          <div>
-                            <p
-                              class="font-medium text-text-primary group-hover:text-brand-primary transition-colors"
-                            >
-                              Sophia Lee
-                            </p>
-                            <p class="text-xs text-text-secondary">
-                              Female, 34 y/o
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="p-4 font-mono text-text-secondary">PT-8402</td>
-                      <td class="p-4 text-text-primary">Dr. Michael Chen</td>
-                      <td class="p-4 text-text-secondary">Today, 09:00 AM</td>
-                      <td class="p-4">
-                        <span
-                          class="inline-flex items-center px-2.5 py-1 rounded-md bg-status-success/10 text-status-success text-[10px] font-bold uppercase tracking-wider"
-                        >
-                          Active
-                        </span>
-                      </td>
-                      <td
-                        class="p-4 text-right pr-6"
-                        onclick="event.stopPropagation()"
-                      >
-                        <a
-                          href="clinical-patient-detail.html"
-                          class="text-brand-primary hover:text-brand-secondary font-medium text-sm transition-colors mr-3"
-                          >View</a
-                        >
-                        <button
-                          class="text-text-muted hover:text-text-primary transition-colors"
-                        >
-                          <i data-lucide="more-horizontal" class="w-4 h-4"></i>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <!-- Row 2 -->
-                    <tr
-                      class="hover:bg-bg-canvas/50 transition-colors group cursor-pointer"
-                      onclick="
-                        window.location.href = 'clinical-patient-detail.html'
-                      "
-                    >
-                      <td class="p-4 pl-6" onclick="event.stopPropagation()">
-                        <input
-                          type="checkbox"
-                          class="rounded border-border-default text-brand-primary focus:ring-brand-primary"
-                        />
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center gap-3">
-                          <div
-                            class="w-9 h-9 rounded-full bg-brand-light flex items-center justify-center text-brand-primary font-bold shadow-sm"
-                          >
-                            JD
-                          </div>
-                          <div>
-                            <p
-                              class="font-medium text-text-primary group-hover:text-brand-primary transition-colors"
-                            >
-                              James Doe
-                            </p>
-                            <p class="text-xs text-text-secondary">
-                              Male, 45 y/o
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="p-4 font-mono text-text-secondary">PT-9114</td>
-                      <td class="p-4 text-text-primary">Dr. Sarah Jenkins</td>
-                      <td class="p-4 text-text-secondary">Today, 10:00 AM</td>
-                      <td class="p-4">
-                        <span
-                          class="inline-flex items-center px-2.5 py-1 rounded-md bg-status-warning/10 text-status-warning text-[10px] font-bold uppercase tracking-wider"
-                        >
-                          Follow-up
-                        </span>
-                      </td>
-                      <td
-                        class="p-4 text-right pr-6"
-                        onclick="event.stopPropagation()"
-                      >
-                        <a
-                          href="clinical-patient-detail.html"
-                          class="text-brand-primary hover:text-brand-secondary font-medium text-sm transition-colors mr-3"
-                          >View</a
-                        >
-                        <button
-                          class="text-text-muted hover:text-text-primary transition-colors"
-                        >
-                          <i data-lucide="more-horizontal" class="w-4 h-4"></i>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <!-- Row 3 -->
-                    <tr
-                      class="hover:bg-bg-canvas/50 transition-colors group cursor-pointer"
-                      onclick="
-                        window.location.href = 'clinical-patient-detail.html'
-                      "
-                    >
-                      <td class="p-4 pl-6" onclick="event.stopPropagation()">
-                        <input
-                          type="checkbox"
-                          class="rounded border-border-default text-brand-primary focus:ring-brand-primary"
-                        />
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center gap-3">
-                          <img
-                            src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=150"
-                            alt="Robert Smith"
-                            class="w-9 h-9 rounded-full object-cover shadow-sm"
-                          />
-                          <div>
-                            <p
-                              class="font-medium text-text-primary group-hover:text-brand-primary transition-colors"
-                            >
-                              Robert Smith
-                            </p>
-                            <p class="text-xs text-text-secondary">
-                              Male, 58 y/o
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="p-4 font-mono text-text-secondary">PT-7721</td>
-                      <td class="p-4 text-text-primary">Dr. Michael Chen</td>
-                      <td class="p-4 text-text-secondary">Oct 12, 2026</td>
-                      <td class="p-4">
-                        <span
-                          class="inline-flex items-center px-2.5 py-1 rounded-md bg-status-error/10 text-status-error text-[10px] font-bold uppercase tracking-wider"
-                        >
-                          Admitted
-                        </span>
-                      </td>
-                      <td
-                        class="p-4 text-right pr-6"
-                        onclick="event.stopPropagation()"
-                      >
-                        <a
-                          href="clinical-patient-detail.html"
-                          class="text-brand-primary hover:text-brand-secondary font-medium text-sm transition-colors mr-3"
-                          >View</a
-                        >
-                        <button
-                          class="text-text-muted hover:text-text-primary transition-colors"
-                        >
-                          <i data-lucide="more-horizontal" class="w-4 h-4"></i>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <!-- Row 4 -->
-                    <tr
-                      class="hover:bg-bg-canvas/50 transition-colors group cursor-pointer opacity-70"
-                      onclick="
-                        window.location.href = 'clinical-patient-detail.html'
-                      "
-                    >
-                      <td class="p-4 pl-6" onclick="event.stopPropagation()">
-                        <input
-                          type="checkbox"
-                          class="rounded border-border-default text-brand-primary focus:ring-brand-primary"
-                        />
-                      </td>
-                      <td class="p-4">
-                        <div class="flex items-center gap-3">
-                          <div
-                            class="w-9 h-9 rounded-full bg-border-light flex items-center justify-center text-text-secondary font-bold shadow-sm"
-                          >
-                            EW
-                          </div>
-                          <div>
-                            <p
-                              class="font-medium text-text-primary group-hover:text-brand-primary transition-colors"
-                            >
-                              Emma Watson
-                            </p>
-                            <p class="text-xs text-text-secondary">
-                              Female, 41 y/o
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="p-4 font-mono text-text-secondary">PT-1055</td>
-                      <td class="p-4 text-text-primary">Dr. Sarah Jenkins</td>
-                      <td class="p-4 text-text-secondary">Jan 05, 2025</td>
-                      <td class="p-4">
-                        <span
-                          class="inline-flex items-center px-2.5 py-1 rounded-md bg-border-light text-text-secondary text-[10px] font-bold uppercase tracking-wider"
-                        >
-                          Inactive
-                        </span>
-                      </td>
-                      <td
-                        class="p-4 text-right pr-6"
-                        onclick="event.stopPropagation()"
-                      >
-                        <a
-                          href="clinical-patient-detail.html"
-                          class="text-brand-primary hover:text-brand-secondary font-medium text-sm transition-colors mr-3"
-                          >View</a
-                        >
-                        <button
-                          class="text-text-muted hover:text-text-primary transition-colors"
-                        >
-                          <i data-lucide="more-horizontal" class="w-4 h-4"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div class="flex items-center gap-2">
+              <div class="relative">
+                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted"></i>
+                <input type="text" placeholder="Search by name/ID..." class="pl-9 pr-4 py-1.5 bg-bg-surface border border-border-light rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-brand-primary" />
               </div>
-
-              <!-- Pagination -->
-              <div
-                class="p-4 border-t border-border-light bg-bg-canvas/50 flex flex-col sm:flex-row items-center justify-between gap-4"
-              >
-                <p class="text-sm text-text-secondary">
-                  Showing 1 to 10 of 1,248 entries
-                </p>
-                <div class="flex items-center gap-1">
-                  <button
-                    class="px-3 py-1.5 text-sm text-text-muted hover:text-text-primary disabled:opacity-50"
-                    disabled
-                  >
-                    Prev
-                  </button>
-                  <button
-                    class="w-8 h-8 rounded-md bg-brand-primary text-text-inverse text-sm font-medium"
-                  >
-                    1
-                  </button>
-                  <button
-                    class="w-8 h-8 rounded-md bg-bg-canvas border border-border-light text-text-primary hover:border-brand-primary text-sm font-medium transition-colors"
-                  >
-                    2
-                  </button>
-                  <button
-                    class="w-8 h-8 rounded-md bg-bg-canvas border border-border-light text-text-primary hover:border-brand-primary text-sm font-medium transition-colors"
-                  >
-                    3
-                  </button>
-                  <span class="px-1 text-text-muted">...</span>
-                  <button
-                    class="w-8 h-8 rounded-md bg-bg-canvas border border-border-light text-text-primary hover:border-brand-primary text-sm font-medium transition-colors"
-                  >
-                    125
-                  </button>
-                  <button
-                    class="px-3 py-1.5 text-sm text-brand-primary hover:text-brand-secondary"
-                  >
-                    Next
-                  </button>
-                </div>
-              </div>
+              <button class="p-2 text-text-secondary hover:text-text-primary rounded-xl border border-border-light bg-bg-surface">
+                <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
+              </button>
             </div>
           </div>
+
+          <!-- Patients List Table Card -->
+          <div class="bg-bg-surface border border-border-light rounded-2xl overflow-hidden shadow-sm">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-bg-canvas border-b border-border-light text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                    <th class="py-4 px-6">Patient Name</th>
+                    <th class="py-4 px-6">Patient ID</th>
+                    <th class="py-4 px-6">Contact Info</th>
+                    <th class="py-4 px-6">Last Visit</th>
+                    <th class="py-4 px-6">Risk Status</th>
+                    <th class="py-4 px-6 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-light text-sm">
+                  
+                  <!-- Sophia Lee (Elevated LDL) -->
+                  <tr class="hover:bg-bg-canvas/50 transition-colors">
+                    <td class="py-4 px-6 font-semibold text-text-primary">
+                      <div class="flex items-center gap-3">
+                        <img src="assets/img/general/avatar-placeholder.svg" alt="Sophia Lee" class="w-9 h-9 rounded-full object-cover border border-brand-light shrink-0" />
+                        <div>
+                          <p class="font-bold text-text-primary leading-none">Sophia Lee</p>
+                          <p class="text-[10px] text-text-muted mt-1">Female · 36 Years</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-6 font-mono text-xs text-text-secondary">VTR-4829</td>
+                    <td class="py-4 px-6 text-xs text-text-secondary">+1 (555) 234-5678<br/><span class="text-[10px] text-text-muted">sophia.lee@email.com</span></td>
+                    <td class="py-4 px-6 text-text-secondary">Oct 15, 2026</td>
+                    <td class="py-4 px-6">
+                      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-status-error/10 text-status-error text-xs font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-error animate-ping"></span> High Risk (LDL)
+                      </span>
+                    </td>
+                    <td class="py-4 px-6 text-right">
+                      <a href="clinical-patient-detail.html" class="inline-flex items-center gap-1 text-xs font-bold text-brand-primary hover:text-brand-primary-hover">
+                        View EMR <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <!-- James Miller -->
+                  <tr class="hover:bg-bg-canvas/50 transition-colors">
+                    <td class="py-4 px-6 font-semibold text-text-primary">
+                      <div class="flex items-center gap-3">
+                        <img src="assets/img/general/avatar-placeholder.svg" alt="James Miller" class="w-9 h-9 rounded-full object-cover border border-border-light shrink-0" />
+                        <div>
+                          <p class="font-bold text-text-primary leading-none">James Miller</p>
+                          <p class="text-[10px] text-text-muted mt-1">Male · 45 Years</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-6 font-mono text-xs text-text-secondary">VTR-9920</td>
+                    <td class="py-4 px-6 text-xs text-text-secondary">+1 (555) 890-1234<br/><span class="text-[10px] text-text-muted">james.m@email.com</span></td>
+                    <td class="py-4 px-6 text-text-secondary">Oct 10, 2026</td>
+                    <td class="py-4 px-6">
+                      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-status-success/10 text-status-success text-xs font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Normal
+                      </span>
+                    </td>
+                    <td class="py-4 px-6 text-right">
+                      <a href="clinical-patient-detail.html" class="inline-flex items-center gap-1 text-xs font-bold text-brand-primary hover:text-brand-primary-hover">
+                        View EMR <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <!-- Olivia Davis -->
+                  <tr class="hover:bg-bg-canvas/50 transition-colors">
+                    <td class="py-4 px-6 font-semibold text-text-primary">
+                      <div class="flex items-center gap-3">
+                        <img src="assets/img/general/avatar-placeholder.svg" alt="Olivia Davis" class="w-9 h-9 rounded-full object-cover border border-border-light shrink-0" />
+                        <div>
+                          <p class="font-bold text-text-primary leading-none">Olivia Davis</p>
+                          <p class="text-[10px] text-text-muted mt-1">Female · 29 Years</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-6 font-mono text-xs text-text-secondary">VTR-3829</td>
+                    <td class="py-4 px-6 text-xs text-text-secondary">+1 (555) 345-6789<br/><span class="text-[10px] text-text-muted">olivia.d@email.com</span></td>
+                    <td class="py-4 px-6 text-text-secondary">Sep 28, 2026</td>
+                    <td class="py-4 px-6">
+                      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-status-success/10 text-status-success text-xs font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Normal
+                      </span>
+                    </td>
+                    <td class="py-4 px-6 text-right">
+                      <a href="clinical-patient-detail.html" class="inline-flex items-center gap-1 text-xs font-bold text-brand-primary hover:text-brand-primary-hover">
+                        View EMR <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <!-- Robert Johnson -->
+                  <tr class="hover:bg-bg-canvas/50 transition-colors">
+                    <td class="py-4 px-6 font-semibold text-text-primary">
+                      <div class="flex items-center gap-3">
+                        <img src="assets/img/general/avatar-placeholder.svg" alt="Robert Johnson" class="w-9 h-9 rounded-full object-cover border border-border-light shrink-0" />
+                        <div>
+                          <p class="font-bold text-text-primary leading-none">Robert Johnson</p>
+                          <p class="text-[10px] text-text-muted mt-1">Male · 62 Years</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-6 font-mono text-xs text-text-secondary">VTR-2049</td>
+                    <td class="py-4 px-6 text-xs text-text-secondary">+1 (555) 678-9012<br/><span class="text-[10px] text-text-muted">robert.j@email.com</span></td>
+                    <td class="py-4 px-6 text-text-secondary">Sep 15, 2026</td>
+                    <td class="py-4 px-6">
+                      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-status-warning/10 text-status-warning text-xs font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-warning"></span> Moderate (A1C)
+                      </span>
+                    </td>
+                    <td class="py-4 px-6 text-right">
+                      <a href="clinical-patient-detail.html" class="inline-flex items-center gap-1 text-xs font-bold text-brand-primary hover:text-brand-primary-hover">
+                        View EMR <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                      </a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
         </main>
       </div>
+
     </div>
 
-    <!-- Initialize Icons -->
     <script>
       lucide.createIcons();
+
+      const sidebar = document.getElementById('sidebar');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
+
+      function toggleSidebar() {
+        sidebar.classList.toggle('hidden');
+        sidebar.classList.toggle('fixed');
+        sidebar.classList.toggle('inset-y-0');
+        sidebar.classList.toggle('left-0');
+        mobileSidebarOverlay.classList.toggle('hidden');
+      }
+
+      mobileMenuBtn?.addEventListener('click', toggleSidebar);
+      mobileSidebarOverlay?.addEventListener('click', toggleSidebar);
     </script>
   </body>
 </html>
