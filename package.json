@@ -1,18 +1,26 @@
 {
-  "name": "vitara",
+  "name": "vitara-medical-template",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "VITARA - Premium Medical & Digital Health HTML Template. 45+ pages including Patient Portal, Clinical Dashboard, and Healthcare E-Commerce.",
+  "author": "VITARA Team",
+  "license": "Standard Codester License",
+  "keywords": [
+    "healthcare",
+    "medical",
+    "hospital",
+    "clinic",
+    "dashboard",
+    "patient portal",
+    "tailwind css",
+    "telemedicine",
+    "html template"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss -i ./src/assets/css/vitara.css -o ./dist/assets/css/vitara.min.css",
-    "dev": "tailwindcss -i ./src/assets/css/vitara.css -o ./dist/assets/css/vitara.min.css --watch"
+    "build": "npx @tailwindcss/cli -i ./src/assets/css/vitara.css -o ./src/assets/css/vitara.min.css",
+    "dev": "npx @tailwindcss/cli -i ./src/assets/css/vitara.css -o ./src/assets/css/vitara.min.css --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@tailwindcss/cli": "^4.3.0",
-    "tailwindcss": "^4.3.0"
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
   }
 }
