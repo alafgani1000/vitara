@@ -39,28 +39,28 @@
 
         <!-- Desktop Menu -->
         <div
-          class="hidden lg:flex items-center space-x-8 text-sm font-medium text-text-secondary"
+          class="hidden lg:flex items-center space-x-8 text-sm font-medium"
         >
           <a
             href="index.html"
-            class="hover:text-brand-primary transition-colors"
+            class="text-white/80 hover:text-white transition-colors"
             >Home</a
           >
           <a
             href="services.html"
-            class="hover:text-brand-primary transition-colors"
+            class="text-white/80 hover:text-white transition-colors"
             >Services</a
           >
           <a
             href="doctors.html"
-            class="hover:text-brand-primary transition-colors"
+            class="text-white/80 hover:text-white transition-colors"
             >Doctors</a
           >
 
           <!-- Pages Mega Menu -->
           <div class="relative group">
             <button
-              class="flex items-center gap-1 hover:text-brand-primary transition-colors py-4"
+              class="flex items-center gap-1 text-white/80 hover:text-white transition-colors py-4"
             >
               Pages
               <i
@@ -420,7 +420,7 @@
           </div>
           <a
             href="contact.html"
-            class="hover:text-brand-primary transition-colors"
+            class="text-white/80 hover:text-white transition-colors"
             >Contact</a
           >
         </div>
@@ -1187,6 +1187,31 @@
       </div>
     </footer>
 
+    <!-- Mobile Menu Panel -->
+    <div
+      id="mobile-menu"
+      class="hidden fixed top-0 left-0 w-full h-full bg-[#1B3A2F] z-40 overflow-y-auto pt-20 pb-8 px-6 text-white"
+    >
+      <button id="mobile-menu-close" class="absolute top-5 right-5 text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <ul class="space-y-4 text-lg font-medium">
+        <li><a href="index.html" class="block py-2 border-b border-white/10">Home</a></li>
+        <li><a href="services.html" class="block py-2 border-b border-white/10">Services</a></li>
+        <li><a href="doctors.html" class="block py-2 border-b border-white/10">Doctors</a></li>
+        <li><a href="appointment.html" class="block py-2 border-b border-white/10">Book Appointment</a></li>
+        <li><a href="telemedicine.html" class="block py-2 border-b border-white/10">Telemedicine</a></li>
+        <li><a href="blog.html" class="block py-2 border-b border-white/10">Blog</a></li>
+        <li><a href="about.html" class="block py-2 border-b border-white/10">About Us</a></li>
+        <li><a href="contact.html" class="block py-2 border-b border-white/10">Contact</a></li>
+        <li><a href="careers.html" class="block py-2 border-b border-white/10">Careers</a></li>
+      </ul>
+      <div class="mt-8 flex flex-col gap-3">
+        <a href="auth-login.html" class="text-center border border-white/30 text-white py-3 rounded-full font-medium">Sign In</a>
+        <a href="auth-register.html" class="text-center bg-brand-accent text-white py-3 rounded-full font-medium">Get Started</a>
+      </div>
+    </div>
+
     <!-- Initialize Icons & Scroll Logic -->
     <script>
       lucide.createIcons();
@@ -1210,8 +1235,8 @@
 
           // Update text colors
           nav.querySelectorAll("a, button, span").forEach((el) => {
-            if (el.classList.contains("text-white/70")) {
-              el.classList.remove("text-white/70", "hover:text-white");
+            if (el.classList.contains("text-white/80")) {
+              el.classList.remove("text-white/80", "hover:text-white");
               el.classList.add(
                 "text-text-secondary",
                 "hover:text-brand-primary",
@@ -1238,7 +1263,7 @@
           // Revert text colors
           nav.querySelectorAll("a, button, span").forEach((el) => {
             if (el.classList.contains("text-text-secondary")) {
-              el.classList.add("text-white/70", "hover:text-white");
+              el.classList.add("text-white/80", "hover:text-white");
               el.classList.remove(
                 "text-text-secondary",
                 "hover:text-brand-primary",
@@ -1253,6 +1278,16 @@
           });
         }
       });
+    </script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      // Mobile menu close button
+      const closeBtn = document.getElementById('mobile-menu-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          document.getElementById('mobile-menu').classList.add('hidden');
+        });
+      }
     </script>
   </body>
 </html>
